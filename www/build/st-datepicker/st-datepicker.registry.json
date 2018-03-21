@@ -1,0 +1,28 @@
+{
+  "namespace": "StDatepicker",
+  "fsNamespace": "st-datepicker",
+  "loader": "../st-datepicker.js",
+  "global": "st-datepicker.global.js",
+  "core": "st-datepicker.kkkbn4dm.js",
+  "corePolyfilled": "st-datepicker.dkxw6kdh.js",
+  "components": {
+    "date-item-list": {
+      "$": "a8yyoenw"
+    },
+    "datepicker-modal": {
+      "$": "6ntp6gpz"
+    },
+    "datepicker-range-input": {
+      "$": "6ntp6gpz"
+    },
+    "datepicker-range-modal": {
+      "$": "6ntp6gpz"
+    },
+    "datepicker-single-input": {
+      "$": "6ntp6gpz"
+    },
+    "oui-datepicker": {
+      "$": "6ntp6gpz"
+    }
+  }
+}

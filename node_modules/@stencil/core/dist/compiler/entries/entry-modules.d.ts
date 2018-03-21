@@ -1,0 +1,11 @@
+import { BuildCtx, CompilerCtx, ComponentMeta, Config, ConfigBundle, EntryModule, EntryPoint, ModuleFile } from '../../declarations';
+import { ENCAPSULATION } from '../../util/constants';
+export declare function generateEntryModules(config: Config, compilerCtx: CompilerCtx, buildCtx: BuildCtx): EntryModule[];
+export declare function getEntryEncapsulations(entryModule: EntryModule): ENCAPSULATION[];
+export declare function getEntryModes(moduleFiles: ModuleFile[]): string[];
+export declare function getComponentStyleModes(cmpMeta: ComponentMeta): string[];
+export declare function entryRequiresScopedStyles(encapsulations?: ENCAPSULATION[]): boolean;
+export declare function regroupEntryModules(allModules: ModuleFile[], entryPoints: EntryPoint[]): ModuleFile[][];
+export declare function createEntryModule(moduleFiles: ModuleFile[]): EntryModule;
+export declare function getAppEntryTags(allModules: ModuleFile[]): string[];
+export declare function getUserConfigEntryTags(configBundles: ConfigBundle[], allModules: ModuleFile[]): string[][];

@@ -1,14 +1,14 @@
 {
-  "name": "my-component",
+  "name": "st-datepicker",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
-  "main": "dist/oui-datepicker.js",
+  "description": "A web datepicker component",
+  "main": "dist/st-datepicker.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
-  "browser": "dist/oui-datepicker.js",
+  "browser": "dist/st-datepicker.js",
   "scripts": {
     "build": "stencil build",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",

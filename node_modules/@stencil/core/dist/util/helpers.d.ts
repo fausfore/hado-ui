@@ -1,0 +1,10 @@
+export declare const isDef: (v: any) => boolean;
+export declare const isUndef: (v: any) => boolean;
+export declare const isBoolean: (v: any) => v is boolean;
+export declare const isString: (v: any) => v is string;
+export declare const isNumber: (v: any) => v is number;
+export declare const toLowerCase: (str: string) => string;
+export declare const toDashCase: (str: string) => string;
+export declare const dashToPascalCase: (str: string) => string;
+export declare const toTitleCase: (str: string) => string;
+export declare const noop: () => any;

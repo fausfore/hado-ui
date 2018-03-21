@@ -4,7 +4,7 @@ exports.config = {
   namespace: 'st-datepicker',
   generateDistribution: true,
   serviceWorker: false,
-  generateWWW: false,
+  generateWWW: true,
   globalScript: 'src/global/index.ts',
   plugins: [sass()]
 };
