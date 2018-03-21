@@ -130,7 +130,7 @@ export class DatepickerModal {
   }
 
   @Listen('DateItemListEvent')
-  chooseDate (event: CustomEvent<DatePickerItem>) {
+  chooseDate (event: CustomEvent) {
     this.localDateSelected = event.detail.date;
   }
 

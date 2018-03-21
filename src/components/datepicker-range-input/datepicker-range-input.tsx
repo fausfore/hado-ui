@@ -31,18 +31,18 @@ export class DatepickerRangeInput {
   }
 
   @Listen('navigationChange')
-  updateNavigation(event: CustomEvent<string>) {
+  updateNavigation(event: CustomEvent) {
     this.activeFormType = event.detail;
     this.rangepickerModel.InputType = event.detail;
   }
 
   @Listen('startDateSelectedEvent')
-  updateStartDate (event: CustomEvent<Moment>) {
+  updateStartDate (event: CustomEvent) {
     this.StartDateSelected = event.detail;
   }
 
   @Listen('endDateSelectedEvent')
-  updateEndDate (event: CustomEvent<Moment>)  {
+  updateEndDate (event: CustomEvent)  {
     this.EndDateSelected = event.detail;
   }
 

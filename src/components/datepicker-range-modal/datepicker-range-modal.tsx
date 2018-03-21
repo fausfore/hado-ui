@@ -236,7 +236,7 @@ export class DatePickerRangeModal {
     this.formType = type;
   }
   @Listen('DateItemListEvent')
-  chooseDate (event: CustomEvent<DatePickerItem>) {
+  chooseDate (event: CustomEvent) {
     const screen: any = window.matchMedia("(max-width: 780px");
 
       if (this.formType === 'start') {
