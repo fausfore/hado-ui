@@ -42,7 +42,7 @@ export declare class DatePickerRangeModal {
     nextMonth(): void;
     prevMonth(): void;
     nextInputForm(type: any): void;
-    chooseDate(event: CustomEvent<DatePickerItem>): void;
+    chooseDate(event: CustomEvent): void;
     closeModal(): void;
     render(): JSX.Element;
 }

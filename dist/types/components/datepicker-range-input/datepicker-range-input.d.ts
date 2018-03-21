@@ -11,9 +11,9 @@ export declare class DatepickerRangeInput {
     EndDateSelected: Moment;
     componentWillLoad(): void;
     getLabel(dateValue: Moment): string;
-    updateNavigation(event: CustomEvent<string>): void;
-    updateStartDate(event: CustomEvent<Moment>): void;
-    updateEndDate(event: CustomEvent<Moment>): void;
+    updateNavigation(event: CustomEvent): void;
+    updateStartDate(event: CustomEvent): void;
+    updateEndDate(event: CustomEvent): void;
     toggleRangePickerModal(type?: string): void;
     render(): JSX.Element;
 }

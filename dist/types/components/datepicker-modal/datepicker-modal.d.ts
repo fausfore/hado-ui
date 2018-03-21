@@ -30,7 +30,7 @@ export declare class DatepickerModal {
     activeTouchArea(): void;
     nextMonth(): void;
     prevMonth(): void;
-    chooseDate(event: CustomEvent<DatePickerItem>): void;
+    chooseDate(event: CustomEvent): void;
     selectDate(): void;
     closeModal(): void;
     render(): JSX.Element;
