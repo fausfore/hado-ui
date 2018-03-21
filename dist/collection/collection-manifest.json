@@ -1,0 +1,362 @@
+{
+  "components": [
+    {
+      "tag": "date-item-list",
+      "dependencies": [],
+      "componentClass": "DateItemList",
+      "componentPath": "components/calendar-date-item/calendar-date-item.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/calendar-date-item/calendar-date-item.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "dataItemConfig",
+          "watch": [
+            "checkStyle"
+          ]
+        },
+        {
+          "name": "dateItemList"
+        }
+      ],
+      "states": [
+        {
+          "name": "dateItemListHost"
+        }
+      ],
+      "hostElement": {
+        "name": "DateItemListHTML"
+      },
+      "events": [
+        {
+          "event": "DateItemListEvent"
+        },
+        {
+          "event": "endDateSelectedEvent"
+        },
+        {
+          "event": "startDateSelectedEvent"
+        }
+      ]
+    },
+    {
+      "tag": "datepicker-modal",
+      "dependencies": [
+        "date-item-list"
+      ],
+      "componentClass": "DatepickerModal",
+      "componentPath": "components/datepicker-modal/datepicker-modal.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/datepicker-modal/datepicker-modal.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "datepickerModel",
+          "watch": [
+            "test"
+          ]
+        },
+        {
+          "name": "optionsModel"
+        }
+      ],
+      "states": [
+        {
+          "name": "dataItemConfig"
+        },
+        {
+          "name": "datePickerConfig"
+        },
+        {
+          "name": "localDateSelected"
+        },
+        {
+          "name": "month"
+        },
+        {
+          "name": "year"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "DateItemListEvent",
+          "method": "chooseDate",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "hostElement": {
+        "name": "DOMElement"
+      },
+      "events": [
+        {
+          "event": "closedModalEvent"
+        },
+        {
+          "event": "dateSelectedEvent"
+        }
+      ]
+    },
+    {
+      "tag": "datepicker-range-input",
+      "dependencies": [
+        "datepicker-range-modal"
+      ],
+      "componentClass": "DatepickerRangeInput",
+      "componentPath": "components/datepicker-range-input/datepicker-range-input.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/datepicker-range-input/datepicker-range-input.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "optionsModel"
+        },
+        {
+          "name": "rangepickerModel"
+        }
+      ],
+      "states": [
+        {
+          "name": "activeFormType"
+        },
+        {
+          "name": "EndDateSelected"
+        },
+        {
+          "name": "openDatePicker"
+        },
+        {
+          "name": "StartDateSelected"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "closeModalEvent",
+          "method": "toggleRangePickerModal",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "endDateSelectedEvent",
+          "method": "updateEndDate",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "navigationChange",
+          "method": "updateNavigation",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "startDateSelectedEvent",
+          "method": "updateStartDate",
+          "passive": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "tag": "datepicker-range-modal",
+      "dependencies": [
+        "date-item-list"
+      ],
+      "componentClass": "DatePickerRangeModal",
+      "componentPath": "components/datepicker-range-modal/datepicker-range-modal.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/datepicker-range-modal/datepicker-range-modal.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "optionsModel"
+        },
+        {
+          "name": "rangepickerModel"
+        }
+      ],
+      "states": [
+        {
+          "name": "animationMode"
+        },
+        {
+          "name": "dataItemLeftConfig"
+        },
+        {
+          "name": "dataItemRightConfig"
+        },
+        {
+          "name": "datePickerConfig"
+        },
+        {
+          "name": "formType"
+        },
+        {
+          "name": "localDateSelected"
+        },
+        {
+          "name": "monthLeft"
+        },
+        {
+          "name": "monthRight"
+        },
+        {
+          "name": "yearLeft"
+        },
+        {
+          "name": "yearRight"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "DateItemListEvent",
+          "method": "chooseDate",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "events": [
+        {
+          "event": "closeModalEvent"
+        },
+        {
+          "event": "endDateSelectedEvent"
+        },
+        {
+          "event": "navigationChange"
+        },
+        {
+          "event": "startDateSelectedEvent"
+        }
+      ]
+    },
+    {
+      "tag": "datepicker-single-input",
+      "dependencies": [
+        "datepicker-modal"
+      ],
+      "componentClass": "DatepickerSingleInput",
+      "componentPath": "components/datepicker-single-input/datepicker-single-input.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/datepicker-single-input/datepicker-single-input.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "datepickerModel"
+        },
+        {
+          "name": "optionsModel"
+        }
+      ],
+      "states": [
+        {
+          "name": "openDatePicker"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "closedModalEvent",
+          "method": "toggleDatepickerModal",
+          "passive": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "tag": "oui-datepicker",
+      "dependencies": [
+        "datepicker-range-input",
+        "datepicker-single-input"
+      ],
+      "componentClass": "OuiDatepicker",
+      "componentPath": "components/oui-datepicker/oui-datepicker.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/oui-datepicker/oui-datepicker.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "activePreviousDate",
+          "type": "Boolean"
+        },
+        {
+          "name": "angleLeftIcon",
+          "type": "String"
+        },
+        {
+          "name": "angleRightIcon",
+          "type": "String"
+        },
+        {
+          "name": "calendarIcon",
+          "type": "String"
+        },
+        {
+          "name": "closeIcon",
+          "type": "String"
+        },
+        {
+          "name": "labels",
+          "type": "String"
+        },
+        {
+          "name": "mode",
+          "type": "String"
+        },
+        {
+          "name": "rangeEndValue",
+          "type": "String"
+        },
+        {
+          "name": "rangeStartValue",
+          "type": "String"
+        },
+        {
+          "name": "singleValue",
+          "type": "String"
+        }
+      ],
+      "states": [
+        {
+          "name": "datepickerModel"
+        },
+        {
+          "name": "optionsModel"
+        },
+        {
+          "name": "rangepickerModel"
+        }
+      ]
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.6.18",
+    "typescriptVersion": "2.7.2"
+  },
+  "bundles": [],
+  "global": "global/index.js"
+}

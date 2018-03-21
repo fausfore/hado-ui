@@ -1,0 +1,16 @@
+.datepicker-range-input {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  flex-direction: row; }
+  @media only screen and (max-width: 780px) {
+    .datepicker-range-input {
+      flex-direction: column; } }
+  .datepicker-range-input .datepicker-input-group {
+    width: 40%; }
+    @media only screen and (max-width: 780px) {
+      .datepicker-range-input .datepicker-input-group {
+        width: 100%;
+        margin: 5px 0; } }
+  .datepicker-range-input .datepicker-input.active {
+    border-bottom: solid 2px; }

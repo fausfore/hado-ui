@@ -1,0 +1,51 @@
+@keyframes Next {
+  0% {
+    opacity: 0;
+    transform: translateX(25%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes Previous {
+  0% {
+    opacity: 0;
+    transform: translateX(-25%); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+.on-enter {
+  animation-name: Next;
+  animation-duration: 0.3s;
+  display: block; }
+
+.on-leave {
+  animation-name: Previous;
+  animation-duration: 0.3s;
+  display: block; }
+
+li {
+  position: relative;
+  width: 14%;
+  text-align: center;
+  height: 46px;
+  line-height: 46px; }
+  li .circle {
+    display: none;
+    background: #0088CE;
+    color: #fff;
+    border-radius: 90px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 46px;
+    left: 50%;
+    transform: translateX(-50%); }
+  li.inactive {
+    opacity: 0.2; }
+  li.current {
+    color: #0088CE; }
+  li.isBetween {
+    color: #ef8e36; }
+  li.selected .circle {
+    display: block; }

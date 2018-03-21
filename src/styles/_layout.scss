@@ -1,0 +1,35 @@
+.day-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style: none;
+    li {
+        width: calc(14% - 10px);
+        text-align: center;
+        padding: 10px 5px;
+        font-weight: bold;
+    }
+}
+
+.datepicker-overlay, .rangepicker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    opacity: 0.3;
+}
+
+.date-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style: none;
+    width: 100%;
+}
+
+ul {
+    padding: 0;
+}
