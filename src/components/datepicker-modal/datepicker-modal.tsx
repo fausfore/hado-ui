@@ -18,8 +18,8 @@ export class DatepickerModal {
   private _datepickerService = new datepickerService();
 
   // Send to window
-  @Event() dateSelectedEvent: EventEmitter;
   @Event() closedModalEvent: EventEmitter;
+  @Event() selectSingleDate: EventEmitter;
   @Prop() datepickerModel : DatePickerState;
   @Prop() optionsModel: OptionsState;
   @Element() DOMElement: HTMLElement;
@@ -131,11 +131,12 @@ export class DatepickerModal {
 
   @Listen('DateItemListEvent')
   chooseDate (event: CustomEvent) {
-    this.localDateSelected = event.detail.date;
+    this.localDateSelected = event.detail;
   }
 
   selectDate () {
     if (this.localDateSelected) {
+      this.selectSingleDate.emit(this.localDateSelected);
       // Update selected date
       this.datepickerModel.dateSelected = this.localDateSelected;
       // close modal

@@ -16,7 +16,7 @@ export class DateItemList {
             item.selected = item.date === element.date;
             return item;
         });
-        this.DateItemListEvent.emit(element);
+        this.DateItemListEvent.emit(element.date);
     }
     getStyleClass(item) {
         if (!item) {

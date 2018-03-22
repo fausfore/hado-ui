@@ -72,10 +72,11 @@ export class DatepickerModal {
         this.updateDatepickerLabel(this.datePickerConfig);
     }
     chooseDate(event) {
-        this.localDateSelected = event.detail.date;
+        this.localDateSelected = event.detail;
     }
     selectDate() {
         if (this.localDateSelected) {
+            this.selectSingleDate.emit(this.localDateSelected);
             // Update selected date
             this.datepickerModel.dateSelected = this.localDateSelected;
             // close modal
@@ -114,6 +115,6 @@ export class DatepickerModal {
     }
     static get is() { return "datepicker-modal"; }
     static get properties() { return { "dataItemConfig": { "state": true }, "datePickerConfig": { "state": true }, "datepickerModel": { "type": "Any", "attr": "datepicker-model", "watchCallbacks": ["test"] }, "DOMElement": { "elementRef": true }, "localDateSelected": { "state": true }, "month": { "state": true }, "optionsModel": { "type": "Any", "attr": "options-model" }, "year": { "state": true } }; }
-    static get events() { return [{ "name": "dateSelectedEvent", "method": "dateSelectedEvent", "bubbles": true, "cancelable": true, "composed": true }, { "name": "closedModalEvent", "method": "closedModalEvent", "bubbles": true, "cancelable": true, "composed": true }]; }
+    static get events() { return [{ "name": "closedModalEvent", "method": "closedModalEvent", "bubbles": true, "cancelable": true, "composed": true }, { "name": "selectSingleDate", "method": "selectSingleDate", "bubbles": true, "cancelable": true, "composed": true }]; }
     static get style() { return "/**style-placeholder:datepicker-modal:**/"; }
 }

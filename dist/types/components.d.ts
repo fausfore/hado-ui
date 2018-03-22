@@ -208,16 +208,18 @@ declare global {
   }
   namespace JSXElements {
     export interface OuiDatepickerAttributes extends HTMLAttributes {
-      activePreviousDate?: boolean;
-      angleLeftIcon?: string;
-      angleRightIcon?: string;
-      calendarIcon?: string;
-      closeIcon?: string;
-      labels?: string;
-      mode?: string;
-      rangeEndValue?: string;
-      rangeStartValue?: string;
-      singleValue?: string;
+      config?: {
+    mode: string
+    singleValue?: string,
+    rangeStartValue?: string,
+    rangeEndValue?: string,
+    calendarIcon: string,
+    angleRightIcon: string,
+    angleLeftIcon: string,
+    closeIcon: string,
+    labels: string,
+    activePreviousDate: boolean
+  };
     }
   }
 }

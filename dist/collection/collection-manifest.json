@@ -101,7 +101,7 @@
           "event": "closedModalEvent"
         },
         {
-          "event": "dateSelectedEvent"
+          "event": "selectSingleDate"
         }
       ]
     },
@@ -298,44 +298,10 @@
       },
       "props": [
         {
-          "name": "activePreviousDate",
-          "type": "Boolean"
-        },
-        {
-          "name": "angleLeftIcon",
-          "type": "String"
-        },
-        {
-          "name": "angleRightIcon",
-          "type": "String"
-        },
-        {
-          "name": "calendarIcon",
-          "type": "String"
-        },
-        {
-          "name": "closeIcon",
-          "type": "String"
-        },
-        {
-          "name": "labels",
-          "type": "String"
-        },
-        {
-          "name": "mode",
-          "type": "String"
-        },
-        {
-          "name": "rangeEndValue",
-          "type": "String"
-        },
-        {
-          "name": "rangeStartValue",
-          "type": "String"
-        },
-        {
-          "name": "singleValue",
-          "type": "String"
+          "name": "config",
+          "watch": [
+            "IsDetect"
+          ]
         }
       ],
       "states": [

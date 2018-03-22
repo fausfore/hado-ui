@@ -160,15 +160,15 @@ export class DatePickerRangeModal {
     chooseDate(event) {
         const screen = window.matchMedia("(max-width: 780px");
         if (this.formType === 'start') {
-            this.rangepickerModel.StartDateSelected = event.detail.date;
+            this.rangepickerModel.StartDateSelected = event.detail;
             if (!screen.matches) {
                 this.nextInputForm('end');
             }
-            this.startDateSelectedEvent.emit(event.detail.date);
+            this.startDateSelectedEvent.emit(event.detail);
         }
         else {
-            this.rangepickerModel.EndDateSelected = event.detail.date;
-            this.endDateSelectedEvent.emit(event.detail.date);
+            this.rangepickerModel.EndDateSelected = event.detail;
+            this.endDateSelectedEvent.emit(event.detail);
         }
         this.changeDateParmaValue();
     }

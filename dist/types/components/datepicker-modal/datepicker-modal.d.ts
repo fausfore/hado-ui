@@ -5,8 +5,8 @@ import { Moment } from 'moment';
 import { DatePickerItem, DatePickerState, OptionsState } from '../../models/datepicker.interface';
 export declare class DatepickerModal {
     private _datepickerService;
-    dateSelectedEvent: EventEmitter;
     closedModalEvent: EventEmitter;
+    selectSingleDate: EventEmitter;
     datepickerModel: DatePickerState;
     optionsModel: OptionsState;
     DOMElement: HTMLElement;
