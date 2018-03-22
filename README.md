@@ -47,5 +47,8 @@ to use in Angular :
 | angle-left-icon      | string      |   none |
 | close-icon | string      |    none |
 | active-previous-date      | boolean      |   true or false |
-| labels | string or Array<string>      |    none |
+| labels | string  |    'value1;value2' |
+| single-value | string of date  |    'YYYY-MM-DD' |
+| range-end-value | string of date  |    'YYYY-MM-DD' |
+| range-start-value | string of date  |    'YYYY-MM-DD' |
 
