@@ -1,7 +1,12 @@
 import moment from 'moment';
 import { defaultDatepickerState, defaultOptionsState, defaultRangepickerState, ModeOptions, } from '../../models/datepicker.constant';
 export class OuiDatepicker {
-    componentWillLoad() {
+    componentDidLoad() {
+        console.log('componentDidLoad');
+        this.initAppState();
+    }
+    componentWillUpdate() {
+        console.log('componentDidLoad');
         this.initAppState();
     }
     initAppState() {

@@ -30,10 +30,15 @@ export class OuiDatepicker {
   @State() rangepickerModel: RangePickerState
   @State() optionsModel: OptionsState
 
-  componentWillLoad() {
+  componentDidLoad() {
+    console.log('componentDidLoad');
     this.initAppState();
   }
+  componentWillUpdate (){
+    console.log('componentDidLoad');
+    this.initAppState();
 
+  }
   initAppState () {
     let initStartDate;
     let initEndDate;
@@ -69,6 +74,7 @@ export class OuiDatepicker {
   }
 
   render() {
+    
     const rangePicker = this.mode === ModeOptions.RANGE
       ? <datepicker-range-input
           rangepickerModel={this.rangepickerModel}

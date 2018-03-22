@@ -14,7 +14,8 @@ export declare class OuiDatepicker {
     datepickerModel: DatePickerState;
     rangepickerModel: RangePickerState;
     optionsModel: OptionsState;
-    componentWillLoad(): void;
+    componentDidLoad(): void;
+    componentWillUpdate(): void;
     initAppState(): void;
     render(): JSX.Element;
 }
