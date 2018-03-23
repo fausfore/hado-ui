@@ -59,10 +59,7 @@
       },
       "props": [
         {
-          "name": "datepickerModel",
-          "watch": [
-            "test"
-          ]
+          "name": "datepickerModel"
         },
         {
           "name": "optionsModel"
@@ -275,7 +272,7 @@
       "listeners": [
         {
           "event": "closedModalEvent",
-          "method": "toggleDatepickerModal",
+          "method": "listenCloseEvent",
           "passive": false,
           "capture": false
         }
@@ -298,10 +295,7 @@
       },
       "props": [
         {
-          "name": "config",
-          "watch": [
-            "IsDetect"
-          ]
+          "name": "config"
         }
       ],
       "states": [
@@ -313,6 +307,11 @@
         },
         {
           "name": "rangepickerModel"
+        }
+      ],
+      "methods": [
+        {
+          "name": "initAppState"
         }
       ]
     }

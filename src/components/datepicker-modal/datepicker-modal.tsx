@@ -1,12 +1,9 @@
-import { Component, Event, EventEmitter, Prop, State, Listen, Element, Watch } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, State, Listen, Element } from '@stencil/core';
 import moment, { Moment } from 'moment';
 
 import { DatePickerItem, DatePickerState, OptionsState } from '../../models/datepicker.interface';
 import * as FromDpService from '../../services/datepicker.service';
-import { datepickerService } from '../../services/datepicker.service';
 import Hammer from 'hammerjs';
-
-
 
 @Component({
   tag: 'datepicker-modal',
@@ -15,17 +12,12 @@ import Hammer from 'hammerjs';
 
 export class DatepickerModal {
 
-  private _datepickerService = new datepickerService();
-
-  // Send to window
   @Event() closedModalEvent: EventEmitter;
   @Event() selectSingleDate: EventEmitter;
   @Prop() datepickerModel : DatePickerState;
   @Prop() optionsModel: OptionsState;
   @Element() DOMElement: HTMLElement;
 
-
-  // other
   @State() month: string;
   @State() year: string;
   @State() datePickerConfig = { year: undefined, month: undefined };
@@ -43,14 +35,6 @@ export class DatepickerModal {
     this.initCalendarDateValue();
     this.activeTouchArea();
   }
-  componentDidUnload () {
-    console.log('componentDidUnload')
-  }
-
-  @Watch('datepickerModel')
-  test (newProp) {
-    console.log('datepickerModel', newProp)
-  }
 
   initCalendarDateValue(){
     let dateParam;
@@ -64,7 +48,7 @@ export class DatepickerModal {
     this.datePickerConfig.year = Number(dateParam.format('YYYY'));
     this.datePickerConfig.month = Number(dateParam.format('MM')) - 1;
 
-    this.days = this._datepickerService.createWeeKLabel();
+    this.days = this.optionsModel.labels.days;
 
     this.dataItemConfig = {
       animation: 'enter',
@@ -79,9 +63,9 @@ export class DatepickerModal {
     
   }
 
-  updateDatepickerLabel (config) {
-    this.year = this._datepickerService.SetYearLabels(config);
-    this.month = this._datepickerService.SetMonthLabels(config);
+  updateDatepickerLabel (config: { year: number, month: string }) {
+    this.year = config.year.toString();
+    this.month = this.optionsModel.labels.months[config.month]
   }
 
   activeTouchArea () {
@@ -92,18 +76,22 @@ export class DatepickerModal {
 
         case 2:
           this.nextMonth();
-          break;
+        break;
 
         case 4:
           this.prevMonth();
-          break;
+        break;
         
       }
     })
   }
 
   nextMonth () {
-    this.datePickerConfig.month = this.datePickerConfig.month  + 1;
+    this.datePickerConfig = FromDpService.validNewDateParam(
+      this.datePickerConfig.year,
+      this.datePickerConfig.month,
+      'INCREMENT'
+    );
     this.dataItemConfig = {
       animation: 'enter',
       itemList: FromDpService.buildCalendar(
@@ -116,8 +104,11 @@ export class DatepickerModal {
   }
 
   prevMonth () {
-    this.datePickerConfig.month = this.datePickerConfig.month  - 1;
-    this.updateDatepickerLabel(this.datePickerConfig);
+    this.datePickerConfig = FromDpService.validNewDateParam(
+      this.datePickerConfig.year,
+      this.datePickerConfig.month,
+      'DECREMENT'
+    );
     this.dataItemConfig = {
       animation: 'leave',
       itemList: FromDpService.buildCalendar(
@@ -163,14 +154,14 @@ export class DatepickerModal {
     } = this.optionsModel;
 
     const days = this.days.map((d) => (
-      <li>{d}</li>
+      <li>{FromDpService.filterDayLabel(d)}</li>
     ))
     return (
       <div class="datepicker-container">
         <div class="datepicker-overlay" onClick={() => this.closeModal()}></div>
         <div id="datepicker-modal" class="datepicker-modal on-modal-enter">
           <header class="modal-header">
-            <h2 class="title">{labels[0]}</h2>
+            <h2 class="title">{labels.title}</h2>
             <i class={closeIconClass} onClick={() => this.closeModal()}></i>
           </header>
           <article id="gesture-container" class="modal-content">
@@ -187,7 +178,7 @@ export class DatepickerModal {
             </article>
           </article>
           <footer class="modal-footer">
-            <button onClick={ () => this.selectDate() }>Valider</button>
+            <button onClick={ () => this.selectDate() }>{labels.datepickerBtnValue}</button>
           </footer>
         </div>
       </div>

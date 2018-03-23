@@ -24,6 +24,10 @@ export class DatepickerSingleInput {
   }
 
   @Listen('closedModalEvent')
+  listenCloseEvent () {
+    this.toggleDatepickerModal();
+  }
+
   toggleDatepickerModal () {
     this.openDatePicker = !this.openDatePicker;
   }

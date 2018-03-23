@@ -8,6 +8,9 @@ export class DatepickerSingleInput {
             ? moment(this.datepickerModel.dateSelected).format('DD/MM/YYYY')
             : undefined;
     }
+    listenCloseEvent() {
+        this.toggleDatepickerModal();
+    }
     toggleDatepickerModal() {
         this.openDatePicker = !this.openDatePicker;
     }

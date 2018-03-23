@@ -1,77 +1,56 @@
 import moment, { Moment } from 'moment';
-import { DatePickerItem } from '../models/datepicker.interface';
-import 'moment/src/locale/fr';
+import { DatePickerItem, OptionsState } from '../models/datepicker.interface';
 
-export class datepickerService {
 
-  private _moment: Moment
+export function filterDayLabel (label: string) {
+  return `${label[0]}${label[1]}`;
+}
 
-  constructor() {
-    this._moment = moment();
-    this._moment.locale('fr');
+export function  validNewDateParam (year: number, month: number, operator: string) : {
+  year: number, month: number
+} {
+
+  switch (operator) {
+    case 'INCREMENT':
+      month === 11
+        ? (year =  year + 1) && (month = 0)
+        : month = month + 1;
+      
+      return {
+        year: year,
+        month: month
+      };
+
+    case 'DECREMENT':
+      month === 0
+        ? (year = year - 1) && (month = 11)
+        : month = month - 1;
+      
+      return {
+        year: year,
+        month: month
+      };
+    default:
+      return undefined;
+    
   }
-  public createWeeKLabel(): Array<string> {
-    let weekArrayLabel = [];
-  
-    for (let i = 1; i < 8; i++) {
-      weekArrayLabel.push(
-        this._moment.day(i).format('dd')
-      );
-    }
-    return weekArrayLabel;
-  }
-
-  public SetYearLabels(
-    config: { year: number, month: number },
-  ) {
-    const firstDay = new Date(config.year, config.month, 1);
-    return moment(firstDay).format('YYYY')
-  }
-
-  public SetMonthLabels(
-    config: { year: number, month: number },
-  ) {
-    return this._moment.month(config.month).format('MMMM')
-  }
-
 
 }
 
-export function createWeeKLabel(): Array<string> {
-  let weekArrayLabel = [];
-
-  for (let i = 1; i < 8; i++) {
-    weekArrayLabel.push(
-      moment().day(i).format('dd')
-    );
-  }
-  return weekArrayLabel;
-}
-
-export function SetYearLabels(
+export function buildCalendar (
+  // firstDay: Date, lastDay: Date
   config: { year: number, month: number },
-) {
-  const firstDay = new Date(config.year, config.month, 1);
-  return moment(firstDay).format('YYYY')
-}
-
-export function SetMonthLabels(
-  config: { year: number, month: number },
-) {
-  return moment().month(config.month).format('MMMM')
-}
-
-export function buildCalendar(
-  config: { year: number, month: number },
-  options,
-  selected?: Moment
+  options: OptionsState,
+  selected?: Moment,
+  range?: {rangeStartValue: Moment, rangeEndValue: Moment }
 ) : Array<DatePickerItem> {
-
   let calendarBuilding: Array<DatePickerItem> = [];
 
+  const NextMonthValue = config.month === 11 ? 0 : config.month + 1;
+  const NextYearValue = config.month === 11 ? config.year + 1 : config.year;
+
   const firstDay = new Date(config.year, config.month, 1);
-  const lastDay = new Date(config.year, config.month + 1, 0);
-  const current_date = moment();
+  const lastDay = new Date(NextYearValue, NextMonthValue, 0);
 
   const month_config_date = {
     start: moment(firstDay),
@@ -79,38 +58,67 @@ export function buildCalendar(
   }
 
   let dateIteration = month_config_date.start;
-  const differ = dateIteration.diff(month_config_date.end, 'days')
+  const differ = dateIteration.diff(month_config_date.end, 'days');
+  const current_date = moment();
 
   for (let i = 0; i < Math.abs(differ); i ++) {
-    const iterableDateFormat = dateIteration.format('YYYY-MM-DD');
-    const currentDateFormat = current_date.format('YYYY-MM-DD');
-    const selectedDateFormat =
-      selected 
-        ? selected.format('YYYY-MM-DD')
-        : null
+      const iterableDateFormat = dateIteration.format('YYYY-MM-DD');
+      const currentDateFormat = current_date.format('YYYY-MM-DD');
+      let isCurrentDate: boolean = false;
+      let isSelectDate: boolean = false;
+      let isDisable: boolean = false;
+      let isBetween: boolean = false;
 
-    let isCurrentDate: boolean = false;
-    let isSelectDate: boolean = false;
-    let isDisable: boolean = false;
+      if (options.mode === 'range') {
+        const selectedDateStartFormat = range
+            ? range.rangeStartValue.format('YYYY-MM-DD')
+            : null;
+        const selectedDateEndFormat = range
+            ? range.rangeEndValue.format('YYYY-MM-DD')
+            : null;
 
-    if (moment(iterableDateFormat).isSame(currentDateFormat)) {
-      isCurrentDate = true;
-    }
+        if (selectedDateEndFormat && selectedDateStartFormat) {
+          moment(iterableDateFormat)
+            .isBetween(selectedDateStartFormat,selectedDateEndFormat)
+              ? isBetween = true
+              : null;
+        }
 
-    if (moment(iterableDateFormat).isSame(selectedDateFormat)) {
-      isSelectDate = true;
-    }
+        moment(iterableDateFormat).isSame(selectedDateStartFormat)
+            ? isSelectDate = true
+            : null;
 
-    if (options.activePreviousDate)  {
-      moment(iterableDateFormat).isBefore(currentDateFormat)
-        ? isDisable = true
-        : null
-    }
+        moment(iterableDateFormat).isSame(selectedDateEndFormat)
+            ? isSelectDate = true
+            : null;
+        
+      } else if (options.mode === 'single') {
+        const selectedDateFormat = selected 
+            ? selected.format('YYYY-MM-DD')
+            : null;
+
+        moment(iterableDateFormat).isSame(selectedDateFormat)
+          ? isSelectDate = true
+          : null;
+            
+      } else {
+        moment(iterableDateFormat).isSame(currentDateFormat)
+        ? isCurrentDate = true
+        : null;
+        
+        if (this.optionsModel.activePreviousDate)  {
+            moment(iterableDateFormat).isBefore(currentDateFormat)
+              ? isDisable = true
+              : null
+        }
+      }
+
 
     calendarBuilding.push({
       date: dateIteration,
       disable: isDisable,
       current: isCurrentDate,
+      isBetween: isBetween,
       selected: isSelectDate
     })
 
@@ -118,7 +126,7 @@ export function buildCalendar(
   }
 
 
-  for(let i = 1; i <= month_config_date.start.day() - 1; i ++) {
+  for(let i = 1; i <= month_config_date.start.day() - options.startWeek; i ++) {
     let beforeValue = moment(month_config_date.start).subtract(i,'days')
     calendarBuilding.length <= 35 ? calendarBuilding = [{
       date: beforeValue,
@@ -167,6 +175,5 @@ export function buildCalendar(
       }
     }
   }
-return calendarBuilding;
+  return calendarBuilding
 }
-

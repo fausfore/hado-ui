@@ -1,27 +1,11 @@
 import '../../stencil.core';
-import { DatePickerState, OptionsState, RangePickerState } from '../../models/datepicker.interface';
+import { DatePickerState, OptionsState, RangePickerState, Inputs } from '../../models/datepicker.interface';
 export declare class OuiDatepicker {
-    config: {
-        mode: string;
-        singleValue?: string;
-        rangeStartValue?: string;
-        rangeEndValue?: string;
-        calendarIcon: string;
-        angleRightIcon: string;
-        angleLeftIcon: string;
-        closeIcon: string;
-        labels: string;
-        activePreviousDate: boolean;
-    };
+    config: Inputs;
     datepickerModel: DatePickerState;
     rangepickerModel: RangePickerState;
     optionsModel: OptionsState;
-    IsDetect(next: any, before: any): void;
     componentWillLoad(): void;
-    componentDidLoad(): void;
-    componentWillUpdate(): void;
-    componentDidUpdate(): void;
-    componentDidUnload(): void;
-    initAppState(config: any): void;
+    initAppState(config?: Inputs): void;
     render(): JSX.Element;
 }

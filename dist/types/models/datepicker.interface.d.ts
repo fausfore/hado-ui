@@ -18,13 +18,40 @@ export interface OptionsState {
     angleRightIconClass: string;
     angleLeftIconClass: string;
     closeIconClass: string;
-    labels: string | string[];
     activePreviousDate: boolean;
+    startWeek: number;
+    mode: string;
+    labels: {
+        title: string;
+        title_2: string;
+        datepickerBtnValue: string;
+        months: string[];
+        days: string[];
+    };
 }
 export interface RangePickerState {
     datesArray: Array<DatePickerItem>;
     openDatePicker: boolean;
-    StartDateSelected: Moment;
-    EndDateSelected: Moment;
+    rangeStartValue: Moment;
+    rangeEndValue: Moment;
     InputType: string;
+}
+export interface Inputs {
+    mode: string;
+    singleValue?: string;
+    rangeStartValue?: string;
+    rangeEndValue?: string;
+    calendarIcon: string;
+    angleRightIcon: string;
+    angleLeftIcon: string;
+    closeIcon: string;
+    activePreviousDate: boolean;
+    startWeek: number;
+    labels: {
+        datepickerBtnValue: string;
+        title: string;
+        title_2: string;
+        months: string[];
+        days: string[];
+    };
 }

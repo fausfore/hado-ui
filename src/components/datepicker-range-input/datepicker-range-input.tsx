@@ -22,8 +22,8 @@ export class DatepickerRangeInput {
   componentWillLoad() {
     this.openDatePicker = this.rangepickerModel.openDatePicker;
     this.activeFormType = this.rangepickerModel.InputType;
-    this.StartDateSelected = this.rangepickerModel.StartDateSelected;
-    this.EndDateSelected = this.rangepickerModel.EndDateSelected;
+    this.StartDateSelected = this.rangepickerModel.rangeStartValue;
+    this.EndDateSelected = this.rangepickerModel.rangeEndValue;
   };
 
   getLabel (dateValue: Moment): string {
@@ -57,11 +57,12 @@ export class DatepickerRangeInput {
 
   render() {
     const {
-      StartDateSelected,
-      EndDateSelected
+      rangeEndValue,
+      rangeStartValue
     } = this.rangepickerModel;
 
     const { calendarIconClass } = this.optionsModel;
+
 
     return (
       <div class='oui-datepicker'>
@@ -73,7 +74,7 @@ export class DatepickerRangeInput {
               readOnly
               type="text"
               placeholder="séléctionnez votre date de départ"
-              value={this.getLabel(StartDateSelected)}
+              value={this.getLabel(rangeStartValue)}
               class={`datepicker-input ${this.activeFormType === 'start' ? 'active' : ''}`}/>
             <i class={calendarIconClass}></i>
           </div>
@@ -82,7 +83,7 @@ export class DatepickerRangeInput {
               readOnly
               type="text"
               placeholder="séléctionnez votre date d'arrivé"
-              value={this.getLabel(EndDateSelected)}
+              value={this.getLabel(rangeEndValue)}
               class={`datepicker-input ${this.activeFormType === 'end' ? 'active' : ''}`}/>
             <i class={calendarIconClass}></i>
           </div>

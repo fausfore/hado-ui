@@ -15,8 +15,8 @@ export const defaultDatepickerState: DatePickerState = {
 export const defaultRangepickerState: RangePickerState = {
   datesArray: [],
   openDatePicker: false,
-  StartDateSelected: undefined,
-  EndDateSelected: undefined,
+  rangeStartValue: undefined,
+  rangeEndValue: undefined,
   InputType: undefined
 };
 
@@ -25,6 +25,36 @@ export const defaultOptionsState: OptionsState = {
   angleRightIconClass: undefined,
   angleLeftIconClass: undefined,
   closeIconClass: undefined,
-  labels: undefined,
-  activePreviousDate: false
+  activePreviousDate: false,
+  mode: ModeOptions.SINGLE,
+  startWeek: 0,
+  labels: {
+    title: 'First date',
+    title_2: 'Last date',
+    datepickerBtnValue: 'Validate',
+    months: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ],
+    days: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday'
+    ]
+  }
+
 };

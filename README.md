@@ -55,22 +55,47 @@ It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https:/
 
 ### Inputs
 
-  
-| Properties | Types | Value |
-|--|--|--|
-| mode | string | 'single' or 'range' |
-| singleValue | date | 'YYYY-MM-DD' |
-| rangeStartValue | date | 'YYYY-MM-DD' |
-| rangeEndValue | date | 'YYYY-MM-DD' |
-| calendarIcon | string | none |
-| angleRightIcon | string | none |
-| angleLeftIcon | string | none |
-| closeIcon | string | none |
-| labels | string | 'value1;value2' |
-| activePreviousDate | boolean | none |
+ ```typescript
+interface  Model {
+	mode:  string; // 'single' or 'range'
+	singleValue:  string; // single only
+	StartDateSelected:  string  // range only
+	EndDateSelected:  string  // range only
+	calendarIcon:  string;
+	angleRightIcon:  string;
+	angleLeftIcon:  string;
+	closeIcon:  string;
+	activePreviousDate:  boolean; // Disable inputs before the current date
+	startWeek: number // 0 => start on sunday and 1 => monday
+	labels: {
+		title:  string;
+		title_2:  string; // range only
+		datepickerBtnValue:  string; // single only
+		months:  string[];
+		days:  string[];
+	}
+}
+ ```
 
 ### Events
 
 | Properties | Types | Value |
 |--|--|--|
 | selectSingleDate | Moment | 'single' or 'range' |
+
+### Update config object
+
+```typescript
+let my_datepicker_config = {/* properties */};
+my_update_function() {
+
+	my_datepicker_config.mode = 'range' // BAD
+	
+	my_datepicker_config = {
+		...my_datepicker_config,
+		mode: 'range'
+	} // GOOD
+	
+}
+
+```

@@ -4,7 +4,6 @@ import { EventEmitter } from '../../stencil.core';
 import { Moment } from 'moment';
 import { DatePickerItem, DatePickerState, OptionsState } from '../../models/datepicker.interface';
 export declare class DatepickerModal {
-    private _datepickerService;
     closedModalEvent: EventEmitter;
     selectSingleDate: EventEmitter;
     datepickerModel: DatePickerState;
@@ -23,10 +22,11 @@ export declare class DatepickerModal {
     };
     days: Array<string>;
     componentDidLoad(): void;
-    componentDidUnload(): void;
-    test(newProp: any): void;
     initCalendarDateValue(): void;
-    updateDatepickerLabel(config: any): void;
+    updateDatepickerLabel(config: {
+        year: number;
+        month: string;
+    }): void;
     activeTouchArea(): void;
     nextMonth(): void;
     prevMonth(): void;

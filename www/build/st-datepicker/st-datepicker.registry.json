@@ -3,26 +3,26 @@
   "fsNamespace": "st-datepicker",
   "loader": "../st-datepicker.js",
   "global": "st-datepicker.global.js",
-  "core": "st-datepicker.kkkbn4dm.js",
-  "corePolyfilled": "st-datepicker.dkxw6kdh.js",
+  "core": "st-datepicker.core.js",
+  "corePolyfilled": "es5-build-disabled.js",
   "components": {
     "date-item-list": {
-      "$": "a8yyoenw"
+      "$": "date-item-list"
     },
     "datepicker-modal": {
-      "$": "6ntp6gpz"
+      "$": "datepicker-modal"
     },
     "datepicker-range-input": {
-      "$": "6ntp6gpz"
+      "$": "datepicker-modal"
     },
     "datepicker-range-modal": {
-      "$": "6ntp6gpz"
+      "$": "datepicker-modal"
     },
     "datepicker-single-input": {
-      "$": "6ntp6gpz"
+      "$": "datepicker-modal"
     },
     "oui-datepicker": {
-      "$": "6ntp6gpz"
+      "$": "datepicker-modal"
     }
   }
 }

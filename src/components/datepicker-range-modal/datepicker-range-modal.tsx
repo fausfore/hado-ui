@@ -1,9 +1,9 @@
 import { Component, Prop, State, Event, EventEmitter, Listen } from '@stencil/core';
 import moment, { Moment } from 'moment';
 import { DatePickerItem } from '../../models/datepicker.interface';
-import { datepickerService } from '../../services/datepicker.service';
 
 import { OptionsState, RangePickerState } from '../../models/datepicker.interface';
+import * as FromDpService from '../../services/datepicker.service';
 
 @Component({
   tag: 'datepicker-range-modal',
@@ -11,7 +11,6 @@ import { OptionsState, RangePickerState } from '../../models/datepicker.interfac
 })
 
 export class DatePickerRangeModal {
-  private _datepickerService = new datepickerService();
 
   // Send to window
   @Event() closeModalEvent: EventEmitter;
@@ -44,7 +43,7 @@ export class DatePickerRangeModal {
 
   // UI
   public days: Array<string> = [];
-  public current_date: Moment;
+  public current_date: Moment;  
 
   componentWillLoad() {
     this.current_date = moment();
@@ -60,193 +59,110 @@ export class DatePickerRangeModal {
     let baseDate: Moment
 
     if (this.rangepickerModel.InputType === 'start') {
-      baseDate = this.rangepickerModel.StartDateSelected || moment();
+      baseDate = this.rangepickerModel.rangeStartValue || moment();
     } else {
-      baseDate = this.rangepickerModel.EndDateSelected || moment()
+      baseDate = this.rangepickerModel.rangeEndValue || moment()
     }
 
     this.datePickerConfig.year = Number(baseDate.format('YYYY'));
     this.datePickerConfig.month = Number(baseDate.format('MM')) - 1;
 
-    this.updateDatepickerLabel();
     this.changeDateParmaValue();
   }
 
   updateDatepickerLabel () {
-    this.yearLeft = moment().year(this.datePickerConfig.year).format('YYYY');
-    this.monthLeft = moment().month(this.datePickerConfig.month).format('MMMM');
-
-    this.yearRight = moment().year(this.datePickerConfig.year).format('YYYY');
-    this.monthRight = moment().month(this.datePickerConfig.month + 1).format('MMMM');
+    // Left picker
+    this.yearLeft = this.datePickerConfig.year;
+    this.monthLeft = this.optionsModel.labels.months[this.datePickerConfig.month];
+    
+    // Increment one month
+    const nextMonth : { year: number, month: number } = FromDpService.validNewDateParam(
+      this.datePickerConfig.year,
+      this.datePickerConfig.month,
+      'INCREMENT'
+    )
+    // Right picker
+    this.yearRight = nextMonth.year.toString();
+    this.monthRight = this.optionsModel.labels.months[nextMonth.month];
   }
 
-  buildCalendar (firstDay: Date, lastDay: Date) {
-    let Dates: Array<DatePickerItem> = [];
-
-    const month_config_date = {
-      start: moment(firstDay),
-      end: moment(lastDay)
-    }
-
-    this.days = this._datepickerService.createWeeKLabel();
-    this.yearLeft = month_config_date.start.format('YYYY');
-    this.yearRight = month_config_date.start.format('YYYY');
-
-    let dateIteration = month_config_date.start;
-    const differ = dateIteration.diff(month_config_date.end, 'days')
-
-    for (let i = 0; i < Math.abs(differ); i ++) {
-      const iterableDateFormat = dateIteration.format('YYYY-MM-DD');
-      const currentDateFormat = this.current_date.format('YYYY-MM-DD');
-      const selectedDateStartFormat = this.rangepickerModel.StartDateSelected
-        ? this.rangepickerModel.StartDateSelected.format('YYYY-MM-DD')
-        : null;
-      const selectedDateEndFormat = this.rangepickerModel.EndDateSelected
-        ? this.rangepickerModel.EndDateSelected.format('YYYY-MM-DD')
-        : null;
-
-      let isCurrentDate: boolean = false;
-      let isSelectDate: boolean = false;
-      let isDisable: boolean = false;
-      let isBetween: boolean = false;
-
-      if (moment(iterableDateFormat).isSame(currentDateFormat)) {
-        isCurrentDate = true;
-      }
-
-      if (moment(iterableDateFormat).isSame(selectedDateStartFormat)) {
-        isSelectDate = true;
-      }
-
-      if (moment(iterableDateFormat).isSame(selectedDateEndFormat)) {
-        isSelectDate = true;
-      }
-
-      if (this.optionsModel.activePreviousDate)  {
-        moment(iterableDateFormat).isBefore(currentDateFormat)
-          ? isDisable = true
-          : null
-      }
-      if (selectedDateEndFormat && selectedDateStartFormat) {
-        if (moment(iterableDateFormat)
-          .isBetween(
-            selectedDateStartFormat,
-            selectedDateEndFormat)
-          ) {
-          isBetween = true;
-        }
-      }
-
-      Dates.push({
-        date: dateIteration,
-        disable: isDisable,
-        current: isCurrentDate,
-        isBetween: isBetween,
-        selected: isSelectDate
-      })
-
-      dateIteration = moment(dateIteration).add(1, 'days');
-    }
-
-
-    for(let i = 1; i <= month_config_date.start.day() - 1; i ++) {
-      let beforeValue = moment(month_config_date.start).subtract(i,'days')
-      Dates.length <= 35 ? Dates = [{
-        date: beforeValue,
-        disable: true,
-        selected: false,
-        isBetween: false,
-        current: false
-
-      },...Dates ] : null
-    }
-
-
-    if (Dates.length / 7 > 5) {
-      let start = moment(month_config_date.end).day() - 1;
-      for(let i = start + 1; i <= 6; i++) {
-        let afterValue = month_config_date.end.add(i,'days');
-
-        Dates = [
-          ...Dates,
-          {
-            date: afterValue,
-            disable: true,
-            selected: false,
-            isBetween: false,
-            current: false
-          }
-        ]
-      }
-    } else {
-      if (Dates.length < 35) {
-        let count: number = 0;
-        for (let i = Dates.length; i < 35; i++) {
-          count += 1;
-          let afterValue = moment(month_config_date.end).add(count,'days')
-
-          Dates = [
-            ...Dates,
-            {
-              date: afterValue,
-              disable: true,
-              selected: false,
-              isBetween: false,
-              current: false
-            }
-          ]
-        }
-      }
-    }
-    return Dates
-  }
 
   changeDateParmaValue () {
+    // Left picker Data
     this.dataItemLeftConfig = {
       animation: undefined,
-      itemList: this.buildCalendar(
-        new Date(this.datePickerConfig.year, this.datePickerConfig.month, 1),
-        new Date(this.datePickerConfig.year, this.datePickerConfig.month + 1, 0)
+      itemList: FromDpService.buildCalendar(
+        {
+          year: this.datePickerConfig.year,
+          month: this.datePickerConfig.month
+        },
+        this.optionsModel,
+        this.rangepickerModel.rangeStartValue,
+        {
+          rangeStartValue: this.rangepickerModel.rangeStartValue,
+          rangeEndValue: this.rangepickerModel.rangeEndValue
+        }
       )
     };
-
+    // Right picker Data
     this.dataItemRightConfig = {
       animation: undefined,
-      itemList: this.buildCalendar(
-        new Date(this.datePickerConfig.year, this.datePickerConfig.month + 1, 1),
-        new Date(this.datePickerConfig.year, this.datePickerConfig.month + 2, 0)
+      itemList: FromDpService.buildCalendar(
+        FromDpService.validNewDateParam(
+          this.datePickerConfig.year,
+          this.datePickerConfig.month,
+          'INCREMENT'
+        ),
+        this.optionsModel,
+        this.rangepickerModel.rangeStartValue,
+        {
+          rangeStartValue: this.rangepickerModel.rangeStartValue,
+          rangeEndValue: this.rangepickerModel.rangeEndValue
+        }
       )
     };
+    // Update labels
+    this.updateDatepickerLabel();
   }
 
   nextMonth () {
-    this.datePickerConfig.month = this.datePickerConfig.month  + 1;
-    this.updateDatepickerLabel();
+    this.datePickerConfig = FromDpService.validNewDateParam(
+      this.datePickerConfig.year,
+      this.datePickerConfig.month,
+      'INCREMENT'
+    )
+    // Update labels
     this.changeDateParmaValue();
   }
 
   prevMonth () {
-    this.datePickerConfig.month = this.datePickerConfig.month  - 1;
-    this.updateDatepickerLabel();
+    this.datePickerConfig = FromDpService.validNewDateParam(
+      this.datePickerConfig.year,
+      this.datePickerConfig.month,
+      'DECREMENT'
+    );
+    // Update labels
     this.changeDateParmaValue();
   }
  
   nextInputForm (type) {
+    // Switch the focus of the parent input
     this.navigationChange.emit(type)
     this.formType = type;
   }
+
   @Listen('DateItemListEvent')
   chooseDate (event: CustomEvent) {
     const screen: any = window.matchMedia("(max-width: 780px");
 
       if (this.formType === 'start') {
-        this.rangepickerModel.StartDateSelected = event.detail;
+        this.rangepickerModel.rangeStartValue = event.detail;
         if (!screen.matches) {
           this.nextInputForm('end')
         }
         this.startDateSelectedEvent.emit(event.detail)
       } else {
-        this.rangepickerModel.EndDateSelected = event.detail;
+        this.rangepickerModel.rangeEndValue = event.detail;
         this.endDateSelectedEvent.emit(event.detail)
       }
       this.changeDateParmaValue();
@@ -254,14 +170,11 @@ export class DatePickerRangeModal {
   }
 
   closeModal () {
-
     const el = document.getElementById('range-container');
     el.className = 'range-container on-modal-leave';
-
     setTimeout(() => {
       this.closeModalEvent.emit();
-    }, 300);
-     
+    }, 300);  
   }
 
   render() {
@@ -272,8 +185,8 @@ export class DatePickerRangeModal {
       labels
     } = this.optionsModel;
 
-    const days = this.days.map((d) => (
-      <li>{d}</li>
+    const days = labels.days.map((d) => (
+      <li>{FromDpService.filterDayLabel(d)}</li>
     ))
 
     return (
@@ -284,7 +197,7 @@ export class DatePickerRangeModal {
           <div class={
             `rangepicker-modal previous-date ${this.formType === 'start'? 'active' : ''}`}>
             <header class="modal-header">
-              <h2 class="title">{labels[0]}</h2>
+              <h2 class="title">{labels.title}</h2>
               <i class={closeIconClass} onClick={() => this.closeModal()}></i>
             </header>
             <article class="modal-content">
@@ -306,7 +219,7 @@ export class DatePickerRangeModal {
           <div class={
             `rangepicker-modal next-date ${this.formType === 'end' ? 'active' : ''}`}>
           <header class="modal-header">
-            <h2 class="title">{labels[1]}</h2>
+            <h2 class="title">{labels.title_2}</h2>
             <i class={closeIconClass} onClick={() => this.closeModal()}></i>
           </header>
             <article class="modal-content">
@@ -321,7 +234,7 @@ export class DatePickerRangeModal {
               </article>
             </article>
             <footer class="modal-footer">
-              <button onClick={ () => this.closeModal() }>Fermer</button>
+              <button onClick={ () => this.closeModal() }>{labels.datepickerBtnValue}</button>
             </footer>
           </div>
 

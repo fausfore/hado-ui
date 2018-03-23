@@ -1,10 +1,8 @@
 import moment from 'moment';
 import * as FromDpService from '../../services/datepicker.service';
-import { datepickerService } from '../../services/datepicker.service';
 import Hammer from 'hammerjs';
 export class DatepickerModal {
     constructor() {
-        this._datepickerService = new datepickerService();
         this.datePickerConfig = { year: undefined, month: undefined };
         // UI
         this.days = [];
@@ -12,12 +10,6 @@ export class DatepickerModal {
     componentDidLoad() {
         this.initCalendarDateValue();
         this.activeTouchArea();
-    }
-    componentDidUnload() {
-        console.log('componentDidUnload');
-    }
-    test(newProp) {
-        console.log('datepickerModel', newProp);
     }
     initCalendarDateValue() {
         let dateParam;
@@ -29,7 +21,7 @@ export class DatepickerModal {
         }
         this.datePickerConfig.year = Number(dateParam.format('YYYY'));
         this.datePickerConfig.month = Number(dateParam.format('MM')) - 1;
-        this.days = this._datepickerService.createWeeKLabel();
+        this.days = this.optionsModel.labels.days;
         this.dataItemConfig = {
             animation: 'enter',
             itemList: FromDpService.buildCalendar(this.datePickerConfig, this.optionsModel, this.datepickerModel.dateSelected)
@@ -37,8 +29,8 @@ export class DatepickerModal {
         this.updateDatepickerLabel(this.datePickerConfig);
     }
     updateDatepickerLabel(config) {
-        this.year = this._datepickerService.SetYearLabels(config);
-        this.month = this._datepickerService.SetMonthLabels(config);
+        this.year = config.year.toString();
+        this.month = this.optionsModel.labels.months[config.month];
     }
     activeTouchArea() {
         const el = document.getElementById('gesture-container');
@@ -55,7 +47,7 @@ export class DatepickerModal {
         });
     }
     nextMonth() {
-        this.datePickerConfig.month = this.datePickerConfig.month + 1;
+        this.datePickerConfig = FromDpService.validNewDateParam(this.datePickerConfig.year, this.datePickerConfig.month, 'INCREMENT');
         this.dataItemConfig = {
             animation: 'enter',
             itemList: FromDpService.buildCalendar(this.datePickerConfig, this.optionsModel, this.datepickerModel.dateSelected)
@@ -63,8 +55,7 @@ export class DatepickerModal {
         this.updateDatepickerLabel(this.datePickerConfig);
     }
     prevMonth() {
-        this.datePickerConfig.month = this.datePickerConfig.month - 1;
-        this.updateDatepickerLabel(this.datePickerConfig);
+        this.datePickerConfig = FromDpService.validNewDateParam(this.datePickerConfig.year, this.datePickerConfig.month, 'DECREMENT');
         this.dataItemConfig = {
             animation: 'leave',
             itemList: FromDpService.buildCalendar(this.datePickerConfig, this.optionsModel, this.datepickerModel.dateSelected)
@@ -92,12 +83,12 @@ export class DatepickerModal {
     }
     render() {
         const { closeIconClass, angleLeftIconClass, angleRightIconClass, labels } = this.optionsModel;
-        const days = this.days.map((d) => (h("li", null, d)));
+        const days = this.days.map((d) => (h("li", null, FromDpService.filterDayLabel(d))));
         return (h("div", { class: "datepicker-container" },
             h("div", { class: "datepicker-overlay", onClick: () => this.closeModal() }),
             h("div", { id: "datepicker-modal", class: "datepicker-modal on-modal-enter" },
                 h("header", { class: "modal-header" },
-                    h("h2", { class: "title" }, labels[0]),
+                    h("h2", { class: "title" }, labels.title),
                     h("i", { class: closeIconClass, onClick: () => this.closeModal() })),
                 h("article", { id: "gesture-container", class: "modal-content" },
                     h("header", { class: "content-header" },
@@ -111,10 +102,10 @@ export class DatepickerModal {
                         h("ul", { class: "day-list" }, days),
                         h("date-item-list", { dataItemConfig: this.dataItemConfig }))),
                 h("footer", { class: "modal-footer" },
-                    h("button", { onClick: () => this.selectDate() }, "Valider")))));
+                    h("button", { onClick: () => this.selectDate() }, labels.datepickerBtnValue)))));
     }
     static get is() { return "datepicker-modal"; }
-    static get properties() { return { "dataItemConfig": { "state": true }, "datePickerConfig": { "state": true }, "datepickerModel": { "type": "Any", "attr": "datepicker-model", "watchCallbacks": ["test"] }, "DOMElement": { "elementRef": true }, "localDateSelected": { "state": true }, "month": { "state": true }, "optionsModel": { "type": "Any", "attr": "options-model" }, "year": { "state": true } }; }
+    static get properties() { return { "dataItemConfig": { "state": true }, "datePickerConfig": { "state": true }, "datepickerModel": { "type": "Any", "attr": "datepicker-model" }, "DOMElement": { "elementRef": true }, "localDateSelected": { "state": true }, "month": { "state": true }, "optionsModel": { "type": "Any", "attr": "options-model" }, "year": { "state": true } }; }
     static get events() { return [{ "name": "closedModalEvent", "method": "closedModalEvent", "bubbles": true, "cancelable": true, "composed": true }, { "name": "selectSingleDate", "method": "selectSingleDate", "bubbles": true, "cancelable": true, "composed": true }]; }
     static get style() { return "/**style-placeholder:datepicker-modal:**/"; }
 }

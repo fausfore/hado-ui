@@ -1,4 +1,4 @@
-import { Component, Prop, State, Watch } from '@stencil/core';
+import { Component, Prop, State, Method } from '@stencil/core';
 import moment from 'moment';
 
 import {
@@ -7,7 +7,7 @@ import {
   defaultRangepickerState,
   ModeOptions,
 } from '../../models/datepicker.constant';
-import { DatePickerState, OptionsState, RangePickerState } from '../../models/datepicker.interface';
+import { DatePickerState, OptionsState, RangePickerState, Inputs } from '../../models/datepicker.interface';
 
 @Component({
   tag: 'oui-datepicker',
@@ -15,64 +15,83 @@ import { DatePickerState, OptionsState, RangePickerState } from '../../models/da
 })
 
 export class OuiDatepicker {
-  @Prop() config: {
-    mode: string
-    singleValue?: string,
-    rangeStartValue?: string,
-    rangeEndValue?: string,
-    calendarIcon: string,
-    angleRightIcon: string,
-    angleLeftIcon: string,
-    closeIcon: string,
-    labels: string,
-    activePreviousDate: boolean
-  }
+  @Prop() config: Inputs
 
   @State() datepickerModel: DatePickerState;
   @State() rangepickerModel: RangePickerState;
   @State() optionsModel: OptionsState;
 
-  @Watch('config')
-  IsDetect (next, before) {
-    console.log('IsDetect')
-    console.log(next)
-    console.log(before);
-    this.initAppState(this.config);
-  }
-
   componentWillLoad () {
-    console.log('The component is about to be rendered');
     this.initAppState(this.config);
   }
 
-  componentDidLoad() {
-    console.log('The component has been rendered');
-  }
+  @Method()
+  initAppState (config?: Inputs) {
+    let value: Inputs;
 
-  componentWillUpdate() {
-    console.log('The component will update');
-  }
+    if (config) {
+      value = config
+    } else {
+      value = {
+        mode: 'range',
+        singleValue: '2018-03-23',
+        calendarIcon: 'far fa-calendar-alt',
+        angleRightIcon: 'fas fa-angle-right',
+        angleLeftIcon: 'fas fa-angle-left',
+        closeIcon: 'fas fa-times',
+        activePreviousDate: true,
+        rangeStartValue: '2018-03-23',
+        rangeEndValue: '2018-03-30',
+        startWeek: 1,
+        labels: {
+          title: 'Date de début',
+          title_2: 'Date de Fin',
+          datepickerBtnValue: 'Validate',
+          months: [
+            'Janvier',
+            'Février',
+            'Mars',
+            'Avril',
+            'Mai',
+            'Juin',
+            'Juillet',
+            'Aout',
+            'Septembre',
+            'Octobre',
+            'Novembre',
+            'Décembre'
+          ],
+          days: [
+            'lundi',
+            'mardi',
+            'mercredi',
+            'jeudi',
+            'vendredi',
+            'samedi',
+            'dimanche'
+          ]
+        }
+      };
+    }
 
-  componentDidUpdate() {
-    console.log('The component did update');
-  }
+    if (!value) {
+      return;
+    }
 
-  componentDidUnload() {
-    console.log('The view has been removed from the DOM');
-  }
-
-  initAppState (config) {
-    console.log('initAppState')
     let initStartDate;
     let initEndDate;
     let initSingleDate;
 
-    if (config.rangeStartValue) {
-      initStartDate = moment(config.rangeStartValue);
-    } else if (config.rangeEndValue) {
-      initStartDate = moment(config.rangeEndValue);
-    } else if (config.singleValue) {
-      initSingleDate = moment(config.singleValue);
+    if (value.rangeStartValue) {
+      initStartDate = moment(value.rangeStartValue);
+    }
+
+    if (value.rangeEndValue) {
+      initEndDate = moment(value.rangeEndValue);
+    }
+
+    if (value.singleValue) {
+      initSingleDate = moment(value.singleValue);
     }
     this.datepickerModel = {
       ...defaultDatepickerState,
@@ -81,30 +100,31 @@ export class OuiDatepicker {
 
     this.rangepickerModel = {
       ...defaultRangepickerState,
-      StartDateSelected: initStartDate,
-      EndDateSelected: initEndDate
+      rangeStartValue: initStartDate,
+      rangeEndValue: initEndDate
     };
 
     this.optionsModel = {
       ...defaultOptionsState,
-      calendarIconClass: config.calendarIcon,
-      angleRightIconClass: config.angleRightIcon,
-      angleLeftIconClass: config.angleLeftIcon,
-      closeIconClass: config.closeIcon,
-      labels: config.labels.split(';'),
-      activePreviousDate: config.activePreviousDate,
+      calendarIconClass: value.calendarIcon,
+      angleRightIconClass: value.angleRightIcon,
+      angleLeftIconClass: value.angleLeftIcon,
+      closeIconClass: value.closeIcon,
+      activePreviousDate: value.activePreviousDate,
+      mode: value.mode,
+      labels: value.labels,
+      startWeek: value.startWeek
     };
   }
 
-  render() {
-    
-    const rangePicker = this.config.mode === ModeOptions.RANGE
+  render() { 
+    const rangePicker = this.optionsModel.mode === ModeOptions.RANGE
       ? <datepicker-range-input
           rangepickerModel={this.rangepickerModel}
           optionsModel={this.optionsModel}>
         </datepicker-range-input>
       : null
-    const singlePicker = this.config.mode === ModeOptions.SINGLE
+    const singlePicker = this.optionsModel.mode === ModeOptions.SINGLE
       ? <datepicker-single-input
           datepickerModel={this.datepickerModel}
           optionsModel={this.optionsModel}>

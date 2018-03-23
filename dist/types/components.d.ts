@@ -22,6 +22,7 @@ declare global {
 import {
   DatePickerItem,
   DatePickerState,
+  Inputs,
   OptionsState,
   RangePickerState,
 } from './models/datepicker.interface';
@@ -208,18 +209,7 @@ declare global {
   }
   namespace JSXElements {
     export interface OuiDatepickerAttributes extends HTMLAttributes {
-      config?: {
-    mode: string
-    singleValue?: string,
-    rangeStartValue?: string,
-    rangeEndValue?: string,
-    calendarIcon: string,
-    angleRightIcon: string,
-    angleLeftIcon: string,
-    closeIcon: string,
-    labels: string,
-    activePreviousDate: boolean
-  };
+      config?: Inputs;
     }
   }
 }

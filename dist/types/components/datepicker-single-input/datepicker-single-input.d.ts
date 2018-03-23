@@ -6,6 +6,7 @@ export declare class DatepickerSingleInput {
     openDatePicker: boolean;
     componentWillLoad(): void;
     getLabel(): string;
+    listenCloseEvent(): void;
     toggleDatepickerModal(): void;
     render(): JSX.Element;
 }

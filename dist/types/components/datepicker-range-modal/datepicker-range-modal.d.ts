@@ -5,7 +5,6 @@ import { Moment } from 'moment';
 import { DatePickerItem } from '../../models/datepicker.interface';
 import { OptionsState, RangePickerState } from '../../models/datepicker.interface';
 export declare class DatePickerRangeModal {
-    private _datepickerService;
     closeModalEvent: EventEmitter;
     startDateSelectedEvent: EventEmitter;
     endDateSelectedEvent: EventEmitter;
@@ -37,7 +36,6 @@ export declare class DatePickerRangeModal {
     componentDidLoad(): void;
     initCalendarDateValue(): void;
     updateDatepickerLabel(): void;
-    buildCalendar(firstDay: Date, lastDay: Date): DatePickerItem[];
     changeDateParmaValue(): void;
     nextMonth(): void;
     prevMonth(): void;
