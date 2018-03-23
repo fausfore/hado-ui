@@ -65,12 +65,13 @@ interface  Model {
 	angleRightIcon:  string;
 	angleLeftIcon:  string;
 	closeIcon:  string;
-	activePreviousDate:  boolean; // Disable inputs before the current date
+	activePreviousDate:  boolean; // Active inputs before the current date
 	startWeek: number // 0 => start on sunday and 1 => monday
 	labels: {
 		title:  string;
 		title_2:  string; // range only
-		datepickerBtnValue:  string; // single only
+		datepickerBtnValue:  string;
+		rangeNextBtnValue: string; // range only
 		months:  string[];
 		days:  string[];
 	}
@@ -81,7 +82,9 @@ interface  Model {
 
 | Properties | Types | Value |
 |--|--|--|
-| selectSingleDate | Moment | 'single' or 'range' |
+| selectSingleDate | Event | Moment value |
+| startDateSelectedEvent | Event | Moment value |
+| endDateSelectedEvent | Event | 'Moment value |
 
 ### Update config object
 

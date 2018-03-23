@@ -26,7 +26,8 @@ export const defaultOptionsState = {
     labels: {
         title: 'First date',
         title_2: 'Last date',
-        datepickerBtnValue: 'Validate',
+        datepickerBtnValue: 'Valid',
+        rangeNextBtnValue: 'Next',
         months: [
             'January',
             'February',

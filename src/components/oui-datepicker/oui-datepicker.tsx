@@ -46,7 +46,8 @@ export class OuiDatepicker {
         labels: {
           title: 'Date de début',
           title_2: 'Date de Fin',
-          datepickerBtnValue: 'Validate',
+          datepickerBtnValue: 'Validé',
+          rangeNextBtnValue: 'Suivant',
           months: [
             'Janvier',
             'Février',

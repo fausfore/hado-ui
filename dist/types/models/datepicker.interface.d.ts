@@ -25,6 +25,7 @@ export interface OptionsState {
         title: string;
         title_2: string;
         datepickerBtnValue: string;
+        rangeNextBtnValue: string;
         months: string[];
         days: string[];
     };
@@ -49,6 +50,7 @@ export interface Inputs {
     startWeek: number;
     labels: {
         datepickerBtnValue: string;
+        rangeNextBtnValue: string;
         title: string;
         title_2: string;
         months: string[];

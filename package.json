@@ -1,6 +1,6 @@
 {
   "name": "st-datepicker",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A web datepicker component",
   "main": "dist/st-datepicker.js",
   "types": "dist/types/index.d.ts",
@@ -48,10 +48,6 @@
   },
   "author": "Ionic Team",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
-  },
-  "homepage": "https://github.com/ionic-team/stencil",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"

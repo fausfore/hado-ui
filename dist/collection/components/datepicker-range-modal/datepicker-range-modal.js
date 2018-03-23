@@ -117,7 +117,7 @@ export class DatePickerRangeModal {
                             h("ul", { class: "day-list" }, days),
                             h("date-item-list", { dataItemConfig: this.dataItemLeftConfig }))),
                     h("footer", { class: "modal-footer" },
-                        h("button", { onClick: () => this.nextInputForm('end') }, "Valider"))),
+                        h("button", { onClick: () => this.nextInputForm('end') }, labels.rangeNextBtnValue))),
                 h("div", { class: `rangepicker-modal next-date ${this.formType === 'end' ? 'active' : ''}` },
                     h("header", { class: "modal-header" },
                         h("h2", { class: "title" }, labels.title_2),

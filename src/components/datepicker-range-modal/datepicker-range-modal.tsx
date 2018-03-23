@@ -212,7 +212,7 @@ export class DatePickerRangeModal {
               </article>
             </article>
             <footer class="modal-footer">
-            <button onClick={ () => this.nextInputForm('end') }>Valider</button>
+            <button onClick={ () => this.nextInputForm('end') }>{labels.rangeNextBtnValue}</button>
           </footer>
           </div>
 
