@@ -1,5 +1,7 @@
 import '../../stencil.core';
 import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
 /// <reference types="moment" />
 import { EventEmitter } from '../../stencil.core';
 import { Moment } from 'moment';

@@ -132,10 +132,10 @@ export class StDatepicker {
         </datepicker-input>
       : null
     return (
-      <main class='oui-datepicker'>
+      <div class='oui-datepicker'>
         {rangePicker}
         {singlePicker}
-      </main>
+      </div>
     );
   }
 }

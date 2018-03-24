@@ -78,7 +78,7 @@ export class StDatepicker {
         const singlePicker = this.optionsModel.mode === ModeOptions.SINGLE
             ? h("datepicker-input", { datepickerModel: this.datepickerModel, optionsModel: this.optionsModel })
             : null;
-        return (h("main", { class: 'oui-datepicker' },
+        return (h("div", { class: 'oui-datepicker' },
             rangePicker,
             singlePicker));
     }
