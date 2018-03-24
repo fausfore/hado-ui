@@ -62,6 +62,37 @@ declare global {
 
 
 import {
+  DatepickerInput as DatepickerInput
+} from './components/datepicker-input/datepicker-input';
+
+declare global {
+  interface HTMLDatepickerInputElement extends DatepickerInput, HTMLStencilElement {
+  }
+  var HTMLDatepickerInputElement: {
+    prototype: HTMLDatepickerInputElement;
+    new (): HTMLDatepickerInputElement;
+  };
+  interface HTMLElementTagNameMap {
+    "datepicker-input": HTMLDatepickerInputElement;
+  }
+  interface ElementTagNameMap {
+    "datepicker-input": HTMLDatepickerInputElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "datepicker-input": JSXElements.DatepickerInputAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface DatepickerInputAttributes extends HTMLAttributes {
+      datepickerModel?: DatePickerState;
+      optionsModel?: OptionsState;
+    }
+  }
+}
+
+
+import {
   DatepickerModal as DatepickerModal
 } from './components/datepicker-modal/datepicker-modal';
 
@@ -93,29 +124,29 @@ declare global {
 
 
 import {
-  DatepickerRangeInput as DatepickerRangeInput
-} from './components/datepicker-range-input/datepicker-range-input';
+  RangepickerInput as RangepickerInput
+} from './components/rangepicker-input/rangepicker-input';
 
 declare global {
-  interface HTMLDatepickerRangeInputElement extends DatepickerRangeInput, HTMLStencilElement {
+  interface HTMLRangepickerInputElement extends RangepickerInput, HTMLStencilElement {
   }
-  var HTMLDatepickerRangeInputElement: {
-    prototype: HTMLDatepickerRangeInputElement;
-    new (): HTMLDatepickerRangeInputElement;
+  var HTMLRangepickerInputElement: {
+    prototype: HTMLRangepickerInputElement;
+    new (): HTMLRangepickerInputElement;
   };
   interface HTMLElementTagNameMap {
-    "datepicker-range-input": HTMLDatepickerRangeInputElement;
+    "rangepicker-input": HTMLRangepickerInputElement;
   }
   interface ElementTagNameMap {
-    "datepicker-range-input": HTMLDatepickerRangeInputElement;
+    "rangepicker-input": HTMLRangepickerInputElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "datepicker-range-input": JSXElements.DatepickerRangeInputAttributes;
+      "rangepicker-input": JSXElements.RangepickerInputAttributes;
     }
   }
   namespace JSXElements {
-    export interface DatepickerRangeInputAttributes extends HTMLAttributes {
+    export interface RangepickerInputAttributes extends HTMLAttributes {
       optionsModel?: OptionsState;
       rangepickerModel?: RangePickerState;
     }
@@ -124,29 +155,29 @@ declare global {
 
 
 import {
-  DatePickerRangeModal as DatepickerRangeModal
-} from './components/datepicker-range-modal/datepicker-range-modal';
+  RangepickerModal as RangepickerModal
+} from './components/rangepicker-modal/rangepicker-modal';
 
 declare global {
-  interface HTMLDatepickerRangeModalElement extends DatepickerRangeModal, HTMLStencilElement {
+  interface HTMLRangepickerModalElement extends RangepickerModal, HTMLStencilElement {
   }
-  var HTMLDatepickerRangeModalElement: {
-    prototype: HTMLDatepickerRangeModalElement;
-    new (): HTMLDatepickerRangeModalElement;
+  var HTMLRangepickerModalElement: {
+    prototype: HTMLRangepickerModalElement;
+    new (): HTMLRangepickerModalElement;
   };
   interface HTMLElementTagNameMap {
-    "datepicker-range-modal": HTMLDatepickerRangeModalElement;
+    "rangepicker-modal": HTMLRangepickerModalElement;
   }
   interface ElementTagNameMap {
-    "datepicker-range-modal": HTMLDatepickerRangeModalElement;
+    "rangepicker-modal": HTMLRangepickerModalElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "datepicker-range-modal": JSXElements.DatepickerRangeModalAttributes;
+      "rangepicker-modal": JSXElements.RangepickerModalAttributes;
     }
   }
   namespace JSXElements {
-    export interface DatepickerRangeModalAttributes extends HTMLAttributes {
+    export interface RangepickerModalAttributes extends HTMLAttributes {
       optionsModel?: OptionsState;
       rangepickerModel?: RangePickerState;
     }
@@ -155,60 +186,29 @@ declare global {
 
 
 import {
-  DatepickerSingleInput as DatepickerSingleInput
-} from './components/datepicker-single-input/datepicker-single-input';
+  StDatepicker as StDatepicker
+} from './components/st-datepicker/st-datepicker';
 
 declare global {
-  interface HTMLDatepickerSingleInputElement extends DatepickerSingleInput, HTMLStencilElement {
+  interface HTMLStDatepickerElement extends StDatepicker, HTMLStencilElement {
   }
-  var HTMLDatepickerSingleInputElement: {
-    prototype: HTMLDatepickerSingleInputElement;
-    new (): HTMLDatepickerSingleInputElement;
+  var HTMLStDatepickerElement: {
+    prototype: HTMLStDatepickerElement;
+    new (): HTMLStDatepickerElement;
   };
   interface HTMLElementTagNameMap {
-    "datepicker-single-input": HTMLDatepickerSingleInputElement;
+    "st-datepicker": HTMLStDatepickerElement;
   }
   interface ElementTagNameMap {
-    "datepicker-single-input": HTMLDatepickerSingleInputElement;
+    "st-datepicker": HTMLStDatepickerElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "datepicker-single-input": JSXElements.DatepickerSingleInputAttributes;
+      "st-datepicker": JSXElements.StDatepickerAttributes;
     }
   }
   namespace JSXElements {
-    export interface DatepickerSingleInputAttributes extends HTMLAttributes {
-      datepickerModel?: DatePickerState;
-      optionsModel?: OptionsState;
-    }
-  }
-}
-
-
-import {
-  OuiDatepicker as OuiDatepicker
-} from './components/oui-datepicker/oui-datepicker';
-
-declare global {
-  interface HTMLOuiDatepickerElement extends OuiDatepicker, HTMLStencilElement {
-  }
-  var HTMLOuiDatepickerElement: {
-    prototype: HTMLOuiDatepickerElement;
-    new (): HTMLOuiDatepickerElement;
-  };
-  interface HTMLElementTagNameMap {
-    "oui-datepicker": HTMLOuiDatepickerElement;
-  }
-  interface ElementTagNameMap {
-    "oui-datepicker": HTMLOuiDatepickerElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "oui-datepicker": JSXElements.OuiDatepickerAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface OuiDatepickerAttributes extends HTMLAttributes {
+    export interface StDatepickerAttributes extends HTMLAttributes {
       config?: Inputs;
     }
   }

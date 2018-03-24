@@ -5,8 +5,14 @@ exports.config = {
   generateDistribution: true,
   serviceWorker: false,
   generateWWW: true,
-  globalScript: 'src/global/index.ts',
-  plugins: [sass()]
+  plugins: [sass()],
+  bundles: [
+    {
+      components: [
+        'st-datepicker',
+      ]
+    }
+  ]
 };
 
 exports.devServer = {

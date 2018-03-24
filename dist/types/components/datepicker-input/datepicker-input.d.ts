@@ -1,7 +1,6 @@
 import '../../stencil.core';
-import '../../stencil.core';
 import { DatePickerState, OptionsState } from "../../models/datepicker.interface";
-export declare class DatepickerSingleInput {
+export declare class DatepickerInput {
     datepickerModel: DatePickerState;
     optionsModel: OptionsState;
     openDatePicker: boolean;

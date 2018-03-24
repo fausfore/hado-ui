@@ -1,9 +1,8 @@
 import '../../stencil.core';
-import '../../stencil.core';
 /// <reference types="moment" />
 import { Moment } from 'moment';
 import { OptionsState, RangePickerState } from '../../models/datepicker.interface';
-export declare class DatepickerRangeInput {
+export declare class RangepickerInput {
     rangepickerModel: RangePickerState;
     optionsModel: OptionsState;
     openDatePicker: boolean;

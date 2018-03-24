@@ -44,6 +44,42 @@
       ]
     },
     {
+      "tag": "datepicker-input",
+      "dependencies": [
+        "datepicker-modal"
+      ],
+      "componentClass": "DatepickerInput",
+      "componentPath": "components/datepicker-input/datepicker-input.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/datepicker-input/datepicker-input.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "datepickerModel"
+        },
+        {
+          "name": "optionsModel"
+        }
+      ],
+      "states": [
+        {
+          "name": "openDatePicker"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "closedModalEvent",
+          "method": "listenCloseEvent",
+          "passive": false,
+          "capture": false
+        }
+      ]
+    },
+    {
       "tag": "datepicker-modal",
       "dependencies": [
         "date-item-list"
@@ -103,16 +139,16 @@
       ]
     },
     {
-      "tag": "datepicker-range-input",
+      "tag": "rangepicker-input",
       "dependencies": [
-        "datepicker-range-modal"
+        "rangepicker-modal"
       ],
-      "componentClass": "DatepickerRangeInput",
-      "componentPath": "components/datepicker-range-input/datepicker-range-input.js",
+      "componentClass": "RangepickerInput",
+      "componentPath": "components/rangepicker-input/rangepicker-input.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/datepicker-range-input/datepicker-range-input.scss"
+            "components/rangepicker-input/rangepicker-input.scss"
           ]
         }
       },
@@ -166,16 +202,16 @@
       ]
     },
     {
-      "tag": "datepicker-range-modal",
+      "tag": "rangepicker-modal",
       "dependencies": [
         "date-item-list"
       ],
-      "componentClass": "DatePickerRangeModal",
-      "componentPath": "components/datepicker-range-modal/datepicker-range-modal.js",
+      "componentClass": "RangepickerModal",
+      "componentPath": "components/rangepicker-modal/rangepicker-modal.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/datepicker-range-modal/datepicker-range-modal.scss"
+            "components/rangepicker-modal/rangepicker-modal.scss"
           ]
         }
       },
@@ -243,53 +279,17 @@
       ]
     },
     {
-      "tag": "datepicker-single-input",
+      "tag": "st-datepicker",
       "dependencies": [
-        "datepicker-modal"
+        "datepicker-input",
+        "rangepicker-input"
       ],
-      "componentClass": "DatepickerSingleInput",
-      "componentPath": "components/datepicker-single-input/datepicker-single-input.js",
+      "componentClass": "StDatepicker",
+      "componentPath": "components/st-datepicker/st-datepicker.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/datepicker-single-input/datepicker-single-input.scss"
-          ]
-        }
-      },
-      "props": [
-        {
-          "name": "datepickerModel"
-        },
-        {
-          "name": "optionsModel"
-        }
-      ],
-      "states": [
-        {
-          "name": "openDatePicker"
-        }
-      ],
-      "listeners": [
-        {
-          "event": "closedModalEvent",
-          "method": "listenCloseEvent",
-          "passive": false,
-          "capture": false
-        }
-      ]
-    },
-    {
-      "tag": "oui-datepicker",
-      "dependencies": [
-        "datepicker-range-input",
-        "datepicker-single-input"
-      ],
-      "componentClass": "OuiDatepicker",
-      "componentPath": "components/oui-datepicker/oui-datepicker.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "components/oui-datepicker/oui-datepicker.scss"
+            "components/st-datepicker/st-datepicker.scss"
           ]
         }
       },
@@ -322,6 +322,11 @@
     "version": "0.6.18",
     "typescriptVersion": "2.7.2"
   },
-  "bundles": [],
-  "global": "global/index.js"
+  "bundles": [
+    {
+      "components": [
+        "st-datepicker"
+      ]
+    }
+  ]
 }

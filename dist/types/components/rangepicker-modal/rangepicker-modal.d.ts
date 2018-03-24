@@ -1,11 +1,10 @@
 import '../../stencil.core';
-import '../../stencil.core';
 /// <reference types="moment" />
 import { EventEmitter } from '../../stencil.core';
 import { Moment } from 'moment';
 import { DatePickerItem } from '../../models/datepicker.interface';
 import { OptionsState, RangePickerState } from '../../models/datepicker.interface';
-export declare class DatePickerRangeModal {
+export declare class RangepickerModal {
     closeModalEvent: EventEmitter;
     startDateSelectedEvent: EventEmitter;
     endDateSelectedEvent: EventEmitter;
