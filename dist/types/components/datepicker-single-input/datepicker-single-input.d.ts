@@ -2,6 +2,13 @@ import '../../stencil.core';
 import '../../stencil.core';
 import '../../stencil.core';
 import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
 import { DatePickerState, OptionsState } from "../../models/datepicker.interface";
 export declare class DatepickerSingleInput {
     datepickerModel: DatePickerState;

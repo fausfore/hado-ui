@@ -1,6 +1,7 @@
 import moment from 'moment';
 export class RangepickerInput {
     componentWillLoad() {
+        console.log('[RangepickerInput] - componentWillLoad');
         this.openDatePicker = this.rangepickerModel.openDatePicker;
         this.activeFormType = this.rangepickerModel.InputType;
         this.StartDateSelected = this.rangepickerModel.rangeStartValue;

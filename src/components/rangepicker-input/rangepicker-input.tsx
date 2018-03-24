@@ -20,6 +20,7 @@ export class RangepickerInput {
   @State() EndDateSelected: Moment;
 
   componentWillLoad() {
+    console.log('[RangepickerInput] - componentWillLoad')
     this.openDatePicker = this.rangepickerModel.openDatePicker;
     this.activeFormType = this.rangepickerModel.InputType;
     this.StartDateSelected = this.rangepickerModel.rangeStartValue;

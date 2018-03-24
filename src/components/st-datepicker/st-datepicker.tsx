@@ -22,6 +22,8 @@ export class StDatepicker {
   @State() optionsModel: OptionsState;
 
   componentWillLoad () {
+    console.log('componentWillLoad')
+    console.log(this.config)
     this.initAppState(this.config);
   }
 
@@ -33,7 +35,7 @@ export class StDatepicker {
       value = config
     } else {
       value = {
-        mode: 'single',
+        mode: 'range',
         singleValue: '2018-03-23',
         calendarIcon: 'far fa-calendar-alt',
         angleRightIcon: 'fas fa-angle-right',

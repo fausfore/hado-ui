@@ -2,6 +2,8 @@ import moment from 'moment';
 import { defaultDatepickerState, defaultOptionsState, defaultRangepickerState, ModeOptions, } from '../../models/datepicker.constant';
 export class StDatepicker {
     componentWillLoad() {
+        console.log('componentWillLoad');
+        console.log(this.config);
         this.initAppState(this.config);
     }
     initAppState(config) {
@@ -11,7 +13,7 @@ export class StDatepicker {
         }
         else {
             value = {
-                mode: 'single',
+                mode: 'range',
                 singleValue: '2018-03-23',
                 calendarIcon: 'far fa-calendar-alt',
                 angleRightIcon: 'fas fa-angle-right',
