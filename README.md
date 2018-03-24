@@ -3,6 +3,10 @@
 
 It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https://hammerjs.github.io/) for the gestures.
 
+```bash
+npm i st-datepicker or yarn add st-datepicker
+```
+
   
 ## How to use in Angular :
 
@@ -47,6 +51,40 @@ It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https:/
 <oui-datepicker
 	config="your_config_object">
 </oui-datepicker>
+```
+
+## How to use in Vue :
+
+```bash
+npm i @stencil/webpack or yarn add @stencil/webpack
+```
+```javascript
+// webpack.base.conf.js
+const stencil = require('@stencil/webpack');
+
+const StencilComponent =
+	new stencil.StencilPlugin({
+		collections : [
+		'../node_modules/st-datepicker/dist'
+		]
+	});
+	
+module.export = {
+	plugins: [StencilComponent]
+}
+```
+```javascript
+// main.js
+import  'st-datepicker/dist/st-datepicker';
+
+Vue.config.ignoredElements  = ['st-',];
+```
+
+```html
+<!-- vue files -->
+<template>
+	<st-datepicker :config="configValue"></st-datepicker>
+</template>
 ```
 
   
