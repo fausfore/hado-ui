@@ -6,22 +6,22 @@
   "corePolyfilled": "st-datepicker.g0mgwsd9.js",
   "components": {
     "date-item-list": {
-      "$": "dfzzhrte"
+      "$": "x9gfyqwr"
     },
     "datepicker-input": {
-      "$": "yykjjyjn"
+      "$": "x9gfyqwr"
     },
     "datepicker-modal": {
-      "$": "yykjjyjn"
+      "$": "x9gfyqwr"
     },
     "rangepicker-input": {
-      "$": "ewlsjqnk"
+      "$": "x9gfyqwr"
     },
     "rangepicker-modal": {
-      "$": "ewlsjqnk"
+      "$": "x9gfyqwr"
     },
     "st-datepicker": {
-      "$": "jckxk7tb"
+      "$": "x9gfyqwr"
     }
   }
 }

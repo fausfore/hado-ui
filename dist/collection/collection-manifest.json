@@ -325,6 +325,11 @@
   "bundles": [
     {
       "components": [
+        "date-item-list",
+        "datepicker-input",
+        "datepicker-modal",
+        "rangepicker-input",
+        "rangepicker-modal",
         "st-datepicker"
       ]
     }

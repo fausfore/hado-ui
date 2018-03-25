@@ -10,6 +10,11 @@ exports.config = {
     {
       components: [
         'st-datepicker',
+        'rangepicker-modal',
+        'rangepicker-input',
+        'datepicker-modal',
+        'datepicker-input',
+        'date-item-list',
       ]
     }
   ]
