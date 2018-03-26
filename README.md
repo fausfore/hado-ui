@@ -2,8 +2,11 @@
 # A datepicker web component build with Stencil
 
 It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https://hammerjs.github.io/) for the gestures.
-![mode mobile](https://github.com/fausfore/st-datepicker/blob/master/documentation/assets/mode-mobile.png)
-![mode desktop](https://github.com/fausfore/st-datepicker/blob/master/documentation/assets/mode-desktop.png)
+
+<p align="center">
+  <img src="https://github.com/fausfore/st-datepicker/blob/master/documentation/assets/mode-mobile.png"/>
+</p>
+
 ```bash
 npm i st-datepicker or yarn add st-datepicker
 ```
