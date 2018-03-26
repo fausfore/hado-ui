@@ -1,6 +1,7 @@
 import moment from 'moment';
 export class DatepickerInput {
     componentWillLoad() {
+        console.log('[DatepickerInput] - componentWillLoad');
         this.openDatePicker = this.datepickerModel.openDatePicker;
     }
     getLabel() {

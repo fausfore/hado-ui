@@ -295,7 +295,69 @@
       },
       "props": [
         {
+          "name": "activePreviousDate",
+          "type": "Boolean"
+        },
+        {
+          "name": "angleLeftIcon",
+          "type": "String"
+        },
+        {
+          "name": "angleRightIcon",
+          "type": "String"
+        },
+        {
+          "name": "calendarIcon",
+          "type": "String"
+        },
+        {
+          "name": "closeIcon",
+          "type": "String"
+        },
+        {
           "name": "config"
+        },
+        {
+          "name": "datepickerBtnValue",
+          "type": "String"
+        },
+        {
+          "name": "days"
+        },
+        {
+          "name": "mode",
+          "type": "String"
+        },
+        {
+          "name": "months"
+        },
+        {
+          "name": "rangeEndValue",
+          "type": "String"
+        },
+        {
+          "name": "rangeNextBtnValue",
+          "type": "String"
+        },
+        {
+          "name": "rangeStartValue",
+          "type": "String"
+        },
+        {
+          "name": "singleValue",
+          "type": "String"
+        },
+        {
+          "name": "startWeek",
+          "type": "Number"
+        },
+        {
+          "name": "title",
+          "type": "String"
+        },
+        {
+          "name": "title2",
+          "type": "String"
         }
       ],
       "states": [
