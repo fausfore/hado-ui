@@ -6,22 +6,22 @@
   "corePolyfilled": "st-datepicker.wp7gpwc9.js",
   "components": {
     "date-item-list": {
-      "$": "zheob14d"
+      "$": "fz1yarb5"
     },
     "datepicker-input": {
-      "$": "zheob14d"
+      "$": "fz1yarb5"
     },
     "datepicker-modal": {
-      "$": "zheob14d"
+      "$": "fz1yarb5"
     },
     "rangepicker-input": {
-      "$": "zheob14d"
+      "$": "fz1yarb5"
     },
     "rangepicker-modal": {
-      "$": "zheob14d"
+      "$": "fz1yarb5"
     },
     "st-datepicker": {
-      "$": "zheob14d"
+      "$": "fz1yarb5"
     }
   }
 }

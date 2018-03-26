@@ -1,6 +1,6 @@
 {
   "name": "st-datepicker",
-  "version": "0.1.9",
+  "version": "0.2.1",
   "description": "A web datepicker component",
   "main": "dist/st-datepicker.js",
   "types": "dist/types/index.d.ts",

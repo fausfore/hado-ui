@@ -208,7 +208,23 @@ declare global {
   }
   namespace JSXElements {
     export interface StDatepickerAttributes extends HTMLAttributes {
+      activePreviousDate?: boolean;
+      angleLeftIcon?: string;
+      angleRightIcon?: string;
+      calendarIcon?: string;
+      closeIcon?: string;
       config?: Inputs;
+      datepickerBtnValue?: string;
+      days?: Array<string>;
+      mode?: string;
+      months?: Array<string>;
+      rangeEndValue?: string;
+      rangeNextBtnValue?: string;
+      rangeStartValue?: string;
+      singleValue?: string;
+      startWeek?: number;
+      title?: string;
+      title2?: string;
     }
   }
 }

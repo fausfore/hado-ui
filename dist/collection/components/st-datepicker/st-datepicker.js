@@ -32,6 +32,7 @@ export class StDatepicker {
                 days: this.days
             }
         };
+        console.log('buildPropsValue', this.config);
         this.initAppState(this.config);
     }
     initAppState(config) {
