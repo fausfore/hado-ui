@@ -86,8 +86,26 @@ Vue.config.ignoredElements  = ['st-',];
 	<st-datepicker :config="configValue"></st-datepicker>
 </template>
 ```
+## How to use in Vanilla Js :
 
+  2 - Add the script tag on the top of the *index.html* :
+
+```html
+<head>
+	<script src='assets/st-datepicker/st-datepicker.js'></script>
+</head>
+```
+  2 - Add the script tag on the bottom of the *index.html* :
   
+  ```html
+<script>
+	var element = document.querySelector('st-datepicker');
+	var config = {...};
+	element.addEventListener('datepickerIsLoaded', function() {
+		element.initAppState(config)
+	});
+</script>
+```
 
 ## Properties
 
