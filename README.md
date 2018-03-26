@@ -180,7 +180,7 @@ interface  Model {
 
 | Properties | Types | Value |
 |--|--|--|
-| selectSingleDate | Event | Moment value |
+| selectSingleDate | Event | Moment |
 | startDateSelectedEvent | Event | Moment |
 | endDateSelectedEvent | Event | Moment |
 | datepickerIsLoaded | Event | boolean |
