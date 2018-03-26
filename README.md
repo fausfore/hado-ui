@@ -53,8 +53,12 @@ npm i st-datepicker or yarn add st-datepicker
 
 ```html
 <oui-datepicker
-	config="your_config_object">
+	[config]="your_config_object">
 </oui-datepicker>
+```
+```typescript
+// Change the ref in Angular use :
+this.config.attr = newValue;
 ```
 
 ## How to use in Vue :

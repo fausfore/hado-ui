@@ -9,7 +9,7 @@ import * as moment from 'moment';
 export class AppComponent {
   public title = 'app';
   public config = {
-    mode: 'range',
+    mode: 'single',
     singleValue: '2018-03-23',
     calendarIcon: 'far fa-calendar-alt',
     angleRightIcon: 'fas fa-angle-right',
@@ -59,10 +59,6 @@ export class AppComponent {
   }
 
   switchMode (type) {
-    console.log(type);
-    this.config = {
-      ...this.config,
-      mode: type
-    };
+    this.config.mode = type;
   }
 }
