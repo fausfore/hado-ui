@@ -2,7 +2,8 @@
 # A datepicker web component build with Stencil
 
 It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https://hammerjs.github.io/) for the gestures.
-
+![mode mobile](https://github.com/fausfore/st-datepicker/blob/master/documentation/assets/mode-mobile.png)
+![mode desktop](https://github.com/fausfore/st-datepicker/blob/master/documentation/assets/mode-desktop.png)
 ```bash
 npm i st-datepicker or yarn add st-datepicker
 ```
@@ -86,6 +87,44 @@ Vue.config.ignoredElements  = ['st-',];
 	<st-datepicker :config="configValue"></st-datepicker>
 </template>
 ```
+
+## How to use in React :
+
+For React you can use **@stencil/webpack** ( *must eject the webpack config* ) like Vue or copy the dist folder into your **public** folder.
+```html
+// add the script on the index.html
+<script  src="%PUBLIC_URL%/static/js/st-datepicker.js">
+```
+For the moment you can't use the React props binding until the React 17 so you will do like a vanilla :
+```javascript
+// define a state
+this.state = {
+	config: {...}
+};
+// component calendar Ref
+this.calendar;
+
+componentDidMount () {
+	this.calendar = document.querySelector('st-datepicker');
+	// Await the component mounting
+	this.calendar.addEventListener('datepickerIsLoaded', () => {
+		// Init component props
+		this.calendar.initAppState(this.state.start)
+		// remove event
+		this.calendar.removeEventListener('datepickerIsLoaded', function() {
+			console.log('stop event')
+		})
+	})
+}
+// If your state change
+componentDidUpdate (prevProps, prevState) {
+	this.state.config  !==  prevState.config
+	?  this.calendar.initAppState(this.state.start)
+	:  null
+}
+```
+
+
 ## How to use in Vanilla Js :
 
   2 - Add the script tag on the top of the *index.html* :
@@ -139,8 +178,10 @@ interface  Model {
 | Properties | Types | Value |
 |--|--|--|
 | selectSingleDate | Event | Moment value |
-| startDateSelectedEvent | Event | Moment value |
-| endDateSelectedEvent | Event | 'Moment value |
+| startDateSelectedEvent | Event | Moment |
+| endDateSelectedEvent | Event | Moment |
+| datepickerIsLoaded | Event | boolean |
+
 
 ### Update config object
 
