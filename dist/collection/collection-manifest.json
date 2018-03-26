@@ -375,6 +375,14 @@
         {
           "name": "initAppState"
         }
+      ],
+      "hostElement": {
+        "name": "DpElement"
+      },
+      "events": [
+        {
+          "event": "datepickerIsLoaded"
+        }
       ]
     }
   ],

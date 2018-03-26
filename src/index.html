@@ -10,4 +10,12 @@
 <body>
   <st-datepicker id="datepicker"></st-datepicker>
 </body>
+<script>
+  var element = document.querySelector('st-datepicker');
+  element.addEventListener('datepickerIsLoaded', function() {
+    element.initAppState(value)
+  })
+  var value = {};
+
+</script>
 </html>

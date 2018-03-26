@@ -1,6 +1,9 @@
 import '../../stencil.core';
+import { EventEmitter } from '../../stencil.core';
 import { DatePickerState, OptionsState, RangePickerState, Inputs } from '../../models/datepicker.interface';
 export declare class StDatepicker {
+    DpElement: HTMLElement;
+    datepickerIsLoaded: EventEmitter;
     config: Inputs;
     mode: string;
     singleValue: string;
@@ -21,8 +24,10 @@ export declare class StDatepicker {
     datepickerModel: DatePickerState;
     rangepickerModel: RangePickerState;
     optionsModel: OptionsState;
+    readonly props: HTMLElement;
+    initAppState(config?: Inputs): void;
+    componentDidLoad(): void;
     componentWillLoad(): void;
     buildPropsValue(): void;
-    initAppState(config?: Inputs): void;
     render(): JSX.Element;
 }
