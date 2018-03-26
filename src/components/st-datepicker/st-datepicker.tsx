@@ -17,6 +17,23 @@ import { DatePickerState, OptionsState, RangePickerState, Inputs } from '../../m
 export class StDatepicker {
   @Prop() config: Inputs
 
+  @Prop() mode: string;
+  @Prop() singleValue: string;
+  @Prop() calendarIcon: string;
+  @Prop() angleRightIcon: string;
+  @Prop() angleLeftIcon: string;
+  @Prop() closeIcon: string;
+  @Prop() activePreviousDate: boolean;
+  @Prop() rangeStartValue: string;
+  @Prop() rangeEndValue: string;
+  @Prop() startWeek: number;
+  @Prop() title: string;
+  @Prop() title2: string;
+  @Prop() datepickerBtnValue: string;
+  @Prop() rangeNextBtnValue: string;
+  @Prop() months: Array<string>;
+  @Prop() days: Array<string>;
+
   @State() datepickerModel: DatePickerState;
   @State() rangepickerModel: RangePickerState;
   @State() optionsModel: OptionsState;
@@ -24,6 +41,33 @@ export class StDatepicker {
   componentWillLoad () {
     console.log('componentWillLoad')
     console.log(this.config)
+    if (this.config) {
+      this.initAppState(this.config);
+    } else {
+      this.buildPropsValue()
+    }
+  }
+  buildPropsValue () {
+    this.config = {
+      mode: this.mode,
+      singleValue: this.singleValue,
+      calendarIcon: this.calendarIcon,
+      angleRightIcon: this.angleRightIcon,
+      angleLeftIcon: this.angleLeftIcon,
+      closeIcon: this.closeIcon,
+      activePreviousDate: this.activePreviousDate,
+      rangeStartValue: this.rangeStartValue,
+      rangeEndValue: this.rangeEndValue,
+      startWeek: this.startWeek,
+      labels: {
+        title: this.title,
+        title_2: this.title2,
+        datepickerBtnValue: this.datepickerBtnValue,
+        rangeNextBtnValue: this.rangeNextBtnValue,
+        months: this.months,
+        days: this.days
+      }
+    };
     this.initAppState(this.config);
   }
 

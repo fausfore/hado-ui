@@ -14,6 +14,7 @@ export class DatepickerInput {
   @State() openDatePicker: boolean;
 
   componentWillLoad () {
+    console.log('[DatepickerInput] - componentWillLoad')
     this.openDatePicker = this.datepickerModel.openDatePicker;
   }
 
