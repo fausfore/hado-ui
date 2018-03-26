@@ -1,4 +1,4 @@
-import { Component, Prop, State, Method, Element, EventEmitter, Event } from '@stencil/core';
+import { Component, Prop, State, Method, Element, EventEmitter, Event, Watch } from '@stencil/core';
 import moment from 'moment';
 
 import {
@@ -39,6 +39,12 @@ export class StDatepicker {
   @State() datepickerModel: DatePickerState;
   @State() rangepickerModel: RangePickerState;
   @State() optionsModel: OptionsState;
+
+  @Watch('config')
+  reloadState () {
+    this.initAppState();
+  }
+
 
   @Method ()
   get props() {

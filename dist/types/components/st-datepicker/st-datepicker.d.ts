@@ -24,6 +24,7 @@ export declare class StDatepicker {
     datepickerModel: DatePickerState;
     rangepickerModel: RangePickerState;
     optionsModel: OptionsState;
+    reloadState(): void;
     readonly props: HTMLElement;
     initAppState(config?: Inputs): void;
     componentDidLoad(): void;

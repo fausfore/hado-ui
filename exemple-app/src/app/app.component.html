@@ -1,0 +1,12 @@
+
+<button (click)="switchMode('single')">Single</button>
+<button (click)="switchMode('range')">Range</button>
+
+
+<st-datepicker
+  (selectSingleDate)="showOutput($event, 'single date is selected')"
+  (startDateSelectedEvent)="showOutput($event, 'started date is selected')"
+  (endDateSelectedEvent)="showOutput($event, 'Ended date is selected')"
+  [config]="datepickerConfig">
+</st-datepicker>
+

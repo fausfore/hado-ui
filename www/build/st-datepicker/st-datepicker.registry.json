@@ -6,22 +6,22 @@
   "corePolyfilled": "st-datepicker.wp7gpwc9.js",
   "components": {
     "date-item-list": {
-      "$": "sfkzwpcx"
+      "$": "856utj2p"
     },
     "datepicker-input": {
-      "$": "sfkzwpcx"
+      "$": "856utj2p"
     },
     "datepicker-modal": {
-      "$": "sfkzwpcx"
+      "$": "856utj2p"
     },
     "rangepicker-input": {
-      "$": "sfkzwpcx"
+      "$": "856utj2p"
     },
     "rangepicker-modal": {
-      "$": "sfkzwpcx"
+      "$": "856utj2p"
     },
     "st-datepicker": {
-      "$": "sfkzwpcx"
+      "$": "856utj2p"
     }
   }
 }

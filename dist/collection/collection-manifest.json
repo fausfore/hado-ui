@@ -315,7 +315,10 @@
           "type": "String"
         },
         {
-          "name": "config"
+          "name": "config",
+          "watch": [
+            "reloadState"
+          ]
         },
         {
           "name": "datepickerBtnValue",
