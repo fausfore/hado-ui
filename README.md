@@ -188,21 +188,3 @@ interface  Model {
 | startDateSelectedEvent | Event | Moment |
 | endDateSelectedEvent | Event | Moment |
 | datepickerIsLoaded | Event | boolean |
-
-
-### Update config object
-
-```typescript
-let my_datepicker_config = {/* properties */};
-my_update_function() {
-
-	my_datepicker_config.mode = 'range' // BAD
-	
-	my_datepicker_config = {
-		...my_datepicker_config,
-		mode: 'range'
-	} // GOOD
-	
-}
-
-```
