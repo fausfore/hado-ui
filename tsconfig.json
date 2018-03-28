@@ -17,8 +17,9 @@
     "jsxFactory": "h",
     "baseUrl": "./src",
     "paths": {
-      "@Datepicker/*": ["./modules/st-datepicker/*"],
-      "@DTimepicker/*": ["./modules/st-datepicker/st-timepicker/*"]
+      "@Datepicker/*": ["./modules/datepicker/*"],
+      "@DTimepicker/*": ["./modules/timepicker/*"],
+      "@Shared/*": ["./modules/shared/*"]
     }
   },
   "include": [

@@ -4,11 +4,11 @@
       "tag": "date-item-list",
       "dependencies": [],
       "componentClass": "DateItemList",
-      "componentPath": "modules/st-datepicker/components/calendar-date-item/calendar-date-item.js",
+      "componentPath": "modules/datepicker/components/calendar-date-item/calendar-date-item.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/st-datepicker/components/calendar-date-item/calendar-date-item.scss"
+            "modules/datepicker/components/calendar-date-item/calendar-date-item.scss"
           ]
         }
       },
@@ -47,14 +47,14 @@
       "tag": "datepicker-input",
       "dependencies": [
         "datepicker-modal",
-        "input-form"
+        "hado-input-form"
       ],
       "componentClass": "DatepickerInput",
-      "componentPath": "modules/st-datepicker/components/datepicker-input/datepicker-input.js",
+      "componentPath": "modules/datepicker/components/datepicker-input/datepicker-input.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/st-datepicker/components/datepicker-input/datepicker-input.scss"
+            "modules/datepicker/components/datepicker-input/datepicker-input.scss"
           ]
         }
       },
@@ -86,11 +86,11 @@
         "date-item-list"
       ],
       "componentClass": "DatepickerModal",
-      "componentPath": "modules/st-datepicker/components/datepicker-modal/datepicker-modal.js",
+      "componentPath": "modules/datepicker/components/datepicker-modal/datepicker-modal.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/st-datepicker/components/datepicker-modal/datepicker-modal.scss"
+            "modules/datepicker/components/datepicker-modal/datepicker-modal.scss"
           ]
         }
       },
@@ -140,193 +140,17 @@
       ]
     },
     {
-      "tag": "input-form",
-      "dependencies": [],
-      "componentClass": "InputFormComponent",
-      "componentPath": "modules/shared/input-form/input-form.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "modules/shared/input-form/input-form.scss"
-          ]
-        }
-      },
-      "props": [
-        {
-          "name": "iconClass",
-          "type": "String"
-        },
-        {
-          "name": "placeholder",
-          "type": "String"
-        },
-        {
-          "name": "value",
-          "type": "Any"
-        }
-      ],
-      "hostElement": {
-        "name": "input"
-      },
-      "events": [
-        {
-          "event": "isSelectEvent"
-        }
-      ]
-    },
-    {
-      "tag": "rangepicker-input",
-      "dependencies": [
-        "input-form",
-        "rangepicker-modal"
-      ],
-      "componentClass": "RangepickerInput",
-      "componentPath": "modules/st-datepicker/components/rangepicker-input/rangepicker-input.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "modules/st-datepicker/components/rangepicker-input/rangepicker-input.scss"
-          ]
-        }
-      },
-      "props": [
-        {
-          "name": "optionsModel"
-        },
-        {
-          "name": "rangepickerModel"
-        }
-      ],
-      "states": [
-        {
-          "name": "activeFormType"
-        },
-        {
-          "name": "EndDateSelected"
-        },
-        {
-          "name": "openDatePicker"
-        },
-        {
-          "name": "StartDateSelected"
-        }
-      ],
-      "listeners": [
-        {
-          "event": "closeModalEvent",
-          "method": "toggleRangePickerModal",
-          "passive": false,
-          "capture": false
-        },
-        {
-          "event": "endDateSelectedEvent",
-          "method": "updateEndDate",
-          "passive": false,
-          "capture": false
-        },
-        {
-          "event": "navigationChange",
-          "method": "updateNavigation",
-          "passive": false,
-          "capture": false
-        },
-        {
-          "event": "startDateSelectedEvent",
-          "method": "updateStartDate",
-          "passive": false,
-          "capture": false
-        }
-      ]
-    },
-    {
-      "tag": "rangepicker-modal",
-      "dependencies": [
-        "date-item-list"
-      ],
-      "componentClass": "RangepickerModal",
-      "componentPath": "modules/st-datepicker/components/rangepicker-modal/rangepicker-modal.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "modules/st-datepicker/components/rangepicker-modal/rangepicker-modal.scss"
-          ]
-        }
-      },
-      "props": [
-        {
-          "name": "optionsModel"
-        },
-        {
-          "name": "rangepickerModel"
-        }
-      ],
-      "states": [
-        {
-          "name": "animationMode"
-        },
-        {
-          "name": "dataItemLeftConfig"
-        },
-        {
-          "name": "dataItemRightConfig"
-        },
-        {
-          "name": "datePickerConfig"
-        },
-        {
-          "name": "formType"
-        },
-        {
-          "name": "localDateSelected"
-        },
-        {
-          "name": "monthLeft"
-        },
-        {
-          "name": "monthRight"
-        },
-        {
-          "name": "yearLeft"
-        },
-        {
-          "name": "yearRight"
-        }
-      ],
-      "listeners": [
-        {
-          "event": "DateItemListEvent",
-          "method": "chooseDate",
-          "passive": false,
-          "capture": false
-        }
-      ],
-      "events": [
-        {
-          "event": "closeModalEvent"
-        },
-        {
-          "event": "endDateSelectedEvent"
-        },
-        {
-          "event": "navigationChange"
-        },
-        {
-          "event": "startDateSelectedEvent"
-        }
-      ]
-    },
-    {
-      "tag": "st-datepicker",
+      "tag": "hado-datepicker",
       "dependencies": [
         "datepicker-input",
         "rangepicker-input"
       ],
       "componentClass": "StDatepicker",
-      "componentPath": "modules/st-datepicker/st-datepicker.js",
+      "componentPath": "modules/datepicker/datepicker.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/st-datepicker/st-datepicker.scss"
+            "modules/datepicker/datepicker.scss"
           ]
         }
       },
@@ -434,16 +258,78 @@
       ]
     },
     {
-      "tag": "st-timepicker",
-      "dependencies": [
-        "input-form"
-      ],
-      "componentClass": "StTimepicker",
-      "componentPath": "modules/st-timepicker/st-timepicker.js",
+      "tag": "hado-input-form",
+      "dependencies": [],
+      "componentClass": "InputFormComponent",
+      "componentPath": "modules/shared/input-form/hado-input-form.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/st-timepicker/st-timepicker.scss"
+            "modules/shared/input-form/hado-input-form.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "iconClass",
+          "type": "String"
+        },
+        {
+          "name": "placeholder",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "type": "Any"
+        }
+      ],
+      "hostElement": {
+        "name": "input"
+      },
+      "scoped": true
+    },
+    {
+      "tag": "hado-input-form",
+      "dependencies": [],
+      "componentClass": "InputFormComponent",
+      "componentPath": "modules/shared/input-form/hado-input-form.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "modules/shared/input-form/hado-input-form.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "iconClass",
+          "type": "String"
+        },
+        {
+          "name": "placeholder",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "type": "Any"
+        }
+      ],
+      "hostElement": {
+        "name": "input"
+      },
+      "scoped": true
+    },
+    {
+      "tag": "hado-timepicker",
+      "dependencies": [
+        "hado-input-form"
+      ],
+      "componentClass": "StTimepicker",
+      "componentPath": "modules/timepicker/timepicker.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "modules/timepicker/timepicker.scss"
           ]
         }
       },
@@ -476,6 +362,147 @@
           "event": "isLoaded$"
         }
       ]
+    },
+    {
+      "tag": "rangepicker-input",
+      "dependencies": [
+        "hado-input-form",
+        "rangepicker-modal"
+      ],
+      "componentClass": "RangepickerInput",
+      "componentPath": "modules/datepicker/components/rangepicker-input/rangepicker-input.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "modules/datepicker/components/rangepicker-input/rangepicker-input.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "optionsModel"
+        },
+        {
+          "name": "rangepickerModel"
+        }
+      ],
+      "states": [
+        {
+          "name": "activeFormType"
+        },
+        {
+          "name": "EndDateSelected"
+        },
+        {
+          "name": "openDatePicker"
+        },
+        {
+          "name": "StartDateSelected"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "closeModalEvent",
+          "method": "toggleRangePickerModal",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "endDateSelectedEvent",
+          "method": "updateEndDate",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "navigationChange",
+          "method": "updateNavigation",
+          "passive": false,
+          "capture": false
+        },
+        {
+          "event": "startDateSelectedEvent",
+          "method": "updateStartDate",
+          "passive": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "tag": "rangepicker-modal",
+      "dependencies": [
+        "date-item-list"
+      ],
+      "componentClass": "RangepickerModal",
+      "componentPath": "modules/datepicker/components/rangepicker-modal/rangepicker-modal.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "modules/datepicker/components/rangepicker-modal/rangepicker-modal.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "optionsModel"
+        },
+        {
+          "name": "rangepickerModel"
+        }
+      ],
+      "states": [
+        {
+          "name": "animationMode"
+        },
+        {
+          "name": "dataItemLeftConfig"
+        },
+        {
+          "name": "dataItemRightConfig"
+        },
+        {
+          "name": "datePickerConfig"
+        },
+        {
+          "name": "formType"
+        },
+        {
+          "name": "localDateSelected"
+        },
+        {
+          "name": "monthLeft"
+        },
+        {
+          "name": "monthRight"
+        },
+        {
+          "name": "yearLeft"
+        },
+        {
+          "name": "yearRight"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "DateItemListEvent",
+          "method": "chooseDate",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "events": [
+        {
+          "event": "closeModalEvent"
+        },
+        {
+          "event": "endDateSelectedEvent"
+        },
+        {
+          "event": "navigationChange"
+        },
+        {
+          "event": "startDateSelectedEvent"
+        }
+      ]
     }
   ],
   "collections": [],
@@ -487,8 +514,9 @@
   "bundles": [
     {
       "components": [
-        "st-datepicker",
-        "st-timepicker"
+        "hado-datepicker",
+        "hado-input-form",
+        "hado-timepicker"
       ]
     }
   ]

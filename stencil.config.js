@@ -9,9 +9,9 @@ exports.config = {
   bundles: [
     {
       components: [
-        'st-datepicker',
-        'st-timepicker',
-        'input-form'
+        'hado-datepicker',
+        'hado-timepicker',
+        'hado-input-form'
       ]
     }
   ]

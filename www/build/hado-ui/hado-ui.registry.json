@@ -9,25 +9,25 @@
       "$": "kzozgbba"
     },
     "datepicker-input": {
-      "$": "vrfay9as"
+      "$": "n4vgfy9b"
     },
     "datepicker-modal": {
-      "$": "vrfay9as"
+      "$": "n4vgfy9b"
     },
-    "input-form": {
-      "$": "jtdl3blw"
+    "hado-datepicker": {
+      "$": "vcetltue"
+    },
+    "hado-input-form": {
+      "$": "aqs0mcv7"
+    },
+    "hado-timepicker": {
+      "$": "vcetltue"
     },
     "rangepicker-input": {
-      "$": "8cxzmusw"
+      "$": "rk9aldyq"
     },
     "rangepicker-modal": {
-      "$": "8cxzmusw"
-    },
-    "st-datepicker": {
-      "$": "sqoafb2o"
-    },
-    "st-timepicker": {
-      "$": "sqoafb2o"
+      "$": "rk9aldyq"
     }
   }
 }

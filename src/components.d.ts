@@ -21,54 +21,22 @@ declare global {
 import {
   DatePickerItem,
   DatePickerState,
-  Inputs,
   OptionsState,
   RangePickerState,
 } from '@Datepicker/models/datepicker.interface';
 import {
   DatePickerState as DatePickerState2,
+  Inputs,
   OptionsState as OptionsState2,
   RangePickerState as RangePickerState2,
-} from './modules/st-datepicker/models/datepicker.interface';
+} from './modules/datepicker/models/datepicker.interface';
 import {
   TimepickerState,
-} from './modules/st-timepicker/st-timepicker.interface';
-
-import {
-  InputFormComponent as InputForm
-} from './modules/shared/input-form/input-form';
-
-declare global {
-  interface HTMLInputFormElement extends InputForm, HTMLStencilElement {
-  }
-  var HTMLInputFormElement: {
-    prototype: HTMLInputFormElement;
-    new (): HTMLInputFormElement;
-  };
-  interface HTMLElementTagNameMap {
-    "input-form": HTMLInputFormElement;
-  }
-  interface ElementTagNameMap {
-    "input-form": HTMLInputFormElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "input-form": JSXElements.InputFormAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface InputFormAttributes extends HTMLAttributes {
-      iconClass?: string;
-      placeholder?: string;
-      value?: any;
-    }
-  }
-}
-
+} from './modules/timepicker/models/timepicker.interface';
 
 import {
   DateItemList as DateItemList
-} from './modules/st-datepicker/components/calendar-date-item/calendar-date-item';
+} from './modules/datepicker/components/calendar-date-item/calendar-date-item';
 
 declare global {
   interface HTMLDateItemListElement extends DateItemList, HTMLStencilElement {
@@ -102,7 +70,7 @@ declare global {
 
 import {
   DatepickerInput as DatepickerInput
-} from './modules/st-datepicker/components/datepicker-input/datepicker-input';
+} from './modules/datepicker/components/datepicker-input/datepicker-input';
 
 declare global {
   interface HTMLDatepickerInputElement extends DatepickerInput, HTMLStencilElement {
@@ -133,7 +101,7 @@ declare global {
 
 import {
   DatepickerModal as DatepickerModal
-} from './modules/st-datepicker/components/datepicker-modal/datepicker-modal';
+} from './modules/datepicker/components/datepicker-modal/datepicker-modal';
 
 declare global {
   interface HTMLDatepickerModalElement extends DatepickerModal, HTMLStencilElement {
@@ -164,7 +132,7 @@ declare global {
 
 import {
   RangepickerInput as RangepickerInput
-} from './modules/st-datepicker/components/rangepicker-input/rangepicker-input';
+} from './modules/datepicker/components/rangepicker-input/rangepicker-input';
 
 declare global {
   interface HTMLRangepickerInputElement extends RangepickerInput, HTMLStencilElement {
@@ -195,7 +163,7 @@ declare global {
 
 import {
   RangepickerModal as RangepickerModal
-} from './modules/st-datepicker/components/rangepicker-modal/rangepicker-modal';
+} from './modules/datepicker/components/rangepicker-modal/rangepicker-modal';
 
 declare global {
   interface HTMLRangepickerModalElement extends RangepickerModal, HTMLStencilElement {
@@ -225,29 +193,29 @@ declare global {
 
 
 import {
-  StDatepicker as StDatepicker
-} from './modules/st-datepicker/st-datepicker';
+  StDatepicker as HadoDatepicker
+} from './modules/datepicker/datepicker';
 
 declare global {
-  interface HTMLStDatepickerElement extends StDatepicker, HTMLStencilElement {
+  interface HTMLHadoDatepickerElement extends HadoDatepicker, HTMLStencilElement {
   }
-  var HTMLStDatepickerElement: {
-    prototype: HTMLStDatepickerElement;
-    new (): HTMLStDatepickerElement;
+  var HTMLHadoDatepickerElement: {
+    prototype: HTMLHadoDatepickerElement;
+    new (): HTMLHadoDatepickerElement;
   };
   interface HTMLElementTagNameMap {
-    "st-datepicker": HTMLStDatepickerElement;
+    "hado-datepicker": HTMLHadoDatepickerElement;
   }
   interface ElementTagNameMap {
-    "st-datepicker": HTMLStDatepickerElement;
+    "hado-datepicker": HTMLHadoDatepickerElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "st-datepicker": JSXElements.StDatepickerAttributes;
+      "hado-datepicker": JSXElements.HadoDatepickerAttributes;
     }
   }
   namespace JSXElements {
-    export interface StDatepickerAttributes extends HTMLAttributes {
+    export interface HadoDatepickerAttributes extends HTMLAttributes {
       activePreviousDate?: boolean;
       angleLeftIcon?: string;
       angleRightIcon?: string;
@@ -273,29 +241,61 @@ declare global {
 
 
 import {
-  StTimepicker as StTimepicker
-} from './modules/st-timepicker/st-timepicker';
+  InputFormComponent as HadoInputForm
+} from './modules/shared/input-form/hado-input-form';
 
 declare global {
-  interface HTMLStTimepickerElement extends StTimepicker, HTMLStencilElement {
+  interface HTMLHadoInputFormElement extends HadoInputForm, HTMLStencilElement {
   }
-  var HTMLStTimepickerElement: {
-    prototype: HTMLStTimepickerElement;
-    new (): HTMLStTimepickerElement;
+  var HTMLHadoInputFormElement: {
+    prototype: HTMLHadoInputFormElement;
+    new (): HTMLHadoInputFormElement;
   };
   interface HTMLElementTagNameMap {
-    "st-timepicker": HTMLStTimepickerElement;
+    "hado-input-form": HTMLHadoInputFormElement;
   }
   interface ElementTagNameMap {
-    "st-timepicker": HTMLStTimepickerElement;
+    "hado-input-form": HTMLHadoInputFormElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "st-timepicker": JSXElements.StTimepickerAttributes;
+      "hado-input-form": JSXElements.HadoInputFormAttributes;
     }
   }
   namespace JSXElements {
-    export interface StTimepickerAttributes extends HTMLAttributes {
+    export interface HadoInputFormAttributes extends HTMLAttributes {
+      iconClass?: string;
+      placeholder?: string;
+      value?: any;
+    }
+  }
+}
+
+
+import {
+  StTimepicker as HadoTimepicker
+} from './modules/timepicker/timepicker';
+
+declare global {
+  interface HTMLHadoTimepickerElement extends HadoTimepicker, HTMLStencilElement {
+  }
+  var HTMLHadoTimepickerElement: {
+    prototype: HTMLHadoTimepickerElement;
+    new (): HTMLHadoTimepickerElement;
+  };
+  interface HTMLElementTagNameMap {
+    "hado-timepicker": HTMLHadoTimepickerElement;
+  }
+  interface ElementTagNameMap {
+    "hado-timepicker": HTMLHadoTimepickerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "hado-timepicker": JSXElements.HadoTimepickerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface HadoTimepickerAttributes extends HTMLAttributes {
       config?: TimepickerState;
     }
   }

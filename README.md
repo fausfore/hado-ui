@@ -1,5 +1,5 @@
 
-# A datepicker web component build with Stencil
+# A Collection of web component build with Stencil
 
 It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https://hammerjs.github.io/) for the gestures.
 
@@ -140,12 +140,17 @@ componentDidUpdate (prevProps, prevState) {
 
 ## How to use in Vanilla Js :
 
-  2 - Add the script tag on the top of the *index.html* :
+  2 - Add scripts on the top of the *index.html* :
 
 ```html
-<head>
-	<script src='assets/hado-ui/hado-ui.js'></script>
-</head>
+<html>
+	<head>
+		<script src="moment.min.js"/>
+		<script src="hammer.min.js"/>
+		<script src='assets/hado-ui/hado-ui.js'></script>
+	</head>
+	<body> ... </body>
+</html>
 ```
   2 - Add the script tag on the bottom of the *index.html* :
   
