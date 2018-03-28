@@ -15,19 +15,22 @@
       "$": "n4vgfy9b"
     },
     "hado-datepicker": {
-      "$": "vcetltue"
+      "$": "4kpd6xkx"
     },
     "hado-input-form": {
-      "$": "aqs0mcv7"
+      "$": "ozffpqtv"
+    },
+    "hado-modal-dialog": {
+      "$": "4kpd6xkx"
     },
     "hado-timepicker": {
-      "$": "vcetltue"
+      "$": "4kpd6xkx"
     },
     "rangepicker-input": {
-      "$": "rk9aldyq"
+      "$": "pkpzogrw"
     },
     "rangepicker-modal": {
-      "$": "rk9aldyq"
+      "$": "pkpzogrw"
     }
   }
 }

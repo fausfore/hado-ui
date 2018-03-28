@@ -1,22 +1,5 @@
 .datepicker-range-input {
   display: flex;
-  justify-content: space-around;
   position: relative;
-  flex-direction: row;
-  @media only screen and (max-width: 780px)  {
-    flex-direction: column;
-  }
-  
-  .datepicker-input-group {
-    width: 40%;
-    @media only screen and (max-width: 780px)  {
-      width: 100%;
-      margin: 5px 0;
-    }
-  }
-  .datepicker-input {
-    &.active {
-      border-bottom: solid 2px;
-    }
-  }
+  flex-direction: column;
 }

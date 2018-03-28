@@ -3,10 +3,10 @@ import { EventEmitter } from '../../../../stencil.core';
 import { Moment } from 'moment';
 import { DatePickerItem, DatePickerState, OptionsState } from '../../models/datepicker.interface';
 export declare class DatepickerModal {
-    closedModalEvent: EventEmitter;
-    selectSingleDate: EventEmitter;
     datepickerModel: DatePickerState;
     optionsModel: OptionsState;
+    closedModalEvent: EventEmitter;
+    selectSingleDate: EventEmitter;
     DOMElement: HTMLElement;
     month: string;
     year: string;

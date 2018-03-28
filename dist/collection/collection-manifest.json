@@ -261,14 +261,8 @@
       "tag": "hado-input-form",
       "dependencies": [],
       "componentClass": "InputFormComponent",
-      "componentPath": "modules/shared/input-form/hado-input-form.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "modules/shared/input-form/hado-input-form.scss"
-          ]
-        }
-      },
+      "componentPath": "modules/shared/input-form/input-form.js",
+      "styles": {},
       "props": [
         {
           "name": "iconClass",
@@ -285,21 +279,14 @@
       ],
       "hostElement": {
         "name": "input"
-      },
-      "scoped": true
+      }
     },
     {
       "tag": "hado-input-form",
       "dependencies": [],
       "componentClass": "InputFormComponent",
-      "componentPath": "modules/shared/input-form/hado-input-form.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "modules/shared/input-form/hado-input-form.scss"
-          ]
-        }
-      },
+      "componentPath": "modules/shared/input-form/input-form.js",
+      "styles": {},
       "props": [
         {
           "name": "iconClass",
@@ -316,8 +303,29 @@
       ],
       "hostElement": {
         "name": "input"
-      },
-      "scoped": true
+      }
+    },
+    {
+      "tag": "hado-modal-dialog",
+      "dependencies": [],
+      "componentClass": "ModalDialogComponent",
+      "componentPath": "modules/shared/modal-dialog/modal-dialog.js",
+      "styles": {},
+      "props": [
+        {
+          "name": "iconClass",
+          "type": "String"
+        },
+        {
+          "name": "title",
+          "type": "String"
+        }
+      ],
+      "events": [
+        {
+          "event": "modalEvent$"
+        }
+      ]
     },
     {
       "tag": "hado-timepicker",
@@ -347,6 +355,14 @@
         },
         {
           "name": "showModal"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "modalEvent$",
+          "method": "closeModal",
+          "passive": false,
+          "capture": false
         }
       ],
       "methods": [
@@ -516,6 +532,7 @@
       "components": [
         "hado-datepicker",
         "hado-input-form",
+        "hado-modal-dialog",
         "hado-timepicker"
       ]
     }

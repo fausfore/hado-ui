@@ -243,7 +243,7 @@ declare global {
 
 import {
   InputFormComponent as HadoInputForm
-} from './modules/shared/input-form/hado-input-form';
+} from './modules/shared/input-form/input-form';
 
 declare global {
   interface HTMLHadoInputFormElement extends HadoInputForm, HTMLStencilElement {
@@ -268,6 +268,37 @@ declare global {
       iconClass?: string;
       placeholder?: string;
       value?: any;
+    }
+  }
+}
+
+
+import {
+  ModalDialogComponent as HadoModalDialog
+} from './modules/shared/modal-dialog/modal-dialog';
+
+declare global {
+  interface HTMLHadoModalDialogElement extends HadoModalDialog, HTMLStencilElement {
+  }
+  var HTMLHadoModalDialogElement: {
+    prototype: HTMLHadoModalDialogElement;
+    new (): HTMLHadoModalDialogElement;
+  };
+  interface HTMLElementTagNameMap {
+    "hado-modal-dialog": HTMLHadoModalDialogElement;
+  }
+  interface ElementTagNameMap {
+    "hado-modal-dialog": HTMLHadoModalDialogElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "hado-modal-dialog": JSXElements.HadoModalDialogAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface HadoModalDialogAttributes extends HTMLAttributes {
+      iconClass?: string;
+      title?: string;
     }
   }
 }

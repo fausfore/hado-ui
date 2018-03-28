@@ -149,6 +149,56 @@ ul {
       background: #0088CE;
       min-width: 33%; }
 
+.input-group {
+  position: relative;
+  display: flex;
+  background: #0088CE;
+  border-radius: 6px;
+  margin: 5px 0;
+  flex-direction: column; }
+  .input-group:before {
+    position: absolute;
+    top: calc(100% - 2px);
+    height: 2px;
+    background: #0088CE;
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; }
+  .input-group.on-enter:before {
+    animation-name: Expand; }
+  .input-group.on-leave:before {
+    animation-name: Minimize; }
+  .input-group input {
+    padding: 13px 20px;
+    width: calc(80% - 40px);
+    background: #efeeee;
+    color: #0088CE;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px;
+    outline: none; }
+  .input-group i {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%) translateX(50%);
+    color: #fff;
+    font-size: 22px; }
+
+@keyframes Expand {
+  0% {
+    width: 0%; }
+  100% {
+    width: 98%; } }
+
+@keyframes Minimize {
+  0% {
+    width: 98%; }
+  100% {
+    width: 0%; } }
+
 .current {
   color: #0088CE; }
 

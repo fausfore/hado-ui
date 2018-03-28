@@ -7,16 +7,12 @@ export declare class StTimepicker {
     selected: any;
     start: moment.Moment;
     end: moment.Moment;
+    defaultState: TimepickerState;
     dateSelected$: EventEmitter;
     isLoaded$: EventEmitter;
     showModal: boolean;
-    defaultState: TimepickerState;
+    hourList: any[];
     config: TimepickerState;
-    hourList: {
-        value: moment.Moment;
-        current: boolean;
-        selected: boolean;
-    }[];
     initialWithProps(): void;
     initialize(props?: TimepickerState): void;
     componentWillLoad(): void;

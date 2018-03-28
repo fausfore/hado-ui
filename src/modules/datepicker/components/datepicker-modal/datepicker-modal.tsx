@@ -12,17 +12,18 @@ import Hammer from 'hammerjs';
 
 export class DatepickerModal {
 
-  @Event() closedModalEvent: EventEmitter;
-  @Event() selectSingleDate: EventEmitter;
   @Prop() datepickerModel : DatePickerState;
   @Prop() optionsModel: OptionsState;
+
+  @Event() closedModalEvent: EventEmitter;
+  @Event() selectSingleDate: EventEmitter;
+
   @Element() DOMElement: HTMLElement;
 
   @State() month: string;
   @State() year: string;
   @State() datePickerConfig = { year: undefined, month: undefined };
   @State() localDateSelected: Moment;
-
   @State() dataItemConfig : {
     animation: string,
     itemList: DatePickerItem[]

@@ -2,10 +2,8 @@ import moment from 'moment';
 export class StTimepicker {
     constructor() {
         this.current = moment();
-        this.selected = undefined;
         this.start = moment().startOf('day');
         this.end = moment().endOf('day');
-        this.showModal = false;
         this.defaultState = {
             value: undefined,
             format: 'HH:mm',
@@ -17,44 +15,38 @@ export class StTimepicker {
                 placeholder: '...'
             }
         };
+        this.showModal = false;
+        this.hourList = [];
         this.config = this.defaultState;
-        this.hourList = [
-            {
-                value: this.start,
-                current: false,
-                selected: false
-            }
-        ];
     }
     initialWithProps() {
         this.config ? this.initialize(this.config) : null;
     }
     initialize(props) {
         this.config = Object.assign({}, this.defaultState, this.config);
-        console.log('LALAL', this.config);
         if (props && props.value) {
-            if (Number.isInteger(this.minutesOfDay(this.config.value) / 30)) {
-                console.log('YYESS', this.isValid(this.minutesOfDay(this.config.value)));
-            }
-            else {
-                console.log('NNNO', this.isValid(this.minutesOfDay(this.config.value)));
-            }
+            Number.isInteger(this.minutesOfDay(this.config.value) / 30)
+                ? console.log('YYESS', this.isValid(this.minutesOfDay(this.config.value)))
+                : console.log('NNNO', this.isValid(this.minutesOfDay(this.config.value)));
         }
         this.selected = this.config.value;
         const differ = this.start.diff(this.end, 'hour');
         let iterable = this.start;
         const currentHour = this.isValid(this.minutesOfDay(this.current));
-        for (let i = 0; i <= Math.abs(differ) * 2; i++) {
+        for (let i = 0; i <= Math.abs(differ) * 2 + 1; i++) {
             let isCurrent = false;
             this.minutesOfDay(iterable) === currentHour
                 ? isCurrent = true
                 : null;
-            iterable = moment(iterable.add(30, 'minute'));
-            this.hourList.push({
-                value: iterable,
-                current: isCurrent,
-                selected: false
-            });
+            iterable = i === 0 ? moment(iterable) : moment(iterable.add(30, 'minute'));
+            this.hourList = [
+                ...this.hourList,
+                {
+                    value: iterable.format('HH:mm'),
+                    current: isCurrent,
+                    selected: false
+                }
+            ];
         }
     }
     componentWillLoad() {
@@ -64,12 +56,18 @@ export class StTimepicker {
         return m.minutes() + m.hours() * 60;
     }
     selectHour(value) {
+        const payload = moment();
         this.selected = value;
         this.hourList = this.hourList.map((hour) => {
             hour.selected = hour.value === value;
             return hour;
         });
-        this.dateSelected$.emit(this.selected);
+        const parse = this.selected.split(':');
+        payload.set({
+            hour: Number(parse[0]),
+            minutes: Number(parse[1])
+        });
+        this.dateSelected$.emit(payload);
         this.closeModal();
     }
     isValid(value) {
@@ -77,7 +75,6 @@ export class StTimepicker {
         for (let i = 30; 0 <= i; i--) {
             numb = numb + 1;
             if (Number.isInteger(numb / 30)) {
-                console.log('numb', numb);
                 return numb;
             }
         }
@@ -93,10 +90,10 @@ export class StTimepicker {
         !this.showModal ? this.showModal = true : null;
     }
     render() {
-        const { format, labels: { closeIcon, timeIcon, title, placeholder } } = this.config;
-        const hourList = this.hourList.map((hour) => h("li", { onClick: () => this.selectHour(hour.value), class: `hour-item ${hour.current ? 'current' : ''} ${hour.selected ? 'selected' : ''}` }, hour.value.format(format)));
+        const { labels: { closeIcon, timeIcon, title, placeholder } } = this.config;
+        const hourList = this.hourList.map((hour) => h("li", { onClick: () => this.selectHour(hour.value), class: `hour-item ${hour.current ? 'current' : ''} ${hour.selected ? 'selected' : ''}` }, hour.value));
         return (h("div", { class: "timepicker-container" },
-            h("hado-input-form", { onClick: () => this.openModal(), value: this.selected ? this.selected.format(format) : undefined, placeholder: placeholder, iconClass: timeIcon }),
+            h("hado-input-form", { onClick: () => this.openModal(), value: this.selected ? this.selected : undefined, placeholder: placeholder, iconClass: timeIcon }),
             this.showModal ?
                 h("div", { class: "modal-container" },
                     h("div", { id: "modalComponent", class: "modal has-header on-enter" },

@@ -14,7 +14,5 @@ export class InputFormComponent {
             h("i", { class: this.iconClass })));
     }
     static get is() { return "hado-input-form"; }
-    static get encapsulation() { return "scoped"; }
     static get properties() { return { "iconClass": { "type": String, "attr": "icon-class" }, "input": { "elementRef": true }, "placeholder": { "type": String, "attr": "placeholder" }, "value": { "type": "Any", "attr": "value" } }; }
-    static get style() { return "/**style-placeholder:hado-input-form:**/"; }
 }

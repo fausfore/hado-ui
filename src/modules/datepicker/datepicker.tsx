@@ -61,7 +61,7 @@ export class StDatepicker {
       value = config
     } else {
       value = {
-        mode: 'range',
+        mode: 'single',
         singleValue: '2018-03-23',
         calendarIcon: 'far fa-calendar-alt',
         angleRightIcon: 'fas fa-angle-right',

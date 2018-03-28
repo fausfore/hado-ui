@@ -1,9 +1,7 @@
 import { Component, Prop, Element } from '@stencil/core';
 
 @Component({
-  tag: 'hado-input-form',
-  styleUrl: 'hado-input-form.scss',
-  scoped: true
+  tag: 'hado-input-form'
 })
 
 export class InputFormComponent {

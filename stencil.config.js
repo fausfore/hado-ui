@@ -11,7 +11,8 @@ exports.config = {
       components: [
         'hado-datepicker',
         'hado-timepicker',
-        'hado-input-form'
+        'hado-input-form',
+        'hado-modal-dialog'
       ]
     }
   ]
