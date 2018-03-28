@@ -3,12 +3,18 @@
 
 It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https://hammerjs.github.io/) for the gestures.
 
+## Components
+Datepicker
+Rangepicker
+Timepicker
+FormInput
+
 <p align="center">
-  <img src="https://github.com/fausfore/st-datepicker/blob/master/documentation/assets/mode-mobile.png"/>
+  <img src="https://github.com/fausfore/hado-ui/blob/master/documentation/assets/mode-mobile.png"/>
 </p>
 
 ```bash
-npm i st-datepicker or yarn add st-datepicker
+npm i hado-ui or yarn add hado-ui
 ```
 
   
@@ -25,8 +31,8 @@ npm i st-datepicker or yarn add st-datepicker
 	"favicon.ico",
 	{
 		"glob": "**/*",
-		"input": "../node_modules/st-datepicker/dist",
-		"output": "./assets/st-datepicker"
+		"input": "../node_modules/hado-ui/dist",
+		"output": "./assets/hado-ui"
 	}
 ],
 ```
@@ -35,7 +41,7 @@ npm i st-datepicker or yarn add st-datepicker
 
 ```html
 <head>
-	<script  src='assets/st-datepicker/st-datepicker.js'></script>
+	<script  src='assets/hado-ui/hado-ui.js'></script>
 </head>
 ```
 
@@ -73,7 +79,7 @@ const stencil = require('@stencil/webpack');
 const StencilComponent =
 	new stencil.StencilPlugin({
 		collections : [
-		'../node_modules/st-datepicker/dist'
+		'../node_modules/hado-ui/dist'
 		]
 	});
 	
@@ -83,7 +89,7 @@ module.export = {
 ```
 ```javascript
 // main.js
-import  'st-datepicker/dist/st-datepicker';
+import  'hado-ui/dist/hado-ui';
 
 Vue.config.ignoredElements  = ['st-',];
 ```
@@ -91,7 +97,7 @@ Vue.config.ignoredElements  = ['st-',];
 ```html
 <!-- vue files -->
 <template>
-	<st-datepicker :config="configValue"></st-datepicker>
+	<hado-ui :config="configValue"></hado-ui>
 </template>
 ```
 
@@ -100,7 +106,7 @@ Vue.config.ignoredElements  = ['st-',];
 For React you can use **@stencil/webpack** ( *must eject the webpack config* ) like Vue or copy the dist folder into your **public** folder.
 ```html
 // add the script on the index.html
-<script  src="%PUBLIC_URL%/static/js/st-datepicker.js">
+<script  src="%PUBLIC_URL%/static/js/hado-ui.js">
 ```
 For the moment you can't use the React props binding until the React 17 so you will do like a vanilla :
 ```javascript
@@ -112,7 +118,7 @@ this.state = {
 this.calendar;
 
 componentDidMount () {
-	this.calendar = document.querySelector('st-datepicker');
+	this.calendar = document.querySelector('hado-ui');
 	// Await the component mounting
 	this.calendar.addEventListener('datepickerIsLoaded', () => {
 		// Init component props
@@ -138,14 +144,14 @@ componentDidUpdate (prevProps, prevState) {
 
 ```html
 <head>
-	<script src='assets/st-datepicker/st-datepicker.js'></script>
+	<script src='assets/hado-ui/hado-ui.js'></script>
 </head>
 ```
   2 - Add the script tag on the bottom of the *index.html* :
   
   ```html
 <script>
-	var element = document.querySelector('st-datepicker');
+	var element = document.querySelector('hado-ui');
 	var config = {...};
 	element.addEventListener('datepickerIsLoaded', function() {
 		element.initAppState(config)
