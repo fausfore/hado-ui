@@ -11,6 +11,7 @@ exports.config = {
       components: [
         'st-datepicker',
         'st-timepicker',
+        'input-form'
       ]
     }
   ]
