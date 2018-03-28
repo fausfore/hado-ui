@@ -1,4 +1,3 @@
-/// <reference types="moment" />
 import moment from 'moment';
 declare const _default: {
     moment: moment.Moment;

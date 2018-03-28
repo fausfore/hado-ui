@@ -1,0 +1,220 @@
+.datepicker-input-group {
+  position: relative;
+  display: flex;
+  background: #0088CE;
+  border-radius: 6px; }
+  .datepicker-input-group .datepicker-input {
+    padding: 13px 20px;
+    width: calc(80% - 40px);
+    background: #efeeee;
+    color: #0088CE;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px; }
+  .datepicker-input-group i {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%) translateX(50%);
+    color: #fff;
+    font-size: 22px; }
+
+@keyframes Scale {
+  0% {
+    transform: scale(0.6);
+    opacity: 0; }
+  100% {
+    transform: scale(1);
+    opacity: 1; } }
+
+@keyframes UnScale {
+  0% {
+    transform: scale(1);
+    opacity: 1; }
+  100% {
+    transform: scale(0);
+    opacity: 0; } }
+
+.on-modal-enter, .modal.on-enter {
+  animation-name: Scale;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards; }
+
+.on-modal-leave, .modal.on-leave {
+  animation-name: UnScale;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards; }
+
+.day-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  list-style: none; }
+  .day-list li {
+    width: calc(14% - 10px);
+    text-align: center;
+    padding: 10px 5px;
+    font-weight: bold; }
+
+.datepicker-overlay, .rangepicker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  opacity: 0.3; }
+
+.date-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  width: 100%; }
+
+ul {
+  padding: 0; }
+
+.modal-container .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  opacity: 0.3; }
+  @media only screen and (max-width: 780px) {
+    .modal-container .overlay {
+      display: none; } }
+
+.modal {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: initial;
+  bottom: initial;
+  right: 0;
+  border-radius: 6px;
+  overflow-x: hidden;
+  z-index: 99;
+  box-shadow: 0 19px 38px rgba(41, 41, 41, 0.3), 0 15px 12px rgba(41, 41, 41, 0.2); }
+  .modal:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: inherit;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    transform: rotate(45deg) translateY(-50%); }
+  .modal.has-header .modal-content {
+    height: calc(100vh - 70px);
+    overflow-y: scroll; }
+  @media only screen and (max-width: 780px) {
+    .modal {
+      display: flex;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      flex-direction: column;
+      z-index: 99;
+      border-radius: 0px; } }
+  .modal .modal-header {
+    position: relative;
+    border-bottom: solid 1px #efeeee;
+    height: 70px;
+    display: none;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1); }
+    @media only screen and (max-width: 780px) {
+      .modal .modal-header {
+        display: block; } }
+    .modal .modal-header h2 {
+      text-align: center; }
+    .modal .modal-header i {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      color: #0088CE;
+      font-size: 32px; }
+  .modal .modal-content .content-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0; }
+    .modal .modal-content .content-header > * {
+      color: #0088CE; }
+    .modal .modal-content .content-header i {
+      font-size: 26px; }
+    .modal .modal-content .content-header label {
+      line-height: 26px;
+      text-transform: capitalize;
+      font-size: 22px; }
+  .modal .modal-footer {
+    position: relative;
+    height: 70px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 1px #efeeee;
+    -webkit-box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.1); }
+    @media only screen and (max-width: 780px) {
+      .modal .modal-footer {
+        display: flex; } }
+    .modal .modal-footer button {
+      text-align: center;
+      background: #0088CE;
+      min-width: 33%; }
+
+@keyframes Scale {
+  0% {
+    transform: scale(0.6);
+    opacity: 0; }
+  100% {
+    transform: scale(1);
+    opacity: 1; } }
+
+@keyframes UnScale {
+  0% {
+    transform: scale(1);
+    opacity: 1; }
+  100% {
+    transform: scale(0);
+    opacity: 0; } }
+
+.on-modal-enter, .modal.on-enter {
+  animation-name: Scale;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards; }
+
+.on-modal-leave, .modal.on-leave {
+  animation-name: UnScale;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards; }
+
+button {
+  background: #5851ff;
+  color: white;
+  margin: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  outline: 0;
+  letter-spacing: .04em;
+  transition: all .15s ease;
+  cursor: pointer; }
+
+button:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px); }
+
+.oui-datepicker > * {
+  font-family: Arial, sans-serif; }

@@ -1,4 +1,3 @@
-/// <reference types="moment" />
 import { Moment } from 'moment';
 import { DatePickerItem, OptionsState } from '../models/datepicker.interface';
 export declare function filterDayLabel(label: string): string;

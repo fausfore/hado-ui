@@ -4,11 +4,11 @@
       "tag": "date-item-list",
       "dependencies": [],
       "componentClass": "DateItemList",
-      "componentPath": "components/calendar-date-item/calendar-date-item.js",
+      "componentPath": "modules/st-datepicker/components/calendar-date-item/calendar-date-item.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/calendar-date-item/calendar-date-item.scss"
+            "modules/st-datepicker/components/calendar-date-item/calendar-date-item.scss"
           ]
         }
       },
@@ -46,14 +46,15 @@
     {
       "tag": "datepicker-input",
       "dependencies": [
-        "datepicker-modal"
+        "datepicker-modal",
+        "input-form"
       ],
       "componentClass": "DatepickerInput",
-      "componentPath": "components/datepicker-input/datepicker-input.js",
+      "componentPath": "modules/st-datepicker/components/datepicker-input/datepicker-input.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/datepicker-input/datepicker-input.scss"
+            "modules/st-datepicker/components/datepicker-input/datepicker-input.scss"
           ]
         }
       },
@@ -85,11 +86,11 @@
         "date-item-list"
       ],
       "componentClass": "DatepickerModal",
-      "componentPath": "components/datepicker-modal/datepicker-modal.js",
+      "componentPath": "modules/st-datepicker/components/datepicker-modal/datepicker-modal.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/datepicker-modal/datepicker-modal.scss"
+            "modules/st-datepicker/components/datepicker-modal/datepicker-modal.scss"
           ]
         }
       },
@@ -139,16 +140,52 @@
       ]
     },
     {
-      "tag": "rangepicker-input",
-      "dependencies": [
-        "rangepicker-modal"
-      ],
-      "componentClass": "RangepickerInput",
-      "componentPath": "components/rangepicker-input/rangepicker-input.js",
+      "tag": "input-form",
+      "dependencies": [],
+      "componentClass": "InputFormComponent",
+      "componentPath": "modules/shared/input-form/input-form.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/rangepicker-input/rangepicker-input.scss"
+            "modules/shared/input-form/input-form.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "iconClass",
+          "type": "String"
+        },
+        {
+          "name": "placeholder",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "type": "Any"
+        }
+      ],
+      "hostElement": {
+        "name": "input"
+      },
+      "events": [
+        {
+          "event": "isSelectEvent"
+        }
+      ]
+    },
+    {
+      "tag": "rangepicker-input",
+      "dependencies": [
+        "input-form",
+        "rangepicker-modal"
+      ],
+      "componentClass": "RangepickerInput",
+      "componentPath": "modules/st-datepicker/components/rangepicker-input/rangepicker-input.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "modules/st-datepicker/components/rangepicker-input/rangepicker-input.scss"
           ]
         }
       },
@@ -207,11 +244,11 @@
         "date-item-list"
       ],
       "componentClass": "RangepickerModal",
-      "componentPath": "components/rangepicker-modal/rangepicker-modal.js",
+      "componentPath": "modules/st-datepicker/components/rangepicker-modal/rangepicker-modal.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/rangepicker-modal/rangepicker-modal.scss"
+            "modules/st-datepicker/components/rangepicker-modal/rangepicker-modal.scss"
           ]
         }
       },
@@ -285,11 +322,11 @@
         "rangepicker-input"
       ],
       "componentClass": "StDatepicker",
-      "componentPath": "components/st-datepicker/st-datepicker.js",
+      "componentPath": "modules/st-datepicker/st-datepicker.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/st-datepicker/st-datepicker.scss"
+            "modules/st-datepicker/st-datepicker.scss"
           ]
         }
       },
@@ -333,6 +370,14 @@
         },
         {
           "name": "months"
+        },
+        {
+          "name": "placeholder",
+          "type": "String"
+        },
+        {
+          "name": "placeholder2",
+          "type": "String"
         },
         {
           "name": "rangeEndValue",
@@ -387,6 +432,50 @@
           "event": "datepickerIsLoaded"
         }
       ]
+    },
+    {
+      "tag": "st-timepicker",
+      "dependencies": [
+        "input-form"
+      ],
+      "componentClass": "StTimepicker",
+      "componentPath": "modules/st-timepicker/st-timepicker.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "modules/st-timepicker/st-timepicker.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "config",
+          "watch": [
+            "initialWithProps"
+          ]
+        }
+      ],
+      "states": [
+        {
+          "name": "hourList"
+        },
+        {
+          "name": "showModal"
+        }
+      ],
+      "methods": [
+        {
+          "name": "initialize"
+        }
+      ],
+      "events": [
+        {
+          "event": "dateSelected$"
+        },
+        {
+          "event": "isLoaded$"
+        }
+      ]
     }
   ],
   "collections": [],
@@ -398,12 +487,8 @@
   "bundles": [
     {
       "components": [
-        "date-item-list",
-        "datepicker-input",
-        "datepicker-modal",
-        "rangepicker-input",
-        "rangepicker-modal",
-        "st-datepicker"
+        "st-datepicker",
+        "st-timepicker"
       ]
     }
   ]

@@ -1,0 +1,84 @@
+@import "../../../../styles/variables";
+
+.datepicker-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  flex-direction: column;
+  box-shadow: 0 19px 38px rgba(#292929, 0.3), 0 15px 12px rgba(#292929, 0.2);
+  z-index: 99;
+  opacity: 0;
+  @media only screen and (min-width: $mobile) {
+    position: absolute;
+    width: 360px;
+    top:calc(100% + 25px);
+    left: initial;
+    bottom: initial;
+    right: 0;
+    border-radius: 6px;
+    overflow-x: hidden;
+    &:before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: inherit;
+      position: absolute;
+      top: 0;
+      right: 25px;
+      transform: rotate(45deg) translateY(-50%);
+
+    }
+  }
+  .modal-header {
+    position: relative;
+    border-bottom: solid 1px #777;
+    h2 {
+      text-align: center;
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      color: $primary;
+      font-size: 32px;
+    }
+  }
+  .modal-content {
+    padding: 0 5%;
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      & > * {
+        color: $primary;
+      }
+      i {
+        font-size: 26px;
+      }
+      label {
+        line-height: 26px;
+        text-transform: capitalize;
+        font-size: 22px;
+      }
+
+    }
+  }
+  .modal-footer {
+    padding: 40px 30px;
+    button {
+      margin: 0 auto;
+      display: block;
+      background: $primary;
+      width: 100%;
+      font-size: 18px;
+    }
+  }
+}
+
+
+

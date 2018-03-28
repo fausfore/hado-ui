@@ -1,8 +1,8 @@
 {
-  "name": "st-datepicker",
+  "name": "hado-ui",
   "version": "0.2.7",
   "description": "A web datepicker component",
-  "main": "dist/st-datepicker.js",
+  "main": "dist/hado-ui.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "keywords": [
@@ -19,12 +19,12 @@
   "files": [
     "dist/"
   ],
-  "browser": "dist/st-datepicker.js",
+  "browser": "dist/hado-ui.js",
   "scripts": {
     "build": "stencil build",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
-    "start": "npm run dev",
+    "start": "rimraf ./www/build && npm run dev",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache"
   },
@@ -39,8 +39,8 @@
     "@stencil/utils": "latest",
     "@types/hammerjs": "^2.0.35",
     "@types/jest": "^21.1.1",
-    "@types/moment": "^2.13.0",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "rimraf": "^2.6.2"
   },
   "repository": {
     "type": "git",

@@ -6,12 +6,12 @@
         "headers": [
           {
             "name": "Link",
-            "value": "</build/st-datepicker/st-datepicker.dsepmyc9.js>;rel=preload;as=script"
+            "value": "</build/hado-ui/hado-ui.qtlt131v.js>;rel=preload;as=script"
           }
         ]
       },
       {
-        "include": "/build/st-datepicker/**",
+        "include": "/build/hado-ui/**",
         "headers": [
           {
             "name": "Cache-Control",

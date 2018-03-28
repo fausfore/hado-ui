@@ -1,0 +1,33 @@
+{
+  "namespace": "HadoUi",
+  "fsNamespace": "hado-ui",
+  "loader": "../hado-ui.js",
+  "core": "hado-ui.qtlt131v.js",
+  "corePolyfilled": "hado-ui.5novrwwn.js",
+  "components": {
+    "date-item-list": {
+      "$": "kzozgbba"
+    },
+    "datepicker-input": {
+      "$": "vrfay9as"
+    },
+    "datepicker-modal": {
+      "$": "vrfay9as"
+    },
+    "input-form": {
+      "$": "jtdl3blw"
+    },
+    "rangepicker-input": {
+      "$": "8cxzmusw"
+    },
+    "rangepicker-modal": {
+      "$": "8cxzmusw"
+    },
+    "st-datepicker": {
+      "$": "sqoafb2o"
+    },
+    "st-timepicker": {
+      "$": "sqoafb2o"
+    }
+  }
+}

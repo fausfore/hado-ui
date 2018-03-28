@@ -14,7 +14,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "baseUrl": "./src",
+    "paths": {
+      "@Datepicker/*": ["./modules/st-datepicker/*"],
+      "@DTimepicker/*": ["./modules/st-datepicker/st-timepicker/*"]
+    }
   },
   "include": [
     "src",

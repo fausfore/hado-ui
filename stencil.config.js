@@ -1,7 +1,7 @@
 const sass = require('@stencil/sass');
 
 exports.config = {
-  namespace: 'st-datepicker',
+  namespace: 'hado-ui',
   generateDistribution: true,
   serviceWorker: false,
   generateWWW: true,
@@ -10,11 +10,7 @@ exports.config = {
     {
       components: [
         'st-datepicker',
-        'rangepicker-modal',
-        'rangepicker-input',
-        'datepicker-modal',
-        'datepicker-input',
-        'date-item-list',
+        'st-timepicker',
       ]
     }
   ]

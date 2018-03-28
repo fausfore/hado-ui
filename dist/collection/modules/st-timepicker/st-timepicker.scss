@@ -1,0 +1,65 @@
+@import "../../styles/variables";
+@import "../../styles/layout";
+@import "../../styles/forms";
+
+.current {
+    color: #0088CE;
+}
+.timepicker-container {
+    & > * {
+        font-family: Arial, sans-serif;
+    }
+    position: relative;
+    .modal {
+        @extend .modal;
+        .modal-header {
+            @extend .modal-header;
+        }
+        .modal-content {
+            @media only screen and (min-width: $mobile) {
+                max-height: 320px;
+                overflow-y: scroll;
+            }
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: orange;
+            opacity: 0.2;
+        }
+        .hour-list {
+            display: flex;
+            flex-direction: column;
+            -ms-overflow-style: none;  // IE 10+
+            overflow: -moz-scrollbars-none;  // Firefox
+            list-style-type: none;
+            border-radius: 0 3px 3px 0;
+            margin: 0;
+            border-radius: 0 0 6px 6px;
+            .hour-item {
+                width: calc(100% - 40px);
+                padding: 10px 20px;
+                border-bottom: solid 1px $grey5;
+                @media only screen and (max-width: $mobile) {
+                    padding: 18px 20px;
+                    text-align: center;
+                }
+                &:hover {
+                    color: #fff;
+                    background: #89b2c7;
+                    border-color: #89b2c7;
+                }
+                &.selected {
+                    background: $primary;
+                    border-color: $primary;
+                    color: #fff;
+                }
+            }
+        }        
+    }
+     
+}
+

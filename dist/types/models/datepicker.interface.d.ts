@@ -1,4 +1,3 @@
-/// <reference types="moment" />
 import { Moment } from "moment";
 export interface DatePickerItem {
     date: Moment;
