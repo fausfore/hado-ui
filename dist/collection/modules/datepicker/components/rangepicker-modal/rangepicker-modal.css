@@ -29,26 +29,27 @@
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
+  top: 0;
+  bottom: 0;
   background: #fff;
   box-shadow: 0 19px 38px rgba(41, 41, 41, 0.3), 0 15px 12px rgba(41, 41, 41, 0.2);
-  z-index: 99; }
+  z-index: 99;
+  min-width: 100%; }
   @media only screen and (min-width: 780px) {
     .range-container {
       position: absolute;
       top: calc(100% + 25px);
       left: initial;
       bottom: initial;
-      right: 0;
-      left: 0;
       border-radius: 6px;
-      overflow-x: hidden; } }
+      overflow-x: hidden;
+      min-width: 720px; } }
   .range-container .rangepicker-modal {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    min-width: 360px; }
     .range-container .rangepicker-modal.previous-date:before {
       display: none;
       content: '';

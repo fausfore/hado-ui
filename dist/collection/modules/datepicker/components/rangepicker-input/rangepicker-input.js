@@ -29,12 +29,11 @@ export class RangepickerInput {
         this.openDatePicker = !this.openDatePicker;
     }
     render() {
-        const { rangeEndValue, rangeStartValue } = this.rangepickerModel;
-        const { calendarIconClass, labels: { placeholder, placeholder_2 } } = this.optionsModel;
+        const { calendarIconClass } = this.optionsModel;
         return (h("div", { class: 'oui-datepicker' },
             h("div", { class: "datepicker-range-input" },
-                h("hado-input-form", { onClick: () => this.toggleRangePickerModal('start'), value: this.getLabel(rangeStartValue), placeholder: placeholder, iconClass: calendarIconClass }),
-                h("hado-input-form", { onClick: () => this.toggleRangePickerModal('end'), value: this.getLabel(rangeEndValue), placeholder: placeholder_2, iconClass: calendarIconClass }),
+                h("button", { class: "btn circle", onClick: () => this.toggleRangePickerModal('start') },
+                    h("i", { class: `main-icon ${calendarIconClass}` })),
                 this.openDatePicker
                     ? h("rangepicker-modal", { rangepickerModel: this.rangepickerModel, optionsModel: this.optionsModel }) : null)));
     }

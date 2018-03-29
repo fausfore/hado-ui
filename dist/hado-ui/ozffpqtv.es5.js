@@ -1,2 +1,0 @@
-/*! Built with http://stenciljs.com */
-HadoUi.loadBundle("ozffpqtv",["exports","./chunk3.js"],function(o,e){window.HadoUi.h,o.HadoInputForm=e.InputFormComponent,Object.defineProperty(o,"__esModule",{value:!0})});

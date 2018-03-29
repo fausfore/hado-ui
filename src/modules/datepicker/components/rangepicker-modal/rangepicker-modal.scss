@@ -6,27 +6,28 @@
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
+  top: 0;
+  bottom: 0;
   background: #fff;
   box-shadow: 0 19px 38px rgba(#292929, 0.3), 0 15px 12px rgba(#292929, 0.2);
   z-index: 99;
+  min-width: 100%;
   @media only screen and (min-width: $mobile) {
     position: absolute;
     top:calc(100% + 25px);
     left: initial;
     bottom: initial;
-    right: 0;
-    left: 0;
     border-radius: 6px;
     overflow-x: hidden;
+    min-width: 720px;
   }
 
   .rangepicker-modal {
     display: flex;
     flex-direction: column;
+    min-width: 360px;
     &.previous-date {
       &:before {
         display: none;
@@ -159,15 +160,15 @@
 
 @keyframes SlideRight {
   0% {
-      transform: translateX(100%);
-      opacity: 0;
-      display: none;
+    transform: translateX(100%);
+    opacity: 0;
+    display: none;
   }
 
   100% {
-      transform: translateX(0);
-      opacity: 1;
-      display: initial;
+    transform: translateX(0);
+    opacity: 1;
+    display: initial;
   }
 }
 

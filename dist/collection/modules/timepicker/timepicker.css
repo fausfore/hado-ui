@@ -77,7 +77,9 @@ ul {
   border-radius: 6px;
   overflow-x: hidden;
   z-index: 99;
-  box-shadow: 0 19px 38px rgba(41, 41, 41, 0.3), 0 15px 12px rgba(41, 41, 41, 0.2); }
+  box-shadow: 0 19px 38px rgba(41, 41, 41, 0.3), 0 15px 12px rgba(41, 41, 41, 0.2);
+  background: #fff;
+  min-width: 320px; }
   .modal:before, .timepicker-container .modal:before {
     content: '';
     width: 20px;
@@ -152,10 +154,10 @@ ul {
 .input-group {
   position: relative;
   display: flex;
-  background: #0088CE;
   border-radius: 6px;
   margin: 5px 0;
-  flex-direction: column; }
+  flex-direction: row;
+  align-items: center; }
   .input-group:before {
     position: absolute;
     top: calc(100% - 2px);
@@ -172,20 +174,24 @@ ul {
     animation-name: Minimize; }
   .input-group input {
     padding: 13px 20px;
-    width: calc(80% - 40px);
+    width: calc(100% - 40px);
     background: #efeeee;
     color: #0088CE;
     border: none;
-    border-radius: 6px 0 0 6px;
+    border-radius: 6px;
     font-size: 14px;
-    outline: none; }
-  .input-group i {
+    outline: none;
+    margin: 0 15px; }
+  .input-group .main-icon {
     position: absolute;
     top: 50%;
     right: 10%;
     transform: translateY(-50%) translateX(50%);
     color: #fff;
     font-size: 22px; }
+  .input-group.icons input {
+    width: calc(80% - 40px);
+    border-radius: 6px 0 0 6px; }
 
 @keyframes Expand {
   0% {
@@ -206,6 +212,8 @@ ul {
   position: relative; }
   .timepicker-container > * {
     font-family: Arial, sans-serif; }
+  .timepicker-container .modal:before {
+    display: none; }
   @media only screen and (min-width: 780px) {
     .timepicker-container .modal .modal-content {
       max-height: 320px;
@@ -224,7 +232,6 @@ ul {
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
     list-style-type: none;
-    border-radius: 0 3px 3px 0;
     margin: 0;
     border-radius: 0 0 6px 6px; }
     .timepicker-container .modal .hour-list .hour-item {

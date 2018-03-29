@@ -130,7 +130,7 @@ export class StTimepicker {
     render() {
 
         const { labels : {
-            closeIcon, timeIcon, title, placeholder
+            closeIcon, timeIcon, title
         } } = this.config;
 
         const hourList =
@@ -141,12 +141,11 @@ export class StTimepicker {
                 </li>)
         return (
             <div class="timepicker-container">
-            <hado-input-form
-                onClick={() => this.openModal()}
-                value={this.selected ? this.selected: undefined}
-                placeholder={placeholder}
-                iconClass={timeIcon}>
-            </hado-input-form>
+
+            <button class="btn circle" onClick={() => this.openModal()}>
+                <i class={timeIcon}/>
+            </button>
+            
             { this.showModal ?
                 <div class="modal-container">
                     <div id="modalComponent" class="modal has-header on-enter">

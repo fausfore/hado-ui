@@ -77,7 +77,7 @@ export class StDatepicker {
         this.optionsModel = Object.assign({}, defaultOptionsState, { calendarIconClass: value.calendarIcon, angleRightIconClass: value.angleRightIcon, angleLeftIconClass: value.angleLeftIcon, closeIconClass: value.closeIcon, activePreviousDate: value.activePreviousDate, mode: value.mode, labels: value.labels, startWeek: value.startWeek });
     }
     componentDidLoad() {
-        this.datepickerIsLoaded.emit(true);
+        this.IsLoaded$.emit(true);
     }
     componentWillLoad() {
         console.log('componentWillLoad');
@@ -128,6 +128,6 @@ export class StDatepicker {
     }
     static get is() { return "hado-datepicker"; }
     static get properties() { return { "activePreviousDate": { "type": Boolean, "attr": "active-previous-date" }, "angleLeftIcon": { "type": String, "attr": "angle-left-icon" }, "angleRightIcon": { "type": String, "attr": "angle-right-icon" }, "calendarIcon": { "type": String, "attr": "calendar-icon" }, "closeIcon": { "type": String, "attr": "close-icon" }, "config": { "type": "Any", "attr": "config", "watchCallbacks": ["reloadState"] }, "datepickerBtnValue": { "type": String, "attr": "datepicker-btn-value" }, "datepickerModel": { "state": true }, "days": { "type": "Any", "attr": "days" }, "DpElement": { "elementRef": true }, "initAppState": { "method": true }, "mode": { "type": String, "attr": "mode" }, "months": { "type": "Any", "attr": "months" }, "optionsModel": { "state": true }, "placeholder": { "type": String, "attr": "placeholder" }, "placeholder2": { "type": String, "attr": "placeholder2" }, "rangeEndValue": { "type": String, "attr": "range-end-value" }, "rangeNextBtnValue": { "type": String, "attr": "range-next-btn-value" }, "rangepickerModel": { "state": true }, "rangeStartValue": { "type": String, "attr": "range-start-value" }, "singleValue": { "type": String, "attr": "single-value" }, "startWeek": { "type": Number, "attr": "start-week" }, "title": { "type": String, "attr": "title" }, "title2": { "type": String, "attr": "title2" } }; }
-    static get events() { return [{ "name": "datepickerIsLoaded", "method": "datepickerIsLoaded", "bubbles": true, "cancelable": true, "composed": true }]; }
+    static get events() { return [{ "name": "IsLoaded$", "method": "IsLoaded$", "bubbles": true, "cancelable": true, "composed": true }]; }
     static get style() { return "/**style-placeholder:hado-datepicker:**/"; }
 }

@@ -3,7 +3,7 @@ import { EventEmitter } from '../../stencil.core';
 import { DatePickerState, OptionsState, RangePickerState, Inputs } from './models/datepicker.interface';
 export declare class StDatepicker {
     DpElement: HTMLElement;
-    datepickerIsLoaded: EventEmitter;
+    IsLoaded$: EventEmitter;
     config: Inputs;
     mode: string;
     singleValue: string;

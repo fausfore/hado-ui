@@ -1,3 +1,19 @@
+.btn.circle {
+  height: 46px;
+  width: 46px;
+  position: relative;
+  border-radius: 45px;
+  background: #0088CE; }
+  .btn.circle i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    font-size: 22px; }
+
 .datepicker-single-input {
   position: relative; }
   .datepicker-single-input .datepicker-input-group {

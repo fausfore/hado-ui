@@ -4,10 +4,10 @@
 .input-group {
     position: relative;
     display: flex;
-    background: #0088CE;
     border-radius: 6px;
     margin: 5px 0;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     &:before {
         position: absolute;
         top: calc(100% - 2px);
@@ -33,21 +33,28 @@
     }
     input {
         padding: 13px 20px;
-        width: calc(80% - 40px);
+        width: calc(100% - 40px);;
         background: #efeeee;
         color: #0088CE;
         border: none;
-        border-radius: 6px 0 0 6px;
+        border-radius: 6px;
         font-size: 14px;
         outline: none;
+        margin: 0 15px;
     }
-    i {
+    .main-icon {
         position: absolute;
         top: 50%;
         right: 10%;
         transform: translateY(-50%) translateX(50%);
         color: #fff;
         font-size: 22px;
+    }
+    &.icons {
+        input {
+            width: calc(80% - 40px);
+            border-radius: 6px 0 0 6px;
+        }
     }
 }
 

@@ -1,4 +1,5 @@
 import '../../../../stencil.core';
+/// <reference types="moment" />
 import { EventEmitter } from '../../../../stencil.core';
 import { Moment } from 'moment';
 import { DatePickerItem } from '@Datepicker/models/datepicker.interface';

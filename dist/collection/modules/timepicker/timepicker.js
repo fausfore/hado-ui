@@ -90,10 +90,11 @@ export class StTimepicker {
         !this.showModal ? this.showModal = true : null;
     }
     render() {
-        const { labels: { closeIcon, timeIcon, title, placeholder } } = this.config;
+        const { labels: { closeIcon, timeIcon, title } } = this.config;
         const hourList = this.hourList.map((hour) => h("li", { onClick: () => this.selectHour(hour.value), class: `hour-item ${hour.current ? 'current' : ''} ${hour.selected ? 'selected' : ''}` }, hour.value));
         return (h("div", { class: "timepicker-container" },
-            h("hado-input-form", { onClick: () => this.openModal(), value: this.selected ? this.selected : undefined, placeholder: placeholder, iconClass: timeIcon }),
+            h("button", { class: "btn circle", onClick: () => this.openModal() },
+                h("i", { class: timeIcon })),
             this.showModal ?
                 h("div", { class: "modal-container" },
                     h("div", { id: "modalComponent", class: "modal has-header on-enter" },

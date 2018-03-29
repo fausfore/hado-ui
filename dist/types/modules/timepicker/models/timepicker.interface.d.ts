@@ -1,3 +1,4 @@
+/// <reference types="moment" />
 import { Moment } from "moment";
 export interface TimepickerState {
     value: Moment;

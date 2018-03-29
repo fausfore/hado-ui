@@ -57,30 +57,17 @@ export class RangepickerInput {
   }
 
   render() {
-    const {
-      rangeEndValue,
-      rangeStartValue
-    } = this.rangepickerModel;
 
-    const { calendarIconClass, labels: {placeholder, placeholder_2} } = this.optionsModel;
+    const { calendarIconClass } = this.optionsModel;
 
 
     return (
       <div class='oui-datepicker'>
         <div class="datepicker-range-input">
-          <hado-input-form
-            onClick={() => this.toggleRangePickerModal('start')}
-            value={this.getLabel(rangeStartValue)}
-            placeholder={placeholder}
-            iconClass={calendarIconClass}>
-          </hado-input-form>
 
-          <hado-input-form
-            onClick={() => this.toggleRangePickerModal('end')}
-            value={this.getLabel(rangeEndValue)}
-            placeholder={placeholder_2}
-            iconClass={calendarIconClass}>
-          </hado-input-form>
+          <button class="btn circle" onClick={() => this.toggleRangePickerModal('start')}>
+            <i class={`main-icon ${calendarIconClass}`}/>
+          </button>
 
           {this.openDatePicker
             ? <rangepicker-modal

@@ -9,18 +9,101 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
 </head>
 <body>
-  <h2>Datepicker</h2>  
-  <hado-datepicker id="datepicker"></hado-datepicker>
+  <h2>Datepicker</h2>
+  <div class="input-group">
+    <input type="text" name="date" placeholder="choisir une date"/>
+    <hado-datepicker id="datepicker"></hado-datepicker>
+  </div>
+  <h2>Rangepicker</h2>
+  <div class="input-group">
+    <input type="text" name="range_first" placeholder="choisir une date"/>
+    <input type="text" name="range_last" placeholder="choisir une date"/>
+    <hado-datepicker id="rangepicker"></hado-datepicker>
+  </div>
   <h2>Timepicker</h2>
-  <hado-timepicker></hado-timepicker>
+  <div class="input-group">
+    <input type="text" name="time" placeholder="choisir une heure"/>
+    <hado-timepicker></hado-timepicker>
+  </div>
+
 </body>
 <script>
 
-  const el = document.querySelector('hado-timepicker');
+  const timepicker = document.querySelector('hado-timepicker');
+  const datepicker = document.querySelector('#datepicker');
+  const rangepicker = document.querySelector('#rangepicker');
+  const withLogo = document.querySelector('#withLogo')
   const date = moment("2013-12-24 14:30");
 
-  el.addEventListener('isLoaded$', function() {
-    el.initialize()
+  rangepicker.addEventListener('IsLoaded$', function() {
+    console.log('IsLoaded timepicker')
+    rangepicker.initAppState({
+        mode: 'range',
+        calendarIcon: 'far fa-calendar-alt',
+        angleRightIcon: 'fas fa-angle-right',
+        angleLeftIcon: 'fas fa-angle-left',
+        closeIcon: 'fas fa-times',
+        activePreviousDate: true,
+        rangeStartValue: '2018-03-23',
+        rangeEndValue: '2018-03-30',
+        startWeek: 1,
+        labels: {
+          title: 'Date de début',
+          title_2: 'Date de Fin',
+          placeholder: 'séléctionnez une date',
+          placeholder_2: 'séléctionnez une date',
+          datepickerBtnValue: 'Validé',
+          rangeNextBtnValue: 'Suivant',
+          months: [
+            'Janvier',
+            'Février',
+            'Mars',
+            'Avril',
+            'Mai',
+            'Juin',
+            'Juillet',
+            'Aout',
+            'Septembre',
+            'Octobre',
+            'Novembre',
+            'Décembre'
+          ],
+          days: [
+            'lundi',
+            'mardi',
+            'mercredi',
+            'jeudi',
+            'vendredi',
+            'samedi',
+            'dimanche'
+          ]
+        }
+      })
+  });
+
+  rangepicker.addEventListener('endDateSelectedEvent', function(event) {
+    var inputDateLast = document.querySelector('input[name=range_last]');
+    inputDateLast.value = moment(event.detail).format('DD-MM-YYYY');
+  });
+
+  rangepicker.addEventListener('DateItemListEvent', function(event) {
+    var inputDateFirst = document.querySelector('input[name=range_first]');
+    inputDateFirst.value = moment(event.detail).format('DD-MM-YYYY');
+  });
+
+  
+  datepicker.addEventListener('DateItemListEvent', function(event) {
+    var inputDate = document.querySelector('input[name=date]');
+    inputDate.value = moment(event.detail).format('DD-MM-YYYY');
+  });
+
+  timepicker.addEventListener('dateSelected$', function(event) {
+    var inputTime = document.querySelector('input[name=time]');
+    inputTime.value = moment(event.detail).format('HH:mm');
+  });
+
+  timepicker.addEventListener('isLoaded$', function() {
+    timepicker.initialize()
   });
 
 </script>

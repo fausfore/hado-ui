@@ -16,9 +16,10 @@ export class DatepickerInput {
         this.openDatePicker = !this.openDatePicker;
     }
     render() {
-        const { calendarIconClass, labels: { placeholder } } = this.optionsModel;
+        const { calendarIconClass } = this.optionsModel;
         return (h("div", { class: 'datepicker-single-input' },
-            h("hado-input-form", { onClick: () => this.toggleDatepickerModal(), value: this.getLabel(), placeholder: placeholder, iconClass: calendarIconClass }),
+            h("button", { class: "btn circle", onClick: () => this.toggleDatepickerModal() },
+                h("i", { class: `main-icon ${calendarIconClass}` })),
             this.openDatePicker
                 ? h("datepicker-modal", { datepickerModel: this.datepickerModel, optionsModel: this.optionsModel })
                 : null));

@@ -16,7 +16,7 @@ import { DatePickerState, OptionsState, RangePickerState, Inputs } from './model
 
 export class StDatepicker {
   @Element() DpElement: HTMLElement;
-  @Event() datepickerIsLoaded: EventEmitter;
+  @Event() IsLoaded$: EventEmitter;
   @Prop() config: Inputs
 
   @Prop() mode: string;
@@ -149,7 +149,7 @@ export class StDatepicker {
   }
 
   componentDidLoad() {
-    this.datepickerIsLoaded.emit(true)
+    this.IsLoaded$.emit(true)
   }
 
 

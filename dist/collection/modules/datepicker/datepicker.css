@@ -77,7 +77,9 @@ ul {
   border-radius: 6px;
   overflow-x: hidden;
   z-index: 99;
-  box-shadow: 0 19px 38px rgba(41, 41, 41, 0.3), 0 15px 12px rgba(41, 41, 41, 0.2); }
+  box-shadow: 0 19px 38px rgba(41, 41, 41, 0.3), 0 15px 12px rgba(41, 41, 41, 0.2);
+  background: #fff;
+  min-width: 320px; }
   .modal:before {
     content: '';
     width: 20px;

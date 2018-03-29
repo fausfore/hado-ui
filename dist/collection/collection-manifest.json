@@ -46,8 +46,7 @@
     {
       "tag": "datepicker-input",
       "dependencies": [
-        "datepicker-modal",
-        "hado-input-form"
+        "datepicker-modal"
       ],
       "componentClass": "DatepickerInput",
       "componentPath": "modules/datepicker/components/datepicker-input/datepicker-input.js",
@@ -253,7 +252,7 @@
       },
       "events": [
         {
-          "event": "datepickerIsLoaded"
+          "event": "IsLoaded$"
         }
       ]
     },
@@ -277,33 +276,19 @@
           "type": "Any"
         }
       ],
-      "hostElement": {
-        "name": "input"
-      }
-    },
-    {
-      "tag": "hado-input-form",
-      "dependencies": [],
-      "componentClass": "InputFormComponent",
-      "componentPath": "modules/shared/input-form/input-form.js",
-      "styles": {},
-      "props": [
+      "methods": [
         {
-          "name": "iconClass",
-          "type": "String"
-        },
-        {
-          "name": "placeholder",
-          "type": "String"
-        },
-        {
-          "name": "value",
-          "type": "Any"
+          "name": "changeValue"
         }
       ],
       "hostElement": {
         "name": "input"
-      }
+      },
+      "events": [
+        {
+          "event": "inputReady$"
+        }
+      ]
     },
     {
       "tag": "hado-modal-dialog",
@@ -329,9 +314,7 @@
     },
     {
       "tag": "hado-timepicker",
-      "dependencies": [
-        "hado-input-form"
-      ],
+      "dependencies": [],
       "componentClass": "StTimepicker",
       "componentPath": "modules/timepicker/timepicker.js",
       "styles": {
@@ -382,7 +365,6 @@
     {
       "tag": "rangepicker-input",
       "dependencies": [
-        "hado-input-form",
         "rangepicker-modal"
       ],
       "componentClass": "RangepickerInput",

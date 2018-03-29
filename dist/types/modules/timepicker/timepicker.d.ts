@@ -1,4 +1,5 @@
 import '../../stencil.core';
+/// <reference types="moment" />
 import { EventEmitter } from '../../stencil.core';
 import moment, { Moment } from 'moment';
 import { TimepickerState } from './models/timepicker.interface';
