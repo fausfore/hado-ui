@@ -180,8 +180,7 @@ ul {
     border: none;
     border-radius: 6px;
     font-size: 14px;
-    outline: none;
-    margin: 0 15px; }
+    outline: none; }
   .input-group .main-icon {
     position: absolute;
     top: 50%;

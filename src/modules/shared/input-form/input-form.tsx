@@ -10,19 +10,20 @@ export class InputFormComponent {
     @Prop() iconClass: string;
     @Prop() placeholder: string;
     @Prop() readonly: boolean;
-    @Element() input: HTMLElement;
+    @Element() Component: HTMLElement;
     @Event() inputReady$: EventEmitter;
     @Event() keyUp$: EventEmitter;
 
     componentDidLoad () {
         this.inputReady$.emit()
-        const input = this.input.querySelector('.input-group');
-        input.addEventListener('mouseenter', () => {
-            input.className = `input-group on-enter ${this.iconClass ? 'icons': ''}`
+        const group = this.Component.querySelector('.input-group');
+        const input = this.Component.querySelector('input[type]');
+        input.addEventListener('focus', () => {
+            group.className = `input-group on-enter ${this.iconClass ? 'icons': ''}`
         })
 
-        input.addEventListener('mouseleave', () => {
-            input.className = `input-group on-leave ${this.iconClass ? 'icons': ''}`
+        input.addEventListener('blur', () => {
+            group.className = `input-group on-leave ${this.iconClass ? 'icons': ''}`
         })
     }
 
@@ -35,7 +36,6 @@ export class InputFormComponent {
 
 
     render() {
-        console.log(this.iconClass)
 
     return (
         <div class={`input-group ${this.iconClass ? 'icons': ''}`}>

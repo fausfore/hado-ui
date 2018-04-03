@@ -154,6 +154,10 @@
       },
       "props": [
         {
+          "name": "placeholder",
+          "type": "String"
+        },
+        {
           "name": "property",
           "type": "String"
         },
@@ -169,7 +173,16 @@
           "name": "ElementListFilter"
         },
         {
+          "name": "inputValue"
+        },
+        {
           "name": "ObjProperty"
+        },
+        {
+          "name": "ShowList"
+        },
+        {
+          "name": "text"
         }
       ],
       "listeners": [
@@ -185,12 +198,18 @@
           "name": "initialize"
         }
       ],
+      "hostElement": {
+        "name": "Component"
+      },
       "events": [
         {
           "event": "isLoaded$"
         },
         {
           "event": "NewValueList$"
+        },
+        {
+          "event": "selectedItem$"
         }
       ]
     },
@@ -342,7 +361,7 @@
         }
       ],
       "hostElement": {
-        "name": "input"
+        "name": "Component"
       },
       "events": [
         {
@@ -578,6 +597,7 @@
         "hado-autocomplete",
         "hado-datepicker",
         "hado-input-form",
+        "hado-modal-dialog",
         "hado-timepicker"
       ]
     }

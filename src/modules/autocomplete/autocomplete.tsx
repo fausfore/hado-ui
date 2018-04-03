@@ -1,4 +1,4 @@
-import { Component, Prop, State, Listen, Event, EventEmitter, Method } from '@stencil/core';
+import { Component, Prop, State, Listen, Event, EventEmitter, Method, Element } from '@stencil/core';
 import { IState } from './autocomplete.interface';
 
 @Component({
@@ -10,13 +10,20 @@ export class Autocomplete {
 
     @Prop() values : any[];
     @Prop() property: string;
+    @Prop() placeholder: string;
 
     @State() ElementList: any[];
     @State() ElementListFilter: any[];
     @State() ObjProperty: string
+    @State() ShowList: boolean = false;
+    @State() inputValue: string;
+    @State() text: string;
 
     @Event() NewValueList$: EventEmitter;
     @Event() isLoaded$: EventEmitter;
+    @Event() selectedItem$: EventEmitter;
+
+    @Element() Component : HTMLElement;
 
     componentWillLoad () {
         this.initialize();        
@@ -24,12 +31,30 @@ export class Autocomplete {
 
     componentDidLoad () {
         this.isLoaded$.emit();
+        const input = this.Component.getElementsByTagName('input')[0];
+        const list = this.Component.querySelector('#test');
+
+        input.addEventListener('focus', () => {
+            this.ShowList = true;
+            list.className = 'hado-item-list on-slide-up' 
+        })
+    }
+
+    closeListBlock () {
+        this.Component.querySelector('#test').className = 'hado-item-list on-slide-down'
+        setTimeout(() => {
+            this.ShowList = false;
+        }, 300);
     }
 
     @Method()
     initialize(props?: IState) {
-        this.ElementList = props ? props.values : this.values;
-        this.ObjProperty = props ? props.property : this.ObjProperty;
+        if (props) {
+            this.ElementList = props.values;
+            this.ObjProperty = props.property;
+            this.text = props.placeholder
+        }
+
         this.pipeFilter(this.ElementList, undefined)
     }
 
@@ -58,6 +83,14 @@ export class Autocomplete {
 
     }
 
+    selectItem (item) {
+        console.log(item)
+        this.selectedItem$.emit(item);
+        this.inputValue = item;
+        this.closeListBlock();
+
+    }
+
     renderList () {
         // Send the final result 
         this.NewValueList$.emit(this.ElementListFilter || this.ElementList);
@@ -65,9 +98,9 @@ export class Autocomplete {
         let parseElement = this.ElementListFilter ? this.ElementListFilter : this.ElementList;
         return parseElement ? parseElement.map((element) => {
             if (this.ObjProperty) {
-                return <li>{element[this.ObjProperty]}</li>
+                return <li onClick={() => this.selectItem(element[this.ObjProperty])}>{element[this.ObjProperty]}</li>
             }
-            return <li>{element}</li>
+            return <li onClick={() => this.selectItem(element)}>{element}</li>
         }) : null;
     }
 
@@ -76,9 +109,12 @@ export class Autocomplete {
 
         return (
             <div class="autocomplete">
-                <hado-input-form readonly={false}></hado-input-form>
-                <ul class="hado-item-list">
-                    {this.renderList()}
+                {this.ShowList ?
+                    <div class="overlay" onClick={() => { this.closeListBlock() }}></div>
+                : null}
+                <hado-input-form value={this.inputValue} readonly={false} placeholder={this.text}></hado-input-form>
+                <ul id="test" class="hado-item-list">
+                    {this.ShowList ? this.renderList() : null}
                 </ul>
             </div>
 

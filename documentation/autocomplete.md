@@ -13,7 +13,8 @@
 ```typescript
 interface Config {
 	values: any[]
-	property?: string;
+    property?: string;
+    placeholder?: string;
 }
 ```
 
@@ -27,5 +28,6 @@ interface Config {
 
 | name| effect|
 |--|--|
-| **NewValueList$** |  Return the array filtered|
+| **NewValueList$** |  Return the array filtered |
+| **selectedItem$** |  Return the value of the selected item |
 | **isLoaded$** | Callback when the component is loaded |

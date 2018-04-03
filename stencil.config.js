@@ -12,7 +12,8 @@ exports.config = {
         'hado-datepicker',
         'hado-timepicker',
         'hado-input-form',
-        'hado-autocomplete'
+        'hado-autocomplete',
+        'hado-modal-dialog'
       ]
     }
   ]

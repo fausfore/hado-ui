@@ -59,6 +59,7 @@ declare global {
   }
   namespace JSXElements {
     export interface HadoAutocompleteAttributes extends HTMLAttributes {
+      placeholder?: string;
       property?: string;
       values?: any[];
     }

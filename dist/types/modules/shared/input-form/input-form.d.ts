@@ -5,7 +5,7 @@ export declare class InputFormComponent {
     iconClass: string;
     placeholder: string;
     readonly: boolean;
-    input: HTMLElement;
+    Component: HTMLElement;
     inputReady$: EventEmitter;
     keyUp$: EventEmitter;
     componentDidLoad(): void;
