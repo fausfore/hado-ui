@@ -28,7 +28,6 @@ export class Autocomplete {
 
     @Method()
     initialize(props?: IState) {
-        console.log('[AUTO_COMPLETE] initialize', props)
         this.ElementList = props ? props.values : this.values;
         this.ObjProperty = props ? props.property : this.ObjProperty;
         this.pipeFilter(this.ElementList, undefined)
@@ -44,7 +43,6 @@ export class Autocomplete {
     }
 
     pipeFilter (array : any[], wording: string) {
-        console.log(array, wording, this.property)
         if (!array) return [];
         if (!wording) return array;
         let subject = wording.toLowerCase();
@@ -66,7 +64,6 @@ export class Autocomplete {
 
         let parseElement = this.ElementListFilter ? this.ElementListFilter : this.ElementList;
         return parseElement ? parseElement.map((element) => {
-            console.log('parseElement => ' ,this.ObjProperty)
             if (this.ObjProperty) {
                 return <li>{element[this.ObjProperty]}</li>
             }
