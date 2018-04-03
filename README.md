@@ -7,8 +7,8 @@ It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https:/
 
 ## Components
 
-* Datepicker & Rangepicker
-* Timepicker
+* [Datepicker & Rangepicker](https://github.com/fausfore/hado-ui/blob/master/documentation/datepicker.md)
+* [Timepicker](https://github.com/fausfore/hado-ui/blob/master/documentation/timepicker.md)
 
   
 
