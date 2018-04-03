@@ -1,5 +1,10 @@
 import '../../stencil.core';
 import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
+import '../../stencil.core';
 import { EventEmitter } from '../../stencil.core';
 import { DatePickerItem } from '../../models/datepicker.interface';
 export declare class DateItemList {

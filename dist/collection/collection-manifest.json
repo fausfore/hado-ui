@@ -514,7 +514,6 @@
       "components": [
         "hado-datepicker",
         "hado-input-form",
-        "hado-modal-dialog",
         "hado-timepicker"
       ]
     }
