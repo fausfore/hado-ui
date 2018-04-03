@@ -17,12 +17,15 @@ export class InputFormComponent {
     render() {
         console.log(this.iconClass);
         return (h("div", { class: `input-group ${this.iconClass ? 'icons' : ''}` },
-            h("input", { readOnly: true, class: "input", type: "text", value: this.value, placeholder: this.placeholder }),
+            h("input", { readOnly: this.readonly, onKeyUp: (event$) => {
+                    const response = event$.target.value.length > 0 ? event$.target.value : undefined;
+                    this.keyUp$.emit(response);
+                }, class: "input", type: "text", value: this.value, placeholder: this.placeholder }),
             this.iconClass ?
                 h("i", { class: this.iconClass })
                 : null));
     }
     static get is() { return "hado-input-form"; }
-    static get properties() { return { "changeValue": { "method": true }, "iconClass": { "type": String, "attr": "icon-class" }, "input": { "elementRef": true }, "placeholder": { "type": String, "attr": "placeholder" }, "value": { "type": "Any", "attr": "value" } }; }
-    static get events() { return [{ "name": "inputReady$", "method": "inputReady$", "bubbles": true, "cancelable": true, "composed": true }]; }
+    static get properties() { return { "changeValue": { "method": true }, "iconClass": { "type": String, "attr": "icon-class" }, "input": { "elementRef": true }, "placeholder": { "type": String, "attr": "placeholder" }, "readonly": { "type": Boolean, "attr": "readonly" }, "value": { "type": "Any", "attr": "value" } }; }
+    static get events() { return [{ "name": "inputReady$", "method": "inputReady$", "bubbles": true, "cancelable": true, "composed": true }, { "name": "keyUp$", "method": "keyUp$", "bubbles": true, "cancelable": true, "composed": true }]; }
 }

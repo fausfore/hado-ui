@@ -10,7 +10,7 @@ It is based on [MomentJS](https://momentjs.com/docs/) and use [HammerJS](https:/
 * [Datepicker & Rangepicker](https://github.com/fausfore/hado-ui/blob/master/documentation/datepicker.md)
 * [Timepicker](https://github.com/fausfore/hado-ui/blob/master/documentation/timepicker.md)
 
-  
+* [AutoComplete](https://github.com/fausfore/hado-ui/blob/master/documentation/autocomplete.md)
 
 <p  align="center">
 <img  src="https://github.com/fausfore/hado-ui/blob/master/documentation/assets/mode-mobile.png"/>

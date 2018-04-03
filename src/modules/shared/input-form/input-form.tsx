@@ -9,8 +9,10 @@ export class InputFormComponent {
     @Prop() value: any
     @Prop() iconClass: string;
     @Prop() placeholder: string;
+    @Prop() readonly: boolean;
     @Element() input: HTMLElement;
     @Event() inputReady$: EventEmitter;
+    @Event() keyUp$: EventEmitter;
 
     componentDidLoad () {
         this.inputReady$.emit()
@@ -31,12 +33,18 @@ export class InputFormComponent {
         }
     }
 
+
     render() {
         console.log(this.iconClass)
 
     return (
         <div class={`input-group ${this.iconClass ? 'icons': ''}`}>
-            <input readOnly
+            <input
+                readOnly={this.readonly}
+                onKeyUp={(event$ : any) => {
+                    const response = event$.target.value.length > 0 ? event$.target.value : undefined;
+                    this.keyUp$.emit(response)
+                }}
                 class="input"
                 type="text"
                 value={this.value}

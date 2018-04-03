@@ -25,6 +25,8 @@
     <input type="text" name="time" placeholder="choisir une heure"/>
     <hado-timepicker></hado-timepicker>
   </div>
+  <h2>Autocomplete</h2>
+  <hado-autocomplete id="auto-complete"></hado-autocomplete> 
 
 </body>
 <script>
@@ -34,6 +36,21 @@
   const rangepicker = document.querySelector('#rangepicker');
   const withLogo = document.querySelector('#withLogo')
   const date = moment("2013-12-24 14:30");
+  const autoComplete = document.getElementById('auto-complete');
+
+  console.log(autoComplete)
+
+  autoComplete.addEventListener('isLoaded$',function() {
+    console.log('FROM INDEX AUTO')
+    autoComplete.initialize({
+      values: [
+        { value: 'bestial' },
+        { value: 'collosal' },
+        { value: 'cuirasé' }
+      ],
+      property: 'value'
+    })
+  })
 
   rangepicker.addEventListener('IsLoaded$', function() {
     console.log('IsLoaded timepicker')

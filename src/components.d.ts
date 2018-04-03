@@ -35,6 +35,37 @@ import {
 } from './modules/timepicker/models/timepicker.interface';
 
 import {
+  Autocomplete as HadoAutocomplete
+} from './modules/autocomplete/autocomplete';
+
+declare global {
+  interface HTMLHadoAutocompleteElement extends HadoAutocomplete, HTMLStencilElement {
+  }
+  var HTMLHadoAutocompleteElement: {
+    prototype: HTMLHadoAutocompleteElement;
+    new (): HTMLHadoAutocompleteElement;
+  };
+  interface HTMLElementTagNameMap {
+    "hado-autocomplete": HTMLHadoAutocompleteElement;
+  }
+  interface ElementTagNameMap {
+    "hado-autocomplete": HTMLHadoAutocompleteElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "hado-autocomplete": JSXElements.HadoAutocompleteAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface HadoAutocompleteAttributes extends HTMLAttributes {
+      property?: string;
+      values?: any[];
+    }
+  }
+}
+
+
+import {
   DateItemList as DateItemList
 } from './modules/datepicker/components/calendar-date-item/calendar-date-item';
 
@@ -266,6 +297,7 @@ declare global {
     export interface HadoInputFormAttributes extends HTMLAttributes {
       iconClass?: string;
       placeholder?: string;
+      readonly?: boolean;
       value?: any;
     }
   }

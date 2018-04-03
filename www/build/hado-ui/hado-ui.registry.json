@@ -14,17 +14,20 @@
     "datepicker-modal": {
       "$": "y87apbpt"
     },
+    "hado-autocomplete": {
+      "$": "hvh3cdef"
+    },
     "hado-datepicker": {
-      "$": "suki4rml"
+      "$": "hvh3cdef"
     },
     "hado-input-form": {
-      "$": "suki4rml"
+      "$": "hvh3cdef"
     },
     "hado-modal-dialog": {
       "$": "zgmf9tej"
     },
     "hado-timepicker": {
-      "$": "suki4rml"
+      "$": "hvh3cdef"
     },
     "rangepicker-input": {
       "$": "jhcbckzm"

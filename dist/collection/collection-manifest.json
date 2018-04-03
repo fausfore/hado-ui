@@ -139,6 +139,62 @@
       ]
     },
     {
+      "tag": "hado-autocomplete",
+      "dependencies": [
+        "hado-input-form"
+      ],
+      "componentClass": "Autocomplete",
+      "componentPath": "modules/autocomplete/autocomplete.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "modules/autocomplete/autocomplete.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "property",
+          "type": "String"
+        },
+        {
+          "name": "values"
+        }
+      ],
+      "states": [
+        {
+          "name": "ElementList"
+        },
+        {
+          "name": "ElementListFilter"
+        },
+        {
+          "name": "ObjProperty"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keyUp$",
+          "method": "update",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "initialize"
+        }
+      ],
+      "events": [
+        {
+          "event": "isLoaded$"
+        },
+        {
+          "event": "NewValueList$"
+        }
+      ]
+    },
+    {
       "tag": "hado-datepicker",
       "dependencies": [
         "datepicker-input",
@@ -272,6 +328,10 @@
           "type": "String"
         },
         {
+          "name": "readonly",
+          "type": "Boolean"
+        },
+        {
           "name": "value",
           "type": "Any"
         }
@@ -287,6 +347,9 @@
       "events": [
         {
           "event": "inputReady$"
+        },
+        {
+          "event": "keyUp$"
         }
       ]
     },
@@ -512,6 +575,7 @@
   "bundles": [
     {
       "components": [
+        "hado-autocomplete",
         "hado-datepicker",
         "hado-input-form",
         "hado-timepicker"

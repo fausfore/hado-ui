@@ -1,0 +1,10 @@
+.hado-item-list {
+  box-shadow: 0 19px 38px rgba(41, 41, 41, 0.3), 0 15px 12px rgba(41, 41, 41, 0.2); }
+  .hado-item-list li {
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    border-bottom: solid 1px #efeeee; }
+    .hado-item-list li:hover {
+      color: #fff;
+      background: #89b2c7;
+      border-color: #89b2c7; }
