@@ -1,2 +1,134 @@
-/*! Built with http://stenciljs.com */
-!function(e,t,a,o,i,n,l,c,d,r,s){!function(e,t,a,o,i,n,l,c,d,r,s,p,u){(e.HadoUi=e.HadoUi||{}).components=s,(u=s.filter(function(e){return e[2]}).map(function(e){return e[0]})).length&&((p=t.createElement("style")).innerHTML=u.join()+"{visibility:hidden}.hydrated{visibility:inherit}",p.setAttribute("data-styles",""),t.head.insertBefore(p,t.head.firstChild)),(p=a[a.length-1])&&p.src&&(n=(u=p.src.split("/").slice(0,-1)).join("/")+(u.length?"/":"")+"hado-ui/"),(p=t.createElement("script")).src=n+(function(e,t,a,o){return t.search.indexOf("core=es5")>-1||"file:"===t.protocol||!e.customElements||!e.fetch||!(e.CSS&&e.CSS.supports&&e.CSS.supports("color","var(--c)"))||!("noModule"in a)||function(e){try{return new Function('import("")'),!1}catch(e){}return!0}()}(e,e.location,p)?"hado-ui.5novrwwn.js":"hado-ui.qtlt131v.js"),p.setAttribute("data-path",n),p.setAttribute("data-namespace","hado-ui"),t.head.appendChild(p)}(e,t,t.scripts,0,0,"/build/hado-ui/",0,0,0,0,[["date-item-list","kzozgbba",1,[["DateItemListHTML",7],["dataItemConfig",1],["dateItemList",1],["dateItemListHost",5]]],["datepicker-input","y87apbpt",1,[["datepickerModel",1],["openDatePicker",5],["optionsModel",1]],0,[["closedModalEvent","listenCloseEvent"]]],["datepicker-modal","y87apbpt",1,[["DOMElement",7],["dataItemConfig",5],["datePickerConfig",5],["datepickerModel",1],["localDateSelected",5],["month",5],["optionsModel",1],["year",5]],0,[["DateItemListEvent","chooseDate"]]],["hado-autocomplete","y2vcczwm",1,[["Component",7],["ElementList",5],["ElementListFilter",5],["ObjProperty",5],["ShowList",5],["initialize",6],["inputValue",5],["placeholder",1,1,2],["property",1,1,2],["text",5],["values",1]],0,[["keyUp$","update"]]],["hado-datepicker","y2vcczwm",1,[["DpElement",7],["activePreviousDate",1,"active-previous-date",3],["angleLeftIcon",1,"angle-left-icon",2],["angleRightIcon",1,"angle-right-icon",2],["calendarIcon",1,"calendar-icon",2],["closeIcon",1,"close-icon",2],["config",1],["datepickerBtnValue",1,"datepicker-btn-value",2],["datepickerModel",5],["days",1],["initAppState",6],["mode",1,1,2],["months",1],["optionsModel",5],["placeholder",1,1,2],["placeholder2",1,1,2],["rangeEndValue",1,"range-end-value",2],["rangeNextBtnValue",1,"range-next-btn-value",2],["rangeStartValue",1,"range-start-value",2],["rangepickerModel",5],["singleValue",1,"single-value",2],["startWeek",1,"start-week",4],["title",1,1,2],["title2",1,1,2]]],["hado-input-form","y2vcczwm",0,[["Component",7],["changeValue",6],["iconClass",1,"icon-class",2],["placeholder",1,1,2],["readonly",1,1,3],["value",1,1,1]]],["hado-modal-dialog","y2vcczwm",0,[["iconClass",1,"icon-class",2],["title",1,1,2]]],["hado-timepicker","y2vcczwm",1,[["config",1],["hourList",5],["initialize",6],["showModal",5]],0,[["modalEvent$","closeModal"]]],["rangepicker-input","jhcbckzm",1,[["EndDateSelected",5],["StartDateSelected",5],["activeFormType",5],["openDatePicker",5],["optionsModel",1],["rangepickerModel",1]],0,[["navigationChange","updateNavigation"],["startDateSelectedEvent","updateStartDate"],["endDateSelectedEvent","updateEndDate"],["closeModalEvent","toggleRangePickerModal"]]],["rangepicker-modal","jhcbckzm",1,[["animationMode",5],["dataItemLeftConfig",5],["dataItemRightConfig",5],["datePickerConfig",5],["formType",5],["localDateSelected",5],["monthLeft",5],["monthRight",5],["optionsModel",1],["rangepickerModel",1],["yearLeft",5],["yearRight",5]],0,[["DateItemListEvent","chooseDate"]]]],void 0)}(window,document);
+
+(function(win, doc, namespace, fsNamespace, resourcesUrl, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components) {
+
+  function init(win, doc, namespace, fsNamespace, resourcesUrl, appCore, appCorePolyfilled, hydratedCssClass, cmpTags, HTMLElementPrototype, App, x, y, scriptElm) {
+    // create global namespace if it doesn't already exist
+    App = win[namespace] = win[namespace] || {};
+    if (cmpTags) {
+        // auto hide components until they been fully hydrated
+        // reusing the "x" and "i" variables from the args for funzies
+        x = doc.createElement('style');
+        x.innerHTML = cmpTags + '{visibility:hidden}.' + hydratedCssClass + '{visibility:inherit}';
+        x.setAttribute('data-styles', '');
+        y = doc.head.querySelector('meta[charset]');
+        doc.head.insertBefore(x, y ? y.nextSibling : doc.head.firstChild);
+    }
+    createComponentOnReadyPrototype(win, namespace, HTMLElementPrototype);
+    resourcesUrl = resourcesUrl || App.resourcesUrl;
+    // figure out the script element for this current script
+    y = doc.querySelectorAll('script');
+    for (x = y.length - 1; x >= 0; x--) {
+        scriptElm = y[x];
+        if (scriptElm.src || scriptElm.hasAttribute('data-resources-url')) {
+            break;
+        }
+    }
+    // get the resource path attribute on this script element
+    y = scriptElm.getAttribute('data-resources-url');
+    if (!resourcesUrl && y) {
+        // the script element has a data-resources-url attribute, always use that
+        resourcesUrl = y;
+    }
+    if (!resourcesUrl && scriptElm.src) {
+        // we don't have an exact resourcesUrl, so let's
+        // figure it out relative to this script's src and app's filesystem namespace
+        y = scriptElm.src.split('/').slice(0, -1);
+        resourcesUrl = (y.join('/')) + (y.length ? '/' : '') + fsNamespace + '/';
+    }
+    // request the core this browser needs
+    // test for native support of custom elements and fetch
+    // if either of those are not supported, then use the core w/ polyfills
+    // also check if the page was build with ssr or not
+    x = doc.createElement('script');
+    if (usePolyfills(win, win.location, x, 'import("")')) {
+        // requires the es5/polyfilled core
+        x.src = resourcesUrl + appCorePolyfilled;
+    }
+    else {
+        // let's do this!
+        x.src = resourcesUrl + appCore;
+        x.setAttribute('type', 'module');
+        x.setAttribute('crossorigin', true);
+    }
+    x.setAttribute('data-resources-url', resourcesUrl);
+    x.setAttribute('data-namespace', fsNamespace);
+    doc.head.appendChild(x);
+}
+function usePolyfills(win, location, scriptElm, dynamicImportTest) {
+    // fyi, dev mode has verbose if/return statements
+    // but it minifies to a nice 'lil one-liner ;)
+    if (location.search.indexOf('core=esm') > 0) {
+        // force esm build
+        return false;
+    }
+    if ((location.search.indexOf('core=es5') > 0) ||
+        (location.protocol === 'file:') ||
+        (!(win.customElements && win.customElements.define)) ||
+        (!win.fetch) ||
+        (!(win.CSS && win.CSS.supports && win.CSS.supports('color', 'var(--c)'))) ||
+        (!('noModule' in scriptElm))) {
+        // es5 build w/ polyfills
+        return true;
+    }
+    // final test to see if this browser support dynamic imports
+    return doesNotSupportsDynamicImports(dynamicImportTest);
+}
+function doesNotSupportsDynamicImports(dynamicImportTest) {
+    try {
+        new Function(dynamicImportTest);
+        return false;
+    }
+    catch (e) { }
+    return true;
+}
+function createComponentOnReadyPrototype(win, namespace, HTMLElementPrototype) {
+    (win['s-apps'] = win['s-apps'] || []).push(namespace);
+    if (!HTMLElementPrototype.componentOnReady) {
+        HTMLElementPrototype.componentOnReady = function componentOnReady() {
+            /*tslint:disable*/
+            var elm = this;
+            function executor(resolve) {
+                if (elm.nodeName.indexOf('-') > 0) {
+                    // window hasn't loaded yet and there's a
+                    // good chance this is a custom element
+                    var apps = win['s-apps'];
+                    var appsReady = 0;
+                    // loop through all the app namespaces
+                    for (var i = 0; i < apps.length; i++) {
+                        // see if this app has "componentOnReady" setup
+                        if (win[apps[i]].componentOnReady) {
+                            // this app's core has loaded call its "componentOnReady"
+                            if (win[apps[i]].componentOnReady(elm, resolve)) {
+                                // this component does belong to this app and would
+                                // have fired off the resolve fn
+                                // let's stop here, we're good
+                                return;
+                            }
+                            appsReady++;
+                        }
+                    }
+                    if (appsReady < apps.length) {
+                        // not all apps are ready yet
+                        // add it to the queue to be figured out when they are
+                        (win['s-cr'] = win['s-cr'] || []).push([elm, resolve]);
+                        return;
+                    }
+                }
+                // not a recognized app component
+                resolve(null);
+            }
+            // callback wasn't provided, let's return a promise
+            if (win.Promise) {
+                // use native/polyfilled promise
+                return new win.Promise(executor);
+            }
+            // promise may not have been polyfilled yet
+            return { then: executor };
+        };
+    }
+}
+
+
+  init(win, doc, namespace, fsNamespace, resourcesUrl, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components);
+
+  })(window, document, "HadoUi","hado-ui",0,"hado-ui.core.js","es5-build-disabled.js","hydrated","date-item-list,datepicker-input,datepicker-modal,hado-autocomplete,hado-datepicker,hado-input-form,hado-modal-dialog,hado-timepicker,rangepicker-input,rangepicker-modal",HTMLElement.prototype);

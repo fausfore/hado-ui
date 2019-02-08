@@ -4,23 +4,25 @@
       "tag": "date-item-list",
       "dependencies": [],
       "componentClass": "DateItemList",
-      "componentPath": "modules/datepicker/components/calendar-date-item/calendar-date-item.js",
+      "componentPath": "components/datepicker/components/calendar-date-item/calendar-date-item.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/datepicker/components/calendar-date-item/calendar-date-item.scss"
+            "components/datepicker/components/calendar-date-item/calendar-date-item.scss"
           ]
         }
       },
       "props": [
         {
           "name": "dataItemConfig",
+          "attr": "data-item-config",
           "watch": [
             "checkStyle"
           ]
         },
         {
-          "name": "dateItemList"
+          "name": "dateItemList",
+          "attr": "date-item-list"
         }
       ],
       "states": [
@@ -49,20 +51,24 @@
         "datepicker-modal"
       ],
       "componentClass": "DatepickerInput",
-      "componentPath": "modules/datepicker/components/datepicker-input/datepicker-input.js",
+      "componentPath": "components/datepicker/components/datepicker-input/datepicker-input.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/datepicker/components/datepicker-input/datepicker-input.scss"
+            "components/datepicker/components/datepicker-input/datepicker-input.scss"
           ]
         }
       },
       "props": [
         {
-          "name": "datepickerModel"
+          "name": "datepickerModel",
+          "type": "Any",
+          "attr": "datepicker-model"
         },
         {
-          "name": "optionsModel"
+          "name": "optionsModel",
+          "type": "Any",
+          "attr": "options-model"
         }
       ],
       "states": [
@@ -85,20 +91,22 @@
         "date-item-list"
       ],
       "componentClass": "DatepickerModal",
-      "componentPath": "modules/datepicker/components/datepicker-modal/datepicker-modal.js",
+      "componentPath": "components/datepicker/components/datepicker-modal/datepicker-modal.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/datepicker/components/datepicker-modal/datepicker-modal.scss"
+            "components/datepicker/components/datepicker-modal/datepicker-modal.scss"
           ]
         }
       },
       "props": [
         {
-          "name": "datepickerModel"
+          "name": "datepickerModel",
+          "attr": "datepicker-model"
         },
         {
-          "name": "optionsModel"
+          "name": "optionsModel",
+          "attr": "options-model"
         }
       ],
       "states": [
@@ -144,25 +152,28 @@
         "hado-input-form"
       ],
       "componentClass": "Autocomplete",
-      "componentPath": "modules/autocomplete/autocomplete.js",
+      "componentPath": "components/autocomplete/autocomplete.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/autocomplete/autocomplete.scss"
+            "components/autocomplete/autocomplete.scss"
           ]
         }
       },
       "props": [
         {
           "name": "placeholder",
-          "type": "String"
+          "type": "String",
+          "attr": "placeholder"
         },
         {
           "name": "property",
-          "type": "String"
+          "type": "String",
+          "attr": "property"
         },
         {
-          "name": "values"
+          "name": "values",
+          "attr": "values"
         }
       ],
       "states": [
@@ -220,90 +231,109 @@
         "rangepicker-input"
       ],
       "componentClass": "StDatepicker",
-      "componentPath": "modules/datepicker/datepicker.js",
+      "componentPath": "components/datepicker/datepicker.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/datepicker/datepicker.scss"
+            "components/datepicker/datepicker.scss"
           ]
         }
       },
       "props": [
         {
           "name": "activePreviousDate",
-          "type": "Boolean"
+          "type": "Boolean",
+          "attr": "active-previous-date"
         },
         {
           "name": "angleLeftIcon",
-          "type": "String"
+          "type": "String",
+          "attr": "angle-left-icon"
         },
         {
           "name": "angleRightIcon",
-          "type": "String"
+          "type": "String",
+          "attr": "angle-right-icon"
         },
         {
           "name": "calendarIcon",
-          "type": "String"
+          "type": "String",
+          "attr": "calendar-icon"
         },
         {
           "name": "closeIcon",
-          "type": "String"
+          "type": "String",
+          "attr": "close-icon"
         },
         {
           "name": "config",
+          "attr": "config",
           "watch": [
             "reloadState"
           ]
         },
         {
           "name": "datepickerBtnValue",
-          "type": "String"
+          "type": "String",
+          "attr": "datepicker-btn-value"
         },
         {
-          "name": "days"
+          "name": "days",
+          "attr": "days"
         },
         {
           "name": "mode",
-          "type": "String"
+          "type": "String",
+          "attr": "mode"
         },
         {
-          "name": "months"
+          "name": "months",
+          "attr": "months"
         },
         {
           "name": "placeholder",
-          "type": "String"
+          "type": "String",
+          "attr": "placeholder"
         },
         {
           "name": "placeholder2",
-          "type": "String"
+          "type": "String",
+          "attr": "placeholder-2"
         },
         {
           "name": "rangeEndValue",
-          "type": "String"
+          "type": "String",
+          "attr": "range-end-value"
         },
         {
           "name": "rangeNextBtnValue",
-          "type": "String"
+          "type": "String",
+          "attr": "range-next-btn-value"
         },
         {
           "name": "rangeStartValue",
-          "type": "String"
+          "type": "String",
+          "attr": "range-start-value"
         },
         {
           "name": "singleValue",
-          "type": "String"
+          "type": "String",
+          "attr": "single-value"
         },
         {
           "name": "startWeek",
-          "type": "Number"
+          "type": "Number",
+          "attr": "start-week"
         },
         {
           "name": "title",
-          "type": "String"
+          "type": "String",
+          "attr": "title"
         },
         {
           "name": "title2",
-          "type": "String"
+          "type": "String",
+          "attr": "title-2"
         }
       ],
       "states": [
@@ -335,24 +365,28 @@
       "tag": "hado-input-form",
       "dependencies": [],
       "componentClass": "InputFormComponent",
-      "componentPath": "modules/shared/input-form/input-form.js",
+      "componentPath": "components/shared/input-form/input-form.js",
       "styles": {},
       "props": [
         {
           "name": "iconClass",
-          "type": "String"
+          "type": "String",
+          "attr": "icon-class"
         },
         {
           "name": "placeholder",
-          "type": "String"
+          "type": "String",
+          "attr": "placeholder"
         },
         {
           "name": "readonly",
-          "type": "Boolean"
+          "type": "Boolean",
+          "attr": "readonly"
         },
         {
           "name": "value",
-          "type": "Any"
+          "type": "Any",
+          "attr": "value"
         }
       ],
       "methods": [
@@ -376,16 +410,18 @@
       "tag": "hado-modal-dialog",
       "dependencies": [],
       "componentClass": "ModalDialogComponent",
-      "componentPath": "modules/shared/modal-dialog/modal-dialog.js",
+      "componentPath": "components/shared/modal-dialog/modal-dialog.js",
       "styles": {},
       "props": [
         {
           "name": "iconClass",
-          "type": "String"
+          "type": "String",
+          "attr": "icon-class"
         },
         {
           "name": "title",
-          "type": "String"
+          "type": "String",
+          "attr": "title"
         }
       ],
       "events": [
@@ -398,17 +434,18 @@
       "tag": "hado-timepicker",
       "dependencies": [],
       "componentClass": "StTimepicker",
-      "componentPath": "modules/timepicker/timepicker.js",
+      "componentPath": "components/timepicker/timepicker.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/timepicker/timepicker.scss"
+            "components/timepicker/timepicker.scss"
           ]
         }
       },
       "props": [
         {
           "name": "config",
+          "attr": "config",
           "watch": [
             "initialWithProps"
           ]
@@ -450,20 +487,24 @@
         "rangepicker-modal"
       ],
       "componentClass": "RangepickerInput",
-      "componentPath": "modules/datepicker/components/rangepicker-input/rangepicker-input.js",
+      "componentPath": "components/datepicker/components/rangepicker-input/rangepicker-input.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/datepicker/components/rangepicker-input/rangepicker-input.scss"
+            "components/datepicker/components/rangepicker-input/rangepicker-input.scss"
           ]
         }
       },
       "props": [
         {
-          "name": "optionsModel"
+          "name": "optionsModel",
+          "type": "Any",
+          "attr": "options-model"
         },
         {
-          "name": "rangepickerModel"
+          "name": "rangepickerModel",
+          "type": "Any",
+          "attr": "rangepicker-model"
         }
       ],
       "states": [
@@ -513,20 +554,22 @@
         "date-item-list"
       ],
       "componentClass": "RangepickerModal",
-      "componentPath": "modules/datepicker/components/rangepicker-modal/rangepicker-modal.js",
+      "componentPath": "components/datepicker/components/rangepicker-modal/rangepicker-modal.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "modules/datepicker/components/rangepicker-modal/rangepicker-modal.scss"
+            "components/datepicker/components/rangepicker-modal/rangepicker-modal.scss"
           ]
         }
       },
       "props": [
         {
-          "name": "optionsModel"
+          "name": "optionsModel",
+          "attr": "options-model"
         },
         {
-          "name": "rangepickerModel"
+          "name": "rangepickerModel",
+          "attr": "rangepicker-model"
         }
       ],
       "states": [
@@ -588,18 +631,8 @@
   "collections": [],
   "compiler": {
     "name": "@stencil/core",
-    "version": "0.6.18",
-    "typescriptVersion": "2.7.2"
+    "version": "0.16.4",
+    "typescriptVersion": "3.2.2"
   },
-  "bundles": [
-    {
-      "components": [
-        "hado-autocomplete",
-        "hado-datepicker",
-        "hado-input-form",
-        "hado-modal-dialog",
-        "hado-timepicker"
-      ]
-    }
-  ]
+  "bundles": []
 }
