@@ -2,57 +2,57 @@
   "namespace": "HadoUi",
   "fsNamespace": "hado-ui",
   "loader": "../hado-ui.js",
-  "corePolyfilled": "es5-build-disabled.js",
-  "core": "hado-ui.core.js",
+  "core": "hado-ui.65yewe2y.js",
+  "corePolyfilled": "hado-ui.xktfclfk.js",
   "components": {
     "date-item-list": {
       "bundleIds": {
-        "$": "date-item-list"
+        "$": "ed4tpqed"
       }
     },
     "datepicker-input": {
       "bundleIds": {
-        "$": "datepicker-input"
+        "$": "qek00wf8"
       }
     },
     "datepicker-modal": {
       "bundleIds": {
-        "$": "datepicker-input"
+        "$": "qek00wf8"
       }
     },
     "hado-autocomplete": {
       "bundleIds": {
-        "$": "hado-autocomplete"
+        "$": "jadymixy"
       }
     },
     "hado-datepicker": {
       "bundleIds": {
-        "$": "datepicker-input"
+        "$": "mhsqttj6"
       }
     },
     "hado-input-form": {
       "bundleIds": {
-        "$": "hado-autocomplete"
+        "$": "jadymixy"
       }
     },
     "hado-modal-dialog": {
       "bundleIds": {
-        "$": "hado-modal-dialog"
+        "$": "fpboxjfe"
       }
     },
     "hado-timepicker": {
       "bundleIds": {
-        "$": "hado-timepicker"
+        "$": "t8bgp4xo"
       }
     },
     "rangepicker-input": {
       "bundleIds": {
-        "$": "datepicker-input"
+        "$": "mhsqttj6"
       }
     },
     "rangepicker-modal": {
       "bundleIds": {
-        "$": "datepicker-input"
+        "$": "mhsqttj6"
       }
     }
   }
